@@ -1,0 +1,11 @@
+{
+    "name": "parcel-packager-ssg",
+    "version": "0.0.0",
+    "engines": {
+        "parcel": "^2.0.0"
+    },
+    "dependencies": {
+        "@parcel/plugin": "^2.0.0",
+        "nunjucks": "^3.2.3"
+    }
+}

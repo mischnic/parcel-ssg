@@ -1,0 +1,17 @@
+{
+  "scripts": {
+    "start": "parcel 'src/**/*.md'",
+    "build": "parcel build 'src/**/*.md'",
+    "postinstall": "patch-package"
+  },
+  "devDependencies": {
+    "@parcel/config-default": "^2.0.1",
+    "parcel": "^2.0.1",
+    "parcel-packager-ssg": "link:./plugin-packager-ssg",
+    "parcel-resolver-njk": "link:./plugin-resolver-njk",
+    "parcel-transformer-md": "link:./plugin-transformer-md"
+  },
+  "dependencies": {
+    "patch-package": "^6.4.7"
+  }
+}

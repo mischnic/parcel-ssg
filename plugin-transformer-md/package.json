@@ -1,0 +1,15 @@
+{
+    "name": "parcel-transformer-md",
+    "version": "0.0.0",
+    "engines": {
+        "parcel": "^2.0.0"
+    },
+    "dependencies": {
+        "@parcel/plugin": "^2.0.0",
+        "js-yaml": "^4.1.0",
+        "rehype-stringify": "^9.0.2",
+        "remark": "^14.0.2",
+        "remark-frontmatter": "^4.0.1",
+        "remark-rehype": "^10.0.1"
+    }
+}
