@@ -4,16 +4,18 @@
     <meta charset="utf-8" />
     <title>{{ title }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="stylesheet" type="text/css" href="/src/assets/style.css" />
   </head>
   <body>
     <nav>
       <ul>
-        {%- for page in pages -%}
-        <li>
-          <a href="{{ page.url }}">{{ page.data.title }}</a>
-        </li>
-        {%- endfor -%}
+        {% raw %}<!--ssg 
+          {%- for page in pages -%}
+          <li>
+            <a href="{{ page.url }}">{{ page.data.title }}</a>
+          </li>
+          {%- endfor -%}
+        ssg-->{% endraw %}
       </ul>
     </nav>
     <main>

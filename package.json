@@ -7,8 +7,8 @@
   "devDependencies": {
     "@parcel/config-default": "^2.0.1",
     "parcel": "^2.0.1",
+    "parcel-optimizer-ssg": "link:./plugin-optimizer-ssg",
     "parcel-packager-ssg": "link:./plugin-packager-ssg",
-    "parcel-resolver-njk": "link:./plugin-resolver-njk",
     "parcel-transformer-md": "link:./plugin-transformer-md"
   },
   "dependencies": {

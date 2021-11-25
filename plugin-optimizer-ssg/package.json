@@ -1,5 +1,5 @@
 {
-    "name": "parcel-resolver-njk",
+    "name": "parcel-optimizer-ssg",
     "version": "0.0.0",
     "engines": {
         "parcel": "^2.0.0"

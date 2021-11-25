@@ -1,15 +1,9 @@
 {
-    "extends": "@parcel/config-default",
-    "transformers": {
-        "*.md": [
-            "parcel-transformer-md"
-        ],
-        // TODO collect dependencices
-        "*.njk": [
-            "@parcel/transformer-raw"
-        ]
-    },
-    "packagers": {
-        "*.md": "parcel-packager-ssg"
-    }
+  "extends": "@parcel/config-default",
+  "transformers": {
+    "*.md": ["parcel-transformer-md"]
+  },
+  "optimizers": {
+    "*.html": ["parcel-optimizer-ssg", "..."]
+  }
 }
