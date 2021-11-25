@@ -8,7 +8,6 @@
     "@parcel/config-default": "^2.0.1",
     "parcel": "^2.0.1",
     "parcel-optimizer-ssg": "link:./plugin-optimizer-ssg",
-    "parcel-packager-ssg": "link:./plugin-packager-ssg",
     "parcel-transformer-md": "link:./plugin-transformer-md",
     "patch-package": "^6.4.7",
     "rehype-highlight": "^5.0.0",
