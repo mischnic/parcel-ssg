@@ -1,7 +1,8 @@
+The example project is in "src".
+
 ## Not implemented
 
-- EASY: running custom markdown plugins should be straight forward to add
-- TBD: somehow make it easy to use a different template language (ejs, mdx, https://www.11ty.dev/docs/languages/)
+- somehow make it easy to use a different template language (ejs, mdx, https://www.11ty.dev/docs/languages/)
 
 ## Problems
 

@@ -31,8 +31,6 @@ module.exports = new Optimizer({
       pages,
     });
 
-    console.log(bundleGraph.getBundles().map((b) => b.getMainEntry().meta));
-
     return {
       contents: output,
     };

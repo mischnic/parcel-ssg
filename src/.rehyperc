@@ -1,0 +1,3 @@
+{
+    plugins: ["rehype-highlight", "rehype-katex"]
+}
