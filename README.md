@@ -1,12 +1,8 @@
 The example project is in "src".
 
-## Not implemented
+## TODO
 
-- somehow make it easy to use a different template language (ejs, mdx, https://www.11ty.dev/docs/languages/)
-  - these would output a HTML asset (and set `meta.frontmatter`): a markdown (remark and potentially also rehype), an mdx transformer
-  - then a transformer to merge the content the template from `meta.frontmatter.layout`
-  - (continue with the HTML transformer)
-  - PROBLEM: between these two transformers, it would automatically switch to the HTML pipeline. so the second transformer has to be "inlined" into the first one. So not composing plugins but extending them.
+- using different templating languages (ejs, mdx, https://www.11ty.dev/docs/languages/) would require different transformers and/or optimizers
 
 ## Problems
 

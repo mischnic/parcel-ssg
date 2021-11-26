@@ -12,10 +12,12 @@ async function mdToHtml(asset, config) {
 
   let processor = remark();
 
-  /** @type undefined | { layout?: string, ... } */
   let frontmatter;
   processor = processor.use(remarkFrontMatter).use(() => (tree) => {
-    frontmatter = tree.children.find((c) => c.type === "yaml");
+    let node = tree.children.find((c) => c.type === "yaml");
+    if (node) {
+      frontmatter = yaml.load(node.value);
+    }
   });
 
   if (config?.remark?.plugins) {
@@ -23,7 +25,7 @@ async function mdToHtml(asset, config) {
       processor = processor.use(plugin, options);
     }
   }
-  processor = processor.use(remarkRehype);
+  processor = processor.use(remarkRehype, { allowDangerousHtml: true });
   if (config?.rehype?.plugins) {
     for (let [plugin, options] of config?.rehype?.plugins) {
       processor = processor.use(plugin, options);
@@ -31,9 +33,9 @@ async function mdToHtml(asset, config) {
   }
 
   let result = await processor
-    .use(rehypeStringify)
+    .use(rehypeStringify, { allowDangerousHtml: true })
     .process(new VFile({ path: asset.filePath, value: await asset.getCode() }));
-  return { content: result.value, frontmatter: frontmatter?.value };
+  return { content: result.value, frontmatter };
 }
 
 function renderTemplate(template, markdown, frontmatter) {
@@ -79,20 +81,16 @@ module.exports = new Transformer({
 
   async transform({ asset, config, resolve, options }) {
     let { content, frontmatter } = await mdToHtml(asset, config);
-    let parsedFrontmatter;
 
-    if (frontmatter != null) {
-      parsedFrontmatter = yaml.load(frontmatter);
-    }
-    asset.meta.frontmatter = parsedFrontmatter ?? {};
+    asset.meta.frontmatter = frontmatter ?? {};
 
-    if (parsedFrontmatter?.layout != null) {
-      let layout = await resolve(asset.filePath, parsedFrontmatter?.layout);
+    if (frontmatter?.layout != null) {
+      let layout = await resolve(asset.filePath, frontmatter?.layout);
       asset.invalidateOnFileChange(layout);
       content = renderTemplate(
         await options.inputFS.readFile(layout, "utf8"),
         content,
-        parsedFrontmatter
+        frontmatter
       );
     }
 
