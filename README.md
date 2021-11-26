@@ -7,6 +7,10 @@ The example project is in "src".
 
 ## Problems
 
+### Packagers don't invalidate when bundlegraph changes
+
+So adding a page doesn't update the nav bar.
+
 ### Two stages
 
 1. markdown + template -> HTML in transformer
