@@ -9,7 +9,8 @@
   "dependencies": {
     "highlight.js": "^11.3.1",
     "katex": "^0.15.1",
-    "preact": "^10.6.1"
+    "preact": "^10.6.1",
+    "remark-directive": "^2.0.1"
   },
   "devDependencies": {
     "rehype-highlight": "^5.0.0",

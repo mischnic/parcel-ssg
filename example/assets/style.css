@@ -4,3 +4,8 @@
 body {
   font-family: sans-serif;
 }
+
+.warning {
+  border: 4px orange solid;
+  padding: 1em;
+}

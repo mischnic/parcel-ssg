@@ -7,6 +7,12 @@ home
 
 ![test](~/assets/test.png)
 
+::::warning
+:::warning
+if you chose xxx, you should also use yyy somewhere…
+:::
+::::
+
 ### Highlighting
 
 ```js
