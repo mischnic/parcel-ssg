@@ -1,5 +1,3 @@
-The example project is in "src".
-
 ## TODO
 
 - using different templating languages (ejs, mdx, https://www.11ty.dev/docs/languages/) would require different transformers and/or optimizers

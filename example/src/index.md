@@ -1,11 +1,11 @@
 ---
-layout: /assets/layout.njk
+layout: ~/assets/layout.njk
 title: Home
 ---
 
 home
 
-![test](/assets/test.png)
+![test](~/assets/test.png)
 
 ### Highlighting
 

@@ -1,22 +1,16 @@
 {
+  "private": true,
+  "workspaces": [
+    "example",
+    "plugin-optimizer-ssg",
+    "plugin-transformer-md"
+  ],
   "scripts": {
-    "start": "parcel 'src/**/*.md'",
-    "build": "parcel build 'src/**/*.md'",
     "postinstall": "patch-package"
   },
   "devDependencies": {
     "@parcel/config-default": "^2.0.1",
     "parcel": "^2.0.1",
-    "parcel-optimizer-ssg": "link:./plugin-optimizer-ssg",
-    "parcel-transformer-md": "link:./plugin-transformer-md",
-    "patch-package": "^6.4.7",
-    "rehype-highlight": "^5.0.0",
-    "rehype-katex": "^6.0.2",
-    "remark-math": "^5.1.1"
-  },
-  "dependencies": {
-    "highlight.js": "^11.3.1",
-    "katex": "^0.15.1",
-    "preact": "^10.6.1"
+    "patch-package": "^6.4.7"
   }
 }
