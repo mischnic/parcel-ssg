@@ -1,13 +1,76 @@
 const { Transformer } = require("@parcel/plugin");
 const yaml = require("js-yaml");
 const nunjucks = require("nunjucks");
+const path = require("path");
+
+const ATTRIBUTE_CONTENT = "dataParcelElementContent";
+
+async function rehypeMarkNodes() {
+  const { visit } = await import("unist-util-visit");
+
+  return () => {
+    return (tree) => {
+      visit(tree, "element", (node) => {
+        node.properties[ATTRIBUTE_CONTENT] = "";
+      });
+    };
+  };
+}
+
+async function rehypeResolveUnmarkNodes() {
+  const { visit } = await import("unist-util-visit");
+
+  return ({ assetPath, layoutPath, resolve }) =>
+    async (tree) => {
+      let nodes = [];
+      visit(tree, "element", (node) => {
+        if (node.properties[ATTRIBUTE_CONTENT] != null) {
+          delete node.properties[ATTRIBUTE_CONTENT];
+          // TODO does doesn't cover everything
+        } else if (node.properties.src || node.properties.href) {
+          nodes.push(node);
+        }
+      });
+      await Promise.all(
+        nodes.map(async (node) => {
+          // TODO does doesn't cover everything
+          for (let name of ["src", "href"]) {
+            if (node.properties[name] != null) {
+              let specifier = node.properties[name];
+              let result = await resolve(layoutPath, specifier).catch(() =>
+                // TODO why is there no option for specifierType on resolve?
+                resolve(layoutPath, "./" + specifier)
+              );
+              let rel = path.posix.relative(path.dirname(assetPath), result);
+              node.properties[name] = rel.startsWith("../") ? rel : "./" + rel;
+            }
+          }
+        })
+      );
+    };
+}
+
+async function resolveAndUnmark({ content, assetPath, layoutPath, resolve }) {
+  // These are all ESM...
+  const { VFile } = await import("vfile");
+  const { rehype } = await import("rehype");
+  const { default: rehypeStringify } = await import("rehype-stringify");
+
+  let result = await rehype()
+    .use()
+    .use(await rehypeResolveUnmarkNodes(), { assetPath, layoutPath, resolve })
+    .use(rehypeStringify, { allowDangerousHtml: true })
+    .process(new VFile(content));
+
+  return result.value;
+}
 
 async function mdToHtml(asset, config) {
-  // These are all ESM...
   const { VFile } = await import("vfile");
   const { remark } = await import("remark");
   const { default: remarkFrontMatter } = await import("remark-frontmatter");
   const { default: remarkRehype } = await import("remark-rehype");
+  const { default: rehypeRaw } = await import("rehype-raw");
   const { default: rehypeStringify } = await import("rehype-stringify");
 
   let processor = remark();
@@ -25,12 +88,16 @@ async function mdToHtml(asset, config) {
       processor = processor.use(plugin, options);
     }
   }
-  processor = processor.use(remarkRehype, { allowDangerousHtml: true });
+  processor = processor
+    .use(remarkRehype, { allowDangerousHtml: true })
+    .use(rehypeRaw);
   if (config?.rehype?.plugins) {
     for (let [plugin, options] of config?.rehype?.plugins) {
       processor = processor.use(plugin, options);
     }
   }
+
+  processor = processor.use(await rehypeMarkNodes());
 
   let result = await processor
     .use(rehypeStringify, { allowDangerousHtml: true })
@@ -85,13 +152,19 @@ module.exports = new Transformer({
     asset.meta.frontmatter = frontmatter ?? {};
 
     if (frontmatter?.layout != null) {
-      let layout = await resolve(asset.filePath, frontmatter?.layout);
-      asset.invalidateOnFileChange(layout);
+      let layoutPath = await resolve(asset.filePath, frontmatter?.layout);
+      asset.invalidateOnFileChange(layoutPath);
       content = renderTemplate(
-        await options.inputFS.readFile(layout, "utf8"),
+        await options.inputFS.readFile(layoutPath, "utf8"),
         content,
         frontmatter
       );
+      content = await resolveAndUnmark({
+        content,
+        assetPath: asset.filePath,
+        layoutPath,
+        resolve,
+      });
     }
 
     asset.setCode(content);
