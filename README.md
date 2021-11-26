@@ -9,7 +9,7 @@ The example project is in "src".
 
 ### Packagers don't invalidate when bundlegraph changes
 
-So adding a page doesn't update the nav bar.
+So adding a page or changing frontmatter that is used in the second tempalte doesn't update the nav bar.
 
 ### Two stages
 
@@ -26,7 +26,7 @@ So adding a page doesn't update the nav bar.
         ssg-->{% endraw %}
 ```
 
-which just gets passed through the markdown and html transformer. The packager then removes the comment and evaluates the template inside.
+which just gets passed through the markdown and html transformer. The optimizer then removes the comment and evaluates the template inside.
 
 This is some very ugly syntax.
 
