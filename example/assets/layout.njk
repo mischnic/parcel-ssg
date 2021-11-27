@@ -8,6 +8,7 @@
   </head>
   <body>
     <nav>
+      Pages:
       <ul>
         {% raw %}<!--ssg 
           {%- for page in collections.all -%}
@@ -17,6 +18,10 @@
           {%- endfor -%}
         ssg-->{% endraw %}
       </ul>
+      {% if toc %}
+        Table of Contents:
+        {{ toc | safe }}
+      {% endif %}
     </nav>
     <main>
       <h1>{{ title }}</h1>

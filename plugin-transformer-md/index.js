@@ -1,3 +1,4 @@
+"use strict";
 const { Transformer } = require("@parcel/plugin");
 const yaml = require("js-yaml");
 const nunjucks = require("nunjucks");
@@ -35,7 +36,10 @@ async function rehypeResolveUnmarkNodes() {
         nodes.map(async (node) => {
           // TODO does doesn't cover everything
           for (let name of ["src", "href"]) {
-            if (node.properties[name] != null) {
+            if (
+              node.properties[name] != null &&
+              node.properties[name][0] !== "#"
+            ) {
               let specifier = node.properties[name];
               let result = await resolve(layoutPath, specifier).catch(() =>
                 // TODO why is there no option for specifierType on resolve?
@@ -139,9 +143,10 @@ module.exports = new Transformer({
       config,
       options,
     });
+    let pluginData = {};
 
     let remark = await config.getConfig([".remarkrc", ".remarkrc.js"]);
-    let rehype = await config.getConfig([".rehyperc"]);
+    let rehype = await config.getConfig([".rehyperc", ".rehyperc.js"]);
     let remarkResult = { plugins: [] };
     let rehypeResult = { plugins: [] };
     for (let [cfg, result] of [
@@ -151,27 +156,34 @@ module.exports = new Transformer({
       if (cfg && cfg.filePath.endsWith(".js") && cfg.contents.static !== true) {
         config.invalidateOnStartup();
       }
-      for (let plugin of cfg?.contents?.plugins ?? []) {
-        let [name, opts] = Array.isArray(plugin) ? plugin : [plugin, {}];
-        let mod;
-        if (typeof name === "string") {
-          config.addDevDependency({
-            resolveFrom: cfg.filePath,
-            specifier: name,
-          });
-          let resolved = await options.packageManager.resolve(
-            name,
-            cfg.filePath,
-            { saveDev: true }
-          );
-          mod = (await import(resolved.resolved)).default;
-        } else {
-          mod = name;
+      if (cfg?.contents) {
+        let content =
+          typeof cfg.contents === "function"
+            ? cfg.contents(pluginData)
+            : cfg.contents;
+        for (let plugin of content.plugins ?? []) {
+          let [name, opts] = Array.isArray(plugin) ? plugin : [plugin, {}];
+          let mod;
+          if (typeof name === "string") {
+            config.addDevDependency({
+              resolveFrom: cfg.filePath,
+              specifier: name,
+            });
+            let resolved = await options.packageManager.resolve(
+              name,
+              cfg.filePath,
+              { saveDev: true }
+            );
+            mod = (await import(resolved.resolved)).default;
+          } else {
+            mod = name;
+          }
+          result.plugins.push([mod, opts]);
         }
-        result.plugins.push([mod, opts]);
       }
     }
     return {
+      pluginData,
       data,
       remark: remarkResult,
       rehype: rehypeResult,
@@ -180,7 +192,7 @@ module.exports = new Transformer({
 
   async transform({ asset, config, resolve, options }) {
     let { content, frontmatter } = await mdToHtml(asset, config);
-    frontmatter = { ...config.data, ...frontmatter };
+    frontmatter = { ...config.data, ...config.pluginData, ...frontmatter };
 
     asset.meta.frontmatter = frontmatter ?? {};
 
