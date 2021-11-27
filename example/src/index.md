@@ -1,6 +1,7 @@
 ---
 layout: ~/assets/layout.njk
 title: Home
+order: 1
 ---
 
 home

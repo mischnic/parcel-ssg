@@ -114,9 +114,33 @@ function renderTemplate(template, markdown, frontmatter) {
   });
 }
 
+async function loadParentConfigs({ config, options }) {
+  let p = config.searchPath;
+  let result = [];
+  while (p != options.projectRoot) {
+    let data = await config.getConfigFrom(p, ["_data.json"]);
+    if (data) {
+      result.push(data.contents);
+      p = path.join(path.dirname(path.dirname(data.filePath)), "index");
+    } else {
+      break;
+    }
+  }
+  let merged = {};
+  for (let i = result.length - 1; i--; i >= 0) {
+    merged = { ...merged, ...result[i] };
+  }
+  return merged;
+}
+
 module.exports = new Transformer({
   async loadConfig({ config, options }) {
-    let remark = await config.getConfig([".remarkrc"]);
+    let data = await loadParentConfigs({
+      config,
+      options,
+    });
+
+    let remark = await config.getConfig([".remarkrc", ".remarkrc.js"]);
     let rehype = await config.getConfig([".rehyperc"]);
     let remarkResult = { plugins: [] };
     let rehypeResult = { plugins: [] };
@@ -124,30 +148,39 @@ module.exports = new Transformer({
       [remark, remarkResult],
       [rehype, rehypeResult],
     ]) {
+      if (cfg && cfg.filePath.endsWith(".js") && cfg.contents.static !== true) {
+        config.invalidateOnStartup();
+      }
       for (let plugin of cfg?.contents?.plugins ?? []) {
         let [name, opts] = Array.isArray(plugin) ? plugin : [plugin, {}];
-        config.addDevDependency({
-          resolveFrom: cfg.filePath,
-          specifier: name,
-        });
-        let resolved = await options.packageManager.resolve(
-          name,
-          cfg.filePath,
-          { saveDev: true }
-        );
-        result.plugins.push([(await import(resolved.resolved)).default, opts]);
+        let mod;
+        if (typeof name === "string") {
+          config.addDevDependency({
+            resolveFrom: cfg.filePath,
+            specifier: name,
+          });
+          let resolved = await options.packageManager.resolve(
+            name,
+            cfg.filePath,
+            { saveDev: true }
+          );
+          mod = (await import(resolved.resolved)).default;
+        } else {
+          mod = name;
+        }
+        result.plugins.push([mod, opts]);
       }
     }
-    if (remark || rehype) {
-      return {
-        remark: remarkResult,
-        rehype: rehypeResult,
-      };
-    }
+    return {
+      data,
+      remark: remarkResult,
+      rehype: rehypeResult,
+    };
   },
 
   async transform({ asset, config, resolve, options }) {
     let { content, frontmatter } = await mdToHtml(asset, config);
+    frontmatter = { ...config.data, ...frontmatter };
 
     asset.meta.frontmatter = frontmatter ?? {};
 

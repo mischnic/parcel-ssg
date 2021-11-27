@@ -1,6 +1,7 @@
 ---
 layout: ~/assets/layout.njk
 title: Interactive
+order: 4
 ---
 
 This is some Markdown content

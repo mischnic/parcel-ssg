@@ -1,5 +1,6 @@
 ## TODO
 
+- eleventy's `permalink`?
 - using different templating languages (ejs, mdx, https://www.11ty.dev/docs/languages/) would require different transformers and/or optimizers
 - should rehype be run on the markdown output or at the end (after the template)?
 
