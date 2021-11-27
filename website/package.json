@@ -1,0 +1,23 @@
+{
+  "name": "website",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "start": "parcel 'src/**/*.md'",
+    "build": "parcel build 'src/**/*.md'"
+  },
+  "dependencies": {
+    "@alpinejs/intersect": "^3.4.2",
+    "alpinejs": "^3.4.2",
+    "focus-visible": "^5.2.0",
+    "marked": "^2.0.7",
+    "nullthrows": "^1.1.1"
+  },
+  "devDependencies": {
+    "postcss": "^8.3.6",
+    "postcss-focus-visible": "^5.0.0",
+    "posthtml-include": "^1.7.0",
+    "tailwindcss": "^2.2.15",
+    "tailwindcss-safe-area": "^0.2.1"
+  }
+}

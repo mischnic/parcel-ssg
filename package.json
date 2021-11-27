@@ -4,7 +4,8 @@
     "example",
     "plugin-namer-ssg",
     "plugin-optimizer-ssg",
-    "plugin-transformer-md"
+    "plugin-transformer-md",
+    "website"
   ],
   "scripts": {
     "postinstall": "patch-package"
