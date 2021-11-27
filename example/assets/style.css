@@ -9,3 +9,14 @@ body {
   border: 4px orange solid;
   padding: 1em;
 }
+
+.header-anchor {
+  box-sizing: border-box;
+  opacity: 0;
+  padding-left: 0.5em;
+}
+
+.header-anchor:hover,
+:hover > .header-anchor {
+  opacity: 1;
+}

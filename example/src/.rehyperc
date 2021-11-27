@@ -1,3 +1,24 @@
 {
-    plugins: ["rehype-highlight", "rehype-katex"]
+    "plugins": [
+        "rehype-slug",
+        [
+            "rehype-autolink-headings",
+            {
+                "behavior": "append",
+                "properties": {
+                    "ariaHidden": true,
+                    "tabIndex": -1,
+                    "className": [
+                        "header-anchor"
+                    ]
+                },
+                "content": {
+                    "type": "text",
+                    "value": "#"
+                }
+            }
+        ],
+        "rehype-highlight",
+        "rehype-katex"
+    ]
 }
