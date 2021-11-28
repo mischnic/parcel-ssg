@@ -1,9 +1,9 @@
 ---
-layout: layout.njk
+layout: ~/template/layout.njk
 title: Elm
 eleventyNavigation:
   key: languages-elm
-  title: <img src="/assets/lang-icons/elm.svg" alt=""/> Elm
+  title: <img src="~/src/assets/lang-icons/elm.svg" alt=""/> Elm
   order: 10
 ---
 
@@ -11,8 +11,8 @@ You can import [Elm](https://elm-lang.org/) files like any another JavaScript fi
 
 The npm package `elm` needs to be manually installed beforehand. You'll also need a `elm.json` configuration file (run `yarn elm init` to get started and modify it if necessary).
 
-{% sample null, "column" %}
-{% samplefile "index.html" %}
+<sample>
+<sample-file name="index.html">
 
 ```html
 <!DOCTYPE html>
@@ -20,9 +20,9 @@ The npm package `elm` needs to be manually installed beforehand. You'll also nee
 <script type="module" src="index.js"></script>
 ```
 
-{% endsamplefile %}
+</sample-file>
 
-{% samplefile "index.js" %}
+<sample-file name="index.js">
 
 ```js
 import { Elm } from "./Main.elm";
@@ -30,9 +30,9 @@ import { Elm } from "./Main.elm";
 Elm.Main.init({ node: document.getElementById("root") });
 ```
 
-{% endsamplefile %}
+</sample-file>
 
-{% samplefile "Main.elm" %}
+<sample-file name="Main.elm">
 
 ```elm
 module Main exposing (..)
@@ -71,9 +71,9 @@ view model =
     ]
 ```
 
-{% endsamplefile %}
+</sample-file>
 
-{% endsample %}
+</sample>
 
 ## Time-travelling debugger
 

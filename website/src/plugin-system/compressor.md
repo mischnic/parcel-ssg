@@ -1,5 +1,5 @@
 ---
-layout: layout.njk
+layout: ~/template/layout.njk
 eleventyNavigation:
   key: plugin-system-compressor
   title: Compressor
@@ -23,4 +23,4 @@ export default new Compressor({
 
 ## Relevant API
 
-{% include "../../api/compressor.html" %}
+<include src="compressor.html"></include>

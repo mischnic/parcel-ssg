@@ -1,5 +1,5 @@
 ---
-layout: layout.njk
+layout: ~/template/layout.njk
 eleventyNavigation:
   key: plugin-system-source-maps
   title: Source Maps
@@ -276,4 +276,4 @@ After the reporter has created the `sourcemap-info.json` file, you can upload it
 
 ## API
 
-{% include "../../api/source-map.html" %}
+<include src="source-map.html"></include>

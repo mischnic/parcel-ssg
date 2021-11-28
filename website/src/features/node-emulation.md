@@ -1,5 +1,5 @@
 ---
-layout: layout.njk
+layout: ~/template/layout.njk
 title: Node Emulation
 eleventyNavigation:
   key: features-node-emulation
@@ -37,16 +37,16 @@ The `NODE_ENV` environment variable is automatically set by Parcel depending on 
 
 Parcel supports loading environment variables defined in `.env` files in your project root. This supports `NAME=value` pairs separated by newlines. Lines starting with `#` are treated as comments. See [dotenv](https://github.com/motdotla/dotenv) for more details.
 
-{% sample %}
-{% samplefile ".env" %}
+<sample>
+<sample-file name=".env">
 
 ```ini
 APP_NAME=test
 API_KEY=12345
 ```
 
-{% endsamplefile %}
-{% endsample %}
+</sample-file>
+</sample>
 
 In addition to `.env`, environment-specific overrides such as `.env.production` and `.env.development` can also be created. These are applied based on the `NODE_ENV` environment variable (including when automatically set by Parcel). Any variables that are not set in environment-specific overrides fall back to the values defined in the base `.env` file.
 
@@ -80,8 +80,8 @@ Calls to `fs.readFileSync` are replaced with the file's contents if the filepath
 
 The `__dirname` and `__filename` variables can be used in the filename argument. String concatenation via the `+` operator and the `path.join` function may be used. Other functions, variables, or dynamic computations are not supported. Computed paths should always be absolute, and not rely on the current working directory.
 
-{% sample %}
-{% samplefile "index.js" %}
+<sample>
+<sample-file name="index.js">
 
 ```js/3
 import fs from "fs";
@@ -91,8 +91,8 @@ const data = fs.readFileSync(path.join(__dirname, "data.json"), "utf8");
 console.log(data);
 ```
 
-{% endsamplefile %}
-{% samplefile "data.json" %}
+</sample-file>
+<sample-file name="data.json">
 
 ```json
 {
@@ -100,15 +100,15 @@ console.log(data);
 }
 ```
 
-{% endsamplefile %}
-{% endsample %}
+</sample-file>
+</sample>
 
 ## Disabling These Features
 
 Inlining of [environment variables](#environment-variables) and [`readFileSync` calls](#inlining-fs.readfilesync) can be disabled by creating a `@parcel/transformer-js` key in `package.json`.
 
-{% sample %}
-{% samplefile "package.json" %}
+<sample>
+<sample-file name="package.json">
 
 ```json5
 {
@@ -123,8 +123,8 @@ Inlining of [environment variables](#environment-variables) and [`readFileSync` 
 }
 ```
 
-{% endsamplefile %}
-{% endsample %}
+</sample-file>
+</sample>
 
 `inlineEnvironment` can also be an array of glob strings, which allows you to filter the allowed environment variables. This is a good idea to ensure security, since third party code in node_modules can also read environment variables.
 

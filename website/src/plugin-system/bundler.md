@@ -1,5 +1,5 @@
 ---
-layout: layout.njk
+layout: ~/template/layout.njk
 eleventyNavigation:
   key: plugin-system-bundler
   title: Bundler
@@ -7,9 +7,9 @@ eleventyNavigation:
 summary: "A plugin type: Turns an asset graph into a bundle graph"
 ---
 
-{% warning %}
+<warning>
 The Bundler API is experimental and therefore subject to change, even between minor updates.
-{% endwarning %}
+</warning>
 
 Bundlers accept the entire asset graph and modify it to add bundle nodes that group the assets
 into output bundles.
@@ -30,4 +30,4 @@ export default new Bundler({
 
 ## Relevant API
 
-{% include "../../api/bundler.html" %}
+<include src="bundler.html"></include>

@@ -1,5 +1,5 @@
 ---
-layout: layout.njk
+layout: ~/template/layout.njk
 eleventyNavigation:
   key: blog-alpha-1
   title: Parcel 2 alpha 1 is here!

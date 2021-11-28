@@ -1,5 +1,5 @@
 ---
-layout: layout.njk
+layout: ~/template/layout.njk
 eleventyNavigation:
   key: plugin-system-api
   title: API
@@ -7,8 +7,6 @@ eleventyNavigation:
 summary: "The remaining types specified in `@parcel/types`"
 ---
 
-{% note %}
+<note>
 The most important data types are listed on the page of the relevant plugin type.
-{% endnote %}
-
-{% include "../../api/index.html" %}
+</note>

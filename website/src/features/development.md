@@ -1,5 +1,5 @@
 ---
-layout: layout.njk
+layout: ~/template/layout.njk
 title: Development
 eleventyNavigation:
   key: features-development
@@ -107,8 +107,8 @@ To better emulate the actual production environment when developing web apps, yo
 
 In this JSON file, you specify an object where every key is a pattern against which the URL is matched and the value is a [`http-proxy-middleware` options](https://github.com/chimurai/http-proxy-middleware#options) object:
 
-{% sample %}
-{% samplefile ".proxyrc" %}
+<sample>
+<sample-file name=".proxyrc">
 
 ```js
 {
@@ -122,8 +122,8 @@ In this JSON file, you specify an object where every key is a pattern against wh
 
 ```
 
-{% endsamplefile %}
-{% endsample %}
+</sample-file>
+</sample>
 
 This example would cause `http://localhost:1234/api/endpoint` to be proxied to `http://localhost:8000/endpoint`.
 
@@ -131,8 +131,8 @@ This example would cause `http://localhost:1234/api/endpoint` to be proxied to `
 
 For more complex configurations, a `.proxyrc.js` file allows you to attach any [connect](https://github.com/senchalabs/connect)-compatible middleware. First, make sure you install `http-proxy-middleware` into your project. This example has the same behaviour as the `.proxyrc` version above.
 
-{% sample %}
-{% samplefile ".proxyrc.js" %}
+<sample>
+<sample-file name=".proxyrc.js">
 
 ```js
 const { createProxyMiddleware } = require("http-proxy-middleware");
@@ -149,8 +149,8 @@ module.exports = function (app) {
 };
 ```
 
-{% endsamplefile %}
-{% endsample %}
+</sample-file>
+</sample>
 
 ### File watcher
 

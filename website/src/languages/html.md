@@ -1,9 +1,9 @@
 ---
-layout: layout.njk
+layout: ~/template/layout.njk
 title: HTML
 eleventyNavigation:
   key: languages-html
-  title: <img src="/assets/lang-icons/html5.svg" alt=""/> HTML
+  title: <img src="~/src/assets/lang-icons/html5.svg" alt=""/> HTML
   order: 1
 ---
 
@@ -19,8 +19,8 @@ File names are resolved relative to the current HTML file, but you can also use 
 
 The `<link rel="stylesheet">` element can be used to reference stylesheets from HTML. You can reference a CSS file, or any other file that compiles to CSS such as [SASS](/languages/sass/), [Less](/languages/less/), or [Stylus](/languages/stylus).
 
-{% sample %}
-{% samplefile "index.html" %}
+<sample>
+<sample-file name="index.html">
 
 ```html/3
 <!DOCTYPE html>
@@ -34,8 +34,8 @@ The `<link rel="stylesheet">` element can be used to reference stylesheets from 
 </html>
 ```
 
-{% endsamplefile %}
-{% samplefile "style.less" %}
+</sample-file>
+<sample-file name="style.less">
 
 ```less
 h1 {
@@ -43,8 +43,8 @@ h1 {
 }
 ```
 
-{% endsamplefile %}
-{% endsample %}
+</sample-file>
+</sample>
 
 See the [CSS](/languages/css/) docs for details on how CSS is processed by Parcel.
 
@@ -52,8 +52,8 @@ See the [CSS](/languages/css/) docs for details on how CSS is processed by Parce
 
 The `<script>` element can be used to reference a script file from HTML. You can reference a JavaScript file, or any other file that compiles to JavaScript such as [TypeScript](/languages/typescript/), [JSX](/languages/javascript/#jsx), or [CoffeeScript](/languages/coffeescript/).
 
-{% sample %}
-{% samplefile "index.html" %}
+<sample>
+<sample-file name="index.html">
 
 ```html/3
 <!DOCTYPE html>
@@ -67,15 +67,15 @@ The `<script>` element can be used to reference a script file from HTML. You can
 </html>
 ```
 
-{% endsamplefile %}
-{% samplefile "app.ts" %}
+</sample-file>
+<sample-file name="app.ts">
 
 ```js
 console.log('Hello world!')
 ```
 
-{% endsamplefile %}
-{% endsample %}
+</sample-file>
+</sample>
 
 The `type="module"` attribute should be used to indicate that a file is an [ES module](/languages/javascript/#es-modules) or [CommonJS](/languages/javascript/#commonjs) file. If it is omitted, then the referenced file is treated as a classic script. See [Classic scripts](/languages/javascript/#classic-scripts) for more information about this.
 
@@ -178,8 +178,8 @@ The `<link rel="manifest">` element is supported to reference a [Web manifest](h
 
 `<script>` and `<style>` tags with text content are also processed just like standalone files, and the generated bundles are inserted back into the HTML file. The `type="module"` attribute on script tags works just as described above for external scripts. However, if some of your browser targets don't support ES modules natively, Parcel will only compile inline scripts to a non-module script and will not output a `<script type="module">` in order to keep the generated HTML small.
 
-{% sample %}
-{% samplefile "index.html" %}
+<sample>
+<sample-file name="index.html">
 
 ```html/4,7-8
 <!DOCTYPE html>
@@ -196,14 +196,14 @@ The `<link rel="manifest">` element is supported to reference a [Web manifest](h
 </html>
 ```
 
-{% endsamplefile %}
-{% endsample %}
+</sample-file>
+</sample>
 
-{% warning %}
+<warning>
 
 **Note**: Use this sparingly, as big inline scripts/styles can be detrimental to the (perceived) load speed.
 
-{% endwarning %}
+</warning>
 
 ## Inline `style` attribute
 
@@ -233,8 +233,8 @@ Parcel supports [inline SVG](https://developer.mozilla.org/en-US/docs/Web/SVG/Tu
 
 When referencing a script or style, sometimes Parcel will need to insert another dependent file into the compiled HTML file. For example, when referencing a JavaScript file which imports a CSS file, Parcel will insert a `<link>` element into the `<head>` to load this stylesheet in parallel with the JavaScript.
 
-{% sample %}
-{% samplefile "index.html" %}
+<sample>
+<sample-file name="index.html">
 
 ```html
 <!DOCTYPE html>
@@ -248,8 +248,8 @@ When referencing a script or style, sometimes Parcel will need to insert another
 </html>
 ```
 
-{% endsamplefile %}
-{% samplefile "app.js" %}
+</sample-file>
+<sample-file name="app.js">
 
 ```javascript
 import './app.css';
@@ -260,8 +260,8 @@ app.textContent = 'My Parcel app!';
 root.appendChild(app);
 ```
 
-{% endsamplefile %}
-{% samplefile "app.css" %}
+</sample-file>
+<sample-file name="app.css">
 
 ```css
 .app {
@@ -269,8 +269,8 @@ root.appendChild(app);
 }
 ```
 
-{% endsamplefile %}
-{% endsample %}
+</sample-file>
+</sample>
 
 Compiled HTML:
 
@@ -301,8 +301,8 @@ yarn add posthtml-doctype --dev
 
 Then, create a config file:
 
-{% sample %}
-{% samplefile ".posthtmlrc" %}
+<sample>
+<sample-file name=".posthtmlrc">
 
 ```json
 {
@@ -312,15 +312,15 @@ Then, create a config file:
 }
 ```
 
-{% endsamplefile %}
-{% endsample %}
+</sample-file>
+</sample>
 
 Plugins are specified in the plugins object as keys, and options are defined using object values. If there are no options for a plugin, just set it to an empty object instead.
 
 This example uses [posthtml-include](https://github.com/posthtml/posthtml-include) to inline another HTML file.
 
-{% sample %}
-{% samplefile ".posthtmlrc" %}
+<sample>
+<sample-file name=".posthtmlrc">
 
 ```json
 {
@@ -330,8 +330,8 @@ This example uses [posthtml-include](https://github.com/posthtml/posthtml-includ
 }
 ```
 
-{% endsamplefile %}
-{% samplefile "index.html" %}
+</sample-file>
+<sample-file name="index.html">
 
 ```html
 <html>
@@ -345,25 +345,25 @@ This example uses [posthtml-include](https://github.com/posthtml/posthtml-includ
 </html>
 ```
 
-{% endsamplefile %}
-{% samplefile "header.html" %}
+</sample-file>
+<sample-file name="header.html">
 
 ```html
 <header>This is my header</header>
 ```
 
-{% endsamplefile %}
-{% endsample %}
+</sample-file>
+</sample>
 
 ### posthtml.config.js
 
 For some plugins that require passing a function as a configuration option, or to set up plugins based on `process.env.NODE_ENV`, you need to use a `posthtml.config.js` file for configuration instead of `.posthtmlrc`.
 
-{% warning %}
+<warning>
 
 **Note**: Using a JavaScript config file should be avoided if possible. These cause Parcel’s caching to be less effective, which means all of your HTML files will be recompiled each time you restart Parcel. To avoid this, use a JSON-based config format instead (e.g. `.posthtmlrc`).
 
-{% endwarning %}
+</warning>
 
 This example uses [posthtml-shorten](https://github.com/Rebelmail/posthtml-shorten) to shorten URLs using a custom shortening function.
 
@@ -371,8 +371,8 @@ This example uses [posthtml-shorten](https://github.com/Rebelmail/posthtml-short
 yarn add posthtml-shorten --dev
 ```
 
-{% sample %}
-{% samplefile "posthtml.config.js" %}
+<sample>
+<sample-file name="posthtml.config.js">
 
 ```js
 module.exports = {
@@ -392,8 +392,8 @@ module.exports = {
 };
 ```
 
-{% endsamplefile %}
-{% samplefile "index.html" %}
+</sample-file>
+<sample-file name="index.html">
 
 ```html
 <html>
@@ -406,8 +406,8 @@ module.exports = {
 </html>
 ```
 
-{% endsamplefile %}
-{% endsample %}
+</sample-file>
+</sample>
 
 ## Production
 
@@ -419,8 +419,8 @@ In production mode, Parcel automatically minifies your code to reduce the file s
 
 For example to retain HTML comments
 
-{% sample %}
-{% samplefile ".htmlnanorc" %}
+<sample>
+<sample-file name=".htmlnanorc">
 
 ```json
 {
@@ -428,13 +428,13 @@ For example to retain HTML comments
 }
 ```
 
-{% endsamplefile %}
-{% endsample %}
+</sample-file>
+</sample>
 
 or to not minify SVG elements.
 
-{% sample %}
-{% samplefile ".htmlnanorc" %}
+<sample>
+<sample-file name=".htmlnanorc">
 
 ```json
 {
@@ -442,11 +442,11 @@ or to not minify SVG elements.
 }
 ```
 
-{% endsamplefile %}
-{% endsample %}
+</sample-file>
+</sample>
 
-{% warning %}
+<warning>
 
 **Note**: `.htmlnanorc.js` and `htmlnano.config.js` is also supported for JavaScript-based configuration, but should be avoided when possible because it reduces the effectiveness of Parcel's caching. Use a JSON based configuration format instead.
 
-{% endwarning %}
+</warning>

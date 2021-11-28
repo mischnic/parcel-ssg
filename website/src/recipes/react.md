@@ -1,9 +1,9 @@
 ---
-layout: layout.njk
+layout: ~/template/layout.njk
 title: React
 eleventyNavigation:
   key: recipes-react
-  title: <img src="/assets/lang-icons/react.svg" alt=""/> React
+  title: <img src="~/src/assets/lang-icons/react.svg" alt=""/> React
   order: 3
 ---
 
@@ -19,8 +19,8 @@ yarn add react react-dom
 
 Most Parcel apps start with an HTML file. Parcel follows the dependencies (such as a `<script>` tag) from there to build your app.
 
-{% sample %}
-{% samplefile "src/index.html" %}
+<sample>
+<sample-file name="src/index.html">
 
 ```html
 <!DOCTYPE html>
@@ -36,8 +36,8 @@ Most Parcel apps start with an HTML file. Parcel follows the dependencies (such 
 </html>
 ```
 
-{% endsamplefile %}
-{% samplefile "src/index.js" %}
+</sample-file>
+<sample-file name="src/index.js">
 
 ```jsx
 import ReactDOM from "react-dom";
@@ -47,8 +47,8 @@ const app = document.getElementById("app");
 ReactDOM.render(<App />, app);
 ```
 
-{% endsamplefile %}
-{% samplefile "src/App.js" %}
+</sample-file>
+<sample-file name="src/App.js">
 
 ```jsx
 export function App() {
@@ -56,8 +56,8 @@ export function App() {
 }
 ```
 
-{% endsamplefile %}
-{% endsample %}
+</sample-file>
+</sample>
 
 As you can see, we’ve referenced `index.js` from a `<script>` element in our HTML file. This imported `react-dom` and used it to render our `App` component into the `<div id="app">` element in our page.
 
@@ -114,8 +114,8 @@ Parcel supports many different ways of styling applications written with React.
 
 You can import a CSS file into a JavaScript or TypeScript file to load it along with a component.
 
-{% sample %}
-{% samplefile "Button.js" %}
+<sample>
+<sample-file name="Button.js">
 
 ```jsx/0
 import './Button.css';
@@ -129,8 +129,8 @@ export function Button({ children }) {
 }
 ```
 
-{% endsamplefile %}
-{% samplefile "Button.css" %}
+</sample-file>
+<sample-file name="Button.css">
 
 ```css
 .button {
@@ -138,8 +138,8 @@ export function Button({ children }) {
 }
 ```
 
-{% endsamplefile %}
-{% endsample %}
+</sample-file>
+</sample>
 
 You can also load CSS using a standard `<link rel="stylesheet">` element in your HTML file, but referencing CSS from your components helps make it clear which components depend on which CSS. This can also help with code splitting because only the CSS necessary for the components that you render will be loaded.
 
@@ -153,8 +153,8 @@ CSS modules treat the classes defined in each file as unique. Each class name is
 
 To use CSS modules, create a file with the `.module.css` extension, and import it from a JavaScript file with a [namespace import](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import#import_an_entire_modules_contents). Then, you can use the exports of the CSS module when rendering elements in JSX.
 
-{% sample %}
-{% samplefile "Button.js" %}
+<sample>
+<sample-file name="Button.js">
 
 ```jsx/0,4
 import * as classes './Button.module.css';
@@ -168,8 +168,8 @@ export function Button({ children }) {
 }
 ```
 
-{% endsamplefile %}
-{% samplefile "Button.module.css" %}
+</sample-file>
+<sample-file name="Button.module.css">
 
 ```css
 .button {
@@ -177,8 +177,8 @@ export function Button({ children }) {
 }
 ```
 
-{% endsamplefile %}
-{% endsample %}
+</sample-file>
+</sample>
 
 See [CSS modules](/languages/css/#css-modules) to learn more about how Parcel handles CSS modules.
 
@@ -193,8 +193,8 @@ yarn add @emotion/babel-plugin --dev
 yarn add @emotion/react
 ```
 
-{% sample %}
-{% samplefile ".babelrc" %}
+<sample>
+<sample-file name=".babelrc">
 
 ```json
 {
@@ -202,13 +202,13 @@ yarn add @emotion/react
 }
 ```
 
-{% endsamplefile %}
-{% endsample %}
+</sample-file>
+</sample>
 
 You’ll also need to set the `jsxImportSource` option in a `tsconfig.json` or `jsconfig.json` so that Emotion's JSX pragma is used instead of the default one. This enables the `css` prop to work.
 
-{% sample %}
-{% samplefile "jsconfig.json" %}
+<sample>
+<sample-file name="jsconfig.json">
 
 ```json
 {
@@ -218,13 +218,13 @@ You’ll also need to set the `jsxImportSource` option in a `tsconfig.json` or `
 }
 ```
 
-{% endsamplefile %}
-{% endsample %}
+</sample-file>
+</sample>
 
 Now, you can render elements with CSS-in-JS:
 
-{% sample %}
-{% samplefile "Button.js" %}
+<sample>
+<sample-file name="Button.js">
 
 ```jsx
 import { css } from "@emotion/react";
@@ -245,8 +245,8 @@ export function Button({ children }) {
 }
 ```
 
-{% endsamplefile %}
-{% endsample %}
+</sample-file>
+</sample>
 
 ### Tailwind CSS
 
@@ -260,8 +260,8 @@ yarn add tailwindcss postcss autoprefixer --dev
 
 Next, create the config files needed for PostCSS and Tailwind. This example will use Tailwind’s [JIT mode](https://tailwindcss.com/docs/just-in-time-mode) to speed up builds by only compiling the classes you use. Make sure you modify the glob passed to the `purge` option so it matches all of the source files where you'll use Tailwind classes.
 
-{% sample %}
-{% samplefile ".postcssrc" %}
+<sample>
+<sample-file name=".postcssrc">
 
 ```json
 {
@@ -272,8 +272,8 @@ Next, create the config files needed for PostCSS and Tailwind. This example will
 }
 ```
 
-{% endsamplefile %}
-{% samplefile "tailwind.config.js" %}
+</sample-file>
+<sample-file name="tailwind.config.js">
 
 ```javascript
 module.exports = {
@@ -287,13 +287,13 @@ module.exports = {
 };
 ```
 
-{% endsamplefile %}
-{% endsample %}
+</sample-file>
+</sample>
 
 Finally, you can reference Tailwind classes from any files that match the `purge` glob listed in `tailwind.config.js`.
 
-{% sample %}
-{% samplefile "Button.js" %}
+<sample>
+<sample-file name="Button.js">
 
 ```jsx
 export function Button({ children }) {
@@ -305,15 +305,15 @@ export function Button({ children }) {
 }
 ```
 
-{% endsamplefile %}
-{% endsample %}
+</sample-file>
+</sample>
 
 ## Images
 
 You can reference external images from JSX using the `URL` constructor. Parcel also supports using [query parameters](/features/dependency-resolution/#query-parameters) to resize and convert images to a different format. It also handles image optimization, and includes a [content hash](/features/production/#content-hashing) in output filenames for long term browser caching.
 
-{% sample %}
-{% samplefile "Logo.js" %}
+<sample>
+<sample-file name="Logo.js">
 
 ```jsx/0,3
 const logo = new URL('logo.svg', import.meta.url);
@@ -323,8 +323,8 @@ export function Logo() {
 }
 ```
 
-{% endsamplefile %}
-{% endsample %}
+</sample-file>
+</sample>
 
 See [URL dependencies](/languages/javascript/#url-dependencies) in the JavaScript docs for more details about this syntax, and the [Image](/recipes/image/) docs for more information about how Parcel handles images.
 
@@ -338,8 +338,8 @@ First, install the `@parcel/transformer-svg-react` plugin and add it to your `.p
 yarn add @parcel/transformer-svg-react --dev
 ```
 
-{% sample %}
-{% samplefile ".parcelrc" %}
+<sample>
+<sample-file name=".parcelrc">
 
 ```json
 {
@@ -350,13 +350,13 @@ yarn add @parcel/transformer-svg-react --dev
 }
 ```
 
-{% endsamplefile %}
-{% endsample %}
+</sample-file>
+</sample>
 
 Now, you can import SVGs from your component files and render them just like any other component.
 
-{% sample %}
-{% samplefile "AddButton.js" %}
+<sample>
+<sample-file name="AddButton.js">
 
 ```jsx
 import AddIcon from "./AddIcon.svg";
@@ -370,8 +370,8 @@ export function AddButton() {
 }
 ```
 
-{% endsamplefile %}
-{% endsample %}
+</sample-file>
+</sample>
 
 The above example showed how to convert every SVG file to JSX, but you may want to be more selective in some cases. See [Importing as a React component](/languages/svg/#importing-as-a-react-component) in the SVG docs for more details.
 
@@ -383,8 +383,8 @@ Code splitting helps reduce initial page load size by lazily loading sections of
 
 This example lazily loads a `Profile` component when a user clicks a button. When it sees the dynamic `import()`, Parcel moves the `Profile` component into a separate bundle from the `Home` component and loads it on demand. `React.lazy` handles turning this into a component, and `Suspense` handles rendering a fallback while it is loading.
 
-{% sample %}
-{% samplefile "Home.js" %}
+<sample>
+<sample-file name="Home.js">
 
 ```jsx
 import React, {Suspense} from 'react';
@@ -410,8 +410,8 @@ export function Home() {
 }
 ```
 
-{% endsamplefile %}
-{% samplefile "Profile.js" %}
+</sample-file>
+<sample-file name="Profile.js">
 
 ```jsx
 export default function Profile() {
@@ -419,7 +419,7 @@ export default function Profile() {
 }
 ```
 
-{% endsamplefile %}
-{% endsample %}
+</sample-file>
+</sample>
 
 See the [Code Splitting](/features/code-splitting/) docs for more details about code splitting in Parcel, and [Code Splitting](https://reactjs.org/docs/code-splitting.html) in the React docs for more about `Suspense` and `React.lazy`.

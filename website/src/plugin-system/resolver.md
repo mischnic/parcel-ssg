@@ -1,5 +1,5 @@
 ---
-layout: layout.njk
+layout: ~/template/layout.njk
 eleventyNavigation:
   key: plugin-system-resolver
   title: Resolver
@@ -168,4 +168,4 @@ Resolvers may also return a `sideEffects` property which indicates whether the a
 
 ## Relevant API
 
-{% include "../../api/resolver.html" %}
+<include src="resolver.html"></include>

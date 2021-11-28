@@ -1,5 +1,5 @@
 ---
-layout: layout.njk
+layout: ~/template/layout.njk
 eleventyExcludeFromCollections: true
 ---
 <meta http-equiv="refresh" content="0; URL='{{ collections.Blog | sortDate | first | pageUrl }}'" />

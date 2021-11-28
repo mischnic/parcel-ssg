@@ -1,5 +1,5 @@
 ---
-layout: layout.njk
+layout: ~/template/layout.njk
 title: Parcel API
 eleventyNavigation:
   key: features-parcel-api
@@ -24,8 +24,8 @@ There are two required parameters:
 - `entries` – A string or an array of strings describing the entry points to build. See [Entries](/features/targets/#entries).
 - `config` or `defaultConfig` – A file path or package specifier for a Parcel config to use. If `config` is set, the provided config is always used and the project `.parcelrc` is ignored. If `defaultConfig` is set, the project's `.parcelrc` takes precedence, and `defaultConfig` is used as a fallback. If a relative path or package specifier is given, it is resolved relative to the project root.
 
-{% sample %}
-{% samplefile "build.mjs" %}
+<sample>
+<sample-file name="build.mjs">
 
 ```javascript
 import {Parcel} from '@parcel/core';
@@ -36,8 +36,8 @@ let bundler = new Parcel({
 });
 ```
 
-{% endsamplefile %}
-{% endsample %}
+</sample-file>
+</sample>
 
 ### Targets
 
@@ -45,8 +45,8 @@ By default, Parcel does a development build, but this can be changed by setting 
 
 You can also use the `defaultTargetOptions` to set values for [Targets](/features/targets/) if they aren't configured in the project. For example, to override the default browser targets, use the `engines` option.
 
-{% sample %}
-{% samplefile "build.mjs" %}
+<sample>
+<sample-file name="build.mjs">
 
 ```javascript
 import {Parcel} from '@parcel/core';
@@ -63,13 +63,13 @@ let bundler = new Parcel({
 });
 ```
 
-{% endsamplefile %}
-{% endsample %}
+</sample-file>
+</sample>
 
 When set to an array, the `targets` option can be used to specify which of the project’s targets (as described in `package.json`) to build. For example, to only build the project’s `modern` target:
 
-{% sample %}
-{% samplefile "build.mjs" %}
+<sample>
+<sample-file name="build.mjs">
 
 ```javascript
 import {Parcel} from '@parcel/core';
@@ -81,13 +81,13 @@ let bundler = new Parcel({
 });
 ```
 
-{% endsamplefile %}
-{% endsample %}
+</sample-file>
+</sample>
 
 Alternatively, `targets` may be set to an object, which will override any targets defined in the project. See [Targets](/features/targets/) for more details on the available options.
 
-{% sample %}
-{% samplefile "build.mjs" %}
+<sample>
+<sample-file name="build.mjs">
 
 ```javascript
 import {Parcel} from '@parcel/core';
@@ -111,15 +111,15 @@ let bundler = new Parcel({
 });
 ```
 
-{% endsamplefile %}
-{% endsample %}
+</sample-file>
+</sample>
 
 ### Environment variables
 
 Environment variables such as `NODE_ENV` may be set using the `env` option. This allows variables to be set without overriding the values on `process.env`.
 
-{% sample %}
-{% samplefile "build.mjs" %}
+<sample>
+<sample-file name="build.mjs">
 
 ```javascript
 import {Parcel} from '@parcel/core';
@@ -134,15 +134,15 @@ let bundler = new Parcel({
 });
 ```
 
-{% endsamplefile %}
-{% endsample %}
+</sample-file>
+</sample>
 
 ### Reporters
 
 By default, Parcel does not write any output to the CLI when you use the API. That means it won’t report status information, and provides no pretty formatting for diagnostics. These can be enabled using the `additionalReporters` option, which run in addition to any reporters specified in `.parcelrc`. The `@parcel/reporter-cli` plugin provides the default reporter used by the CLI, but you can use any other reporter plugins as well.
 
-{% sample %}
-{% samplefile "build.mjs" %}
+<sample>
+<sample-file name="build.mjs">
 
 ```javascript
 import {Parcel} from '@parcel/core';
@@ -160,15 +160,15 @@ let bundler = new Parcel({
 });
 ```
 
-{% endsamplefile %}
-{% endsample %}
+</sample-file>
+</sample>
 
 ## Building
 
 Once you’ve constructed a `Parcel` instance, you can use it to build a project or watch for changes. To build once, use the `run` API. This returns a Promise, which will be resolved with a [`BuildSuccessEvent`](/plugin-system/reporter/#BuildSuccessEvent) containing the [`BundleGraph`](/plugin-system/bundler/#BundleGraph) and some other information if the build was successful, or reject with an error if it failed. Build errors have one or more [`Diagnostic`](/plugin-system/logging/#Diagnostic) objects attached to them with the details of what went wrong.
 
-{% sample %}
-{% samplefile "build.mjs" %}
+<sample>
+<sample-file name="build.mjs">
 
 ```javascript
 import {Parcel} from '@parcel/core';
@@ -187,8 +187,8 @@ try {
 }
 ```
 
-{% endsamplefile %}
-{% endsample %}
+</sample-file>
+</sample>
 
 ## Watching
 
@@ -196,8 +196,8 @@ To watch a project for changes and be notified of each rebuild, use the `watch` 
 
 `watch` also returns a subscription object, and you should call the `unsubscribe` method when you’d like to stop watching.
 
-{% sample %}
-{% samplefile "build.mjs" %}
+<sample>
+<sample-file name="build.mjs">
 
 ```javascript
 import {Parcel} from '@parcel/core';
@@ -225,15 +225,15 @@ let subscription = await bundler.watch((err, event) => {
 await subscription.unsubscribe();
 ```
 
-{% endsamplefile %}
-{% endsample %}
+</sample-file>
+</sample>
 
 ## Dev server
 
 The development server is included in the default Parcel config. It can be enabled by passing `serveOptions` to the `Parcel` constructor and running Parcel in watch mode. Hot reloading can be enabled by setting `hmrOptions`. A `port` is the only required option, but others such as HTTPS options may also be set.
 
-{% sample %}
-{% samplefile "build.mjs" %}
+<sample>
+<sample-file name="build.mjs">
 
 ```javascript
 import {Parcel} from '@parcel/core';
@@ -252,8 +252,8 @@ let bundler = new Parcel({
 await bundler.watch();
 ```
 
-{% endsamplefile %}
-{% endsample %}
+</sample-file>
+</sample>
 
 ## File system
 
@@ -263,8 +263,8 @@ The `MemoryFS` is located in the `@parcel/fs` package. Constructing it requires 
 
 This example writes its output into an in-memory file system, and logs the contents of each built bundle.
 
-{% sample %}
-{% samplefile "build.mjs" %}
+<sample>
+<sample-file name="build.mjs">
 
 ```javascript
 import {Parcel, createWorkerFarm} from '@parcel/core';
@@ -292,5 +292,5 @@ try {
 }
 ```
 
-{% endsamplefile %}
-{% endsample %}
+</sample-file>
+</sample>

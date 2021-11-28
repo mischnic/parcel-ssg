@@ -1,5 +1,5 @@
 ---
-layout: layout.njk
+layout: ~/template/layout.njk
 title: Scope hoisting
 description: In production builds, Parcel concatenates modules into a single scope. This is called "scope hoisting". Parcel also statically analyzes the imports and exports of each module, and removes everything that isn't used. This is called "tree shaking".
 eleventyNavigation:
@@ -18,8 +18,8 @@ Parcel also statically analyzes the imports and exports of each module, and remo
 
 Parcel’s implementation of scope hoisting works by analyzing each module independently and in parallel, and at the end concatenating them together. In order to make concatenation into a single scope safe, the top-level variables of each module are renamed to ensure they are unique. In addition, imported variables are renamed to match the exported variable names from the resolved module. Finally, any unused exports are removed.
 
-{% sample %}
-{% samplefile "index.js" %}
+<sample>
+<sample-file name="index.js">
 
 ```javascript
 import {add} from './math';
@@ -27,8 +27,8 @@ import {add} from './math';
 console.log(add(2, 3));
 ```
 
-{% endsamplefile %}
-{% samplefile "math.js" %}
+</sample-file>
+<sample-file name="math.js">
 
 ```javascript
 export function add(a, b) {
@@ -39,8 +39,8 @@ export function square(a) {
   return a * a;
 }
 ```
-{% endsamplefile %}
-{% endsample %}
+</sample-file>
+</sample>
 
 Compiles to something like:
 
@@ -97,11 +97,11 @@ doSomething(math);
 
 Parcel supports tree shaking dynamic imports with static property accesses or destructuring. This is supported with both `await` and Promise `then` syntax. However, if the Promise returned from `import()` is accessed in any other way, Parcel must preserve all exports of the resolved module.
 
-{% note %}
+<note>
 
 **Note:** For the `await` cases, unused exports can unfortunately only be removed when `await` is not transpilied away (i.e. with a modern browserslist config).
 
-{% endnote %}
+</note>
 
 ```swift
 // ✅ Destructuring await
@@ -255,8 +255,8 @@ The `sideEffects` field supports the following values:
 
 When a file is marked as side effect free, Parcel is able to skip the entire file when concatenating the bundle if it does not have any used exports. This can reduce bundle sizes significantly, especially if the module calls helper functions during its initialization.
 
-{% sample null, "column" %}
-{% samplefile "app.js" %}
+<sample>
+<sample-file name="app.js">
 
 ```js
 import {add} from 'math';
@@ -264,9 +264,9 @@ import {add} from 'math';
 console.log(add(2, 3));
 ```
 
-{% endsamplefile %}
+</sample-file>
 
-{% samplefile "node_modules/math/package.json" %}
+<sample-file name="node_modules/math/package.json">
 
 ```json
 {
@@ -275,9 +275,9 @@ console.log(add(2, 3));
 }
 ```
 
-{% endsamplefile %}
+</sample-file>
 
-{% samplefile "node_modules/math/index.js" %}
+<sample-file name="node_modules/math/index.js">
 
 ```js
 export {add} from './add.js';
@@ -289,8 +289,8 @@ export function elapsed() {
 }
 ```
 
-{% endsamplefile %}
-{% endsample %}
+</sample-file>
+</sample>
 
 In this case, only the `add` function from the `math` library is used. `multiply` and `elapsed` are unused. Normally, the `loaded` variable would still be needed because it includes a side effect that runs during the module's initialization. However, because the `package.json` includes the `sideEffects` field, the `index.js` module can be entirely skipped.
 

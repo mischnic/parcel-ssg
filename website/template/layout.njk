@@ -8,25 +8,25 @@
       {{ title | default(eleventyNavigation.title) |
       default(eleventyNavigation.key) | striptags | safe }}
     </title>
-    <link href="/feed.xml" rel="alternate" type="application/rss+xml" title="Blog RSS" />
-    <link rel="shortcut icon" href="/assets/favicon.ico" />
-    <link href="/assets/styles/doc-styles.scss" rel="stylesheet" />
+    {# <link href="/feed.xml" rel="alternate" type="application/rss+xml" title="Blog RSS" /> #}
+    <link rel="shortcut icon" href="~/src/assets/favicon.ico" />
+    <link href="~/src/assets/styles/doc-styles.scss" rel="stylesheet" />
     <script>
       {% include "darkmode.js" %}
     </script>
     <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" />
     <script defer src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
-    <script type="module" src="/assets/scripts/docs.js"></script>
+    <script type="module" src="~/src/assets/scripts/docs.js"></script>
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:image" content="/assets/og.png" />
+    <meta name="twitter:image" content="~/src/assets/og.png" />
     <meta name="twitter:site" content="@parceljs" />
     <meta name="twitter:creator" content="@parceljs" />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="en_US" />
-    <meta property="og:url" content="{{ page.url }}" />
+    {# <meta property="og:url" content="{{ page.url }}" /> #}
     <meta property="og:title" content="{{ title | default(eleventyNavigation.title) }}" />
     <meta property="og:description" content="{{ description | default(content | excerpt | striptags) }}" />
-    <meta property="og:image" content="/assets/og.png" />
+    <meta property="og:image" content="~/src/assets/og.png" />
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-110647385-1"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -35,7 +35,7 @@
       gtag('config', 'UA-110647385-1');
     </script>
   </head>
-  <body{% if tags and tags.includes("Blog") %} class="blog"{% endif %}>
+  <body {% if tags and tags.includes("Blog") %} class="blog"{% endif %}>
     <header class="parcel-docs-header">
       <div class="left">
         <button class="hamburger-button" aria-label="Open navigation panel" aria-pressed="false">
@@ -46,15 +46,15 @@
         <a class="logo" href="/">
           <img
             class="parcel"
-            src="/assets/parcel.png"
-            srcset="/assets/parcel@2x.png 2x"
+            src="~/src/assets/parcel.png"
+            srcset="~/src/assets/parcel@2x.png 2x"
             width="38"
             height="30"
             alt=""
           />
           <img
             class="parcel-text"
-            src="/assets/logo.svg"
+            src="~/src/assets/logo.svg"
             alt="Parcel"
             width="120"
             height="25"
@@ -62,8 +62,10 @@
         </a>
       </div>
       <nav class="section-picker">
-        <a {% if not page.url.includes('blog') %}class="selected"{% endif %} href="/docs/">Docs</a>
-        <a {% if page.url.includes('blog') %}class="selected"{% endif %} href="{{ collections.Blog | sortDate | first | pageUrl }}">Blog</a>
+        <a {% if not tags or not tags.includes("Blog") %}class="selected"{% endif %} href="~/src/docs.md">Docs</a>
+        {% ssg %}
+          <a {% if tags and tags.includes("Blog") %}class="selected"{% endif %} href="{{ collections.Blog | sortDate | first | pageUrl }}">Blog</a>
+        {% endssg %}
       </nav>
       <div class="search-container">
         <svg aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -85,6 +87,7 @@
     </header>
     <nav class="docs-navigation">
     {% if tags and tags.includes("Blog") %}
+      {% ssg %}
       <ul>
         {% set navPages = collections.Blog | sortDate | eleventyNavigation %}
         {%- for entry in navPages %}
@@ -93,7 +96,9 @@
           </li>
         {%- endfor %}
       </ul>
+      {% endssg %}
     {% else %}
+      {% ssg %}
       <ul>
       {%- for tag in tagOrder -%}
         <li>
@@ -132,12 +137,13 @@
           </ul>
         </li>
       </ul>
+      {% endssg %}
     {% endif %}
     </nav>
     <script type="module">
       {% include "remember-nav-scroll.js" %}
     </script>
-    <main class="main-content{% if page.url == '/docs/' %} docs-home{% endif %}">
+    <main class="main-content{% if tags and tags.includes('docs-home') %} docs-home{% endif %}">
       <article>
         <header>
           <h1>
@@ -164,11 +170,11 @@
         </footer>
         {% endif %}
       </article>
-      {% if not tags or not tags.includes("Blog") %}
-      {% if content | toc %}
+      {% if not tags or (not tags.includes("Blog") and not tags.includes("docs-home")) %}
+      {% if toc %}
       <aside>
         <h3>On this page</h3>
-        {{ content | toc | safe }}
+        {{ toc | safe }}
       </aside>
       {% endif %}
       {% endif %}

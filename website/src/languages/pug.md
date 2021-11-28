@@ -1,9 +1,9 @@
 ---
-layout: layout.njk
+layout: ~/template/layout.njk
 title: Pug
 eleventyNavigation:
   key: languages-pug
-  title: <img src="/assets/lang-icons/pug.svg" alt=""/> Pug
+  title: <img src="~/src/assets/lang-icons/pug.svg" alt=""/> Pug
   order: 15
 ---
 
@@ -44,25 +44,25 @@ document.body.innerHTML = html;
 
 Pug can be configured using a `.pugrc`, `.pugrc.js`, or `pug.config.js` file. See the [Pug API Reference](https://pugjs.org/api/reference.html) for details on the available options.
 
-{% warning %}
+<warning>
 
 **Note:** `.pugrc.js` and `pug.config.js` are supported for JavaScript-based configuration, but should be avoided when possible because they reduce the effectiveness of Parcel's caching. Use a JSON based configuration format (e.g. `.pugrc`) instead.
 
-{% endwarning %}
+</warning>
 
 ### Locals
 
 You can define a `locals` object in your Pug config, and this will be provided to your Pug templates when rendering.
 
-{% sample %}
-{% samplefile "index.pug" %}
+<sample>
+<sample-file name="index.pug">
 
 ```pug
 h1 Hello, #{name}!
 ```
 
-{% endsamplefile %}
-{% samplefile ".pugrc" %}
+</sample-file>
+<sample-file name=".pugrc">
 
 ```json
 {
@@ -72,5 +72,5 @@ h1 Hello, #{name}!
 }
 ```
 
-{% endsamplefile %}
-{% endsample %}
+</sample-file>
+</sample>

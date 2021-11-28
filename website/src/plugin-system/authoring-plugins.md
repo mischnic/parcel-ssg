@@ -1,5 +1,5 @@
 ---
-layout: layout.njk
+layout: ~/template/layout.njk
 eleventyNavigation:
   key: plugin-system-authoring-plugins
   title: Authoring Plugins
@@ -49,11 +49,11 @@ sources, especially from the file system.
 
 Many plugins will need to load configuration of some kind from the user’s project. In some cases, the compiler or tool the plugin is wrapping will have a config loading mechanism built in. In other cases, you’ll need to create a config file format for your plugin.
 
-{% warning %}
+<warning>
 
 **Note**: it’s important to use Parcel’s config loading mechanism rather than reading from the file system directly. The results of all plugins are cached by Parcel, and if you don’t use Parcel’s config loading system it will not be aware of files you read yourself and will not be able to properly invalidate the cache.
 
-{% endwarning %}
+</warning>
 
 Config loading is done in the `loadConfig` method, which is supported by most plugin types. It receives a [`Config`](/plugin-system/transformer/#Config) object, which includes utility methods for loading config files, as well as methods for telling Parcel about files and dependencies the config file relies on that should invalidate the result. The result returned from the `loadConfig` function is passed into the other plugin functions.
 

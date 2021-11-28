@@ -1,5 +1,5 @@
 ---
-layout: layout.njk
+layout: ~/template/layout.njk
 eleventyNavigation:
   key: plugin-system-configuration
   title: Configuration
@@ -12,8 +12,8 @@ Parcel configuration can be shared between projects by publishing a [`.parcelrc`
 
 This example shows how a company might distribute a shared Parcel configuration to be used between projects. It extends `@parcel/config-default` and adds several additional plugins.
 
-{% sample %}
-{% samplefile "package.json" %}
+<sample>
+<sample-file name="package.json">
 
 ```json
 {
@@ -26,8 +26,8 @@ This example shows how a company might distribute a shared Parcel configuration 
 }
 ```
 
-{% endsamplefile %}
-{% samplefile "index.json" %}
+</sample-file>
+<sample-file name="index.json">
 
 ```json
 {
@@ -46,21 +46,21 @@ This example shows how a company might distribute a shared Parcel configuration 
 }
 ```
 
-{% endsamplefile %}
-{% endsample %}
+</sample-file>
+</sample>
 
 ## Multi-plugin packages
 
 In addition to sharing configuration between projects, Parcel config packages are also useful to distribute multiple plugins that are required to work together. For example, a transformer and packager combination may be needed for a new file format.
 
-{% note %}
+<note>
 
 **Note**: In this case, it's best to not extend the default Parcel config and allow users of your config package to choose which default to extend from.
 
-{% endnote %}
+</note>
 
-{% sample %}
-{% samplefile "package.json" %}
+<sample>
+<sample-file name="package.json">
 
 ```json
 {
@@ -73,8 +73,8 @@ In addition to sharing configuration between projects, Parcel config packages ar
 }
 ```
 
-{% endsamplefile %}
-{% samplefile "index.json" %}
+</sample-file>
+<sample-file name="index.json">
 
 ```json
 {
@@ -87,13 +87,13 @@ In addition to sharing configuration between projects, Parcel config packages ar
 }
 ```
 
-{% endsamplefile %}
-{% endsample %}
+</sample-file>
+</sample>
 
 Once published, users can now consume `parcel-config-xml` in their projects by extending it in addition to the default config of their choice.
 
-{% sample %}
-{% samplefile ".parcelrc" %}
+<sample>
+<sample-file name=".parcelrc">
 
 ```json
 {
@@ -101,5 +101,5 @@ Once published, users can now consume `parcel-config-xml` in their projects by e
 }
 ```
 
-{% endsamplefile %}
-{% endsample %}
+</sample-file>
+</sample>

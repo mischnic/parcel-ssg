@@ -1,24 +1,24 @@
 ---
-layout: layout.njk
+layout: ~/template/layout.njk
 title: Vue
 eleventyNavigation:
   key: languages-vue
-  title: <img src="/assets/lang-icons/vue.svg" alt=""/> Vue
+  title: <img src="~/src/assets/lang-icons/vue.svg" alt=""/> Vue
   order: 9
 ---
 
 [Vue.js](https://v3.vuejs.org) is a progressive, incrementally-adoptable JavaScript framework for building UI on the web. Parcel supports Vue automatically using the `@parcel/transformer-vue` plugin. When a `.vue` file is detected, it will be installed into your project automatically.
 
-{% note %}
+<note>
 
 **Note**: Parcel does not support using SFCs with Vue 2, you must use [Vue 3 beta](https://github.com/vuejs/vue-next) or later.
 
-{% endnote %}
+</note>
 
 ## Example usage
 
-{% sample %}
-{% samplefile "index.html" %}
+<sample>
+<sample-file name="index.html">
 
 ```html
 <!DOCTYPE html>
@@ -26,8 +26,8 @@ eleventyNavigation:
 <script type="module" src="./index.js"></script>
 ```
 
-{% endsamplefile %}
-{% samplefile "index.js" %}
+</sample-file>
+<sample-file name="index.js">
 
 ```jsx
 import { createApp } from "vue";
@@ -37,8 +37,8 @@ const app = createApp(App);
 app.mount("#app");
 ```
 
-{% endsamplefile %}
-{% samplefile "App.vue" %}
+</sample-file>
+<sample-file name="App.vue">
 
 ```html
 <template>
@@ -56,8 +56,8 @@ app.mount("#app");
 </script>
 ```
 
-{% endsamplefile %}
-{% endsample %}
+</sample-file>
+</sample>
 
 ## HMR
 
@@ -67,8 +67,8 @@ Parcel uses the official Vue SFC compiler, which supports HMR out of the box so 
 
 Since Parcel uses the latest Vue 3 beta, you can use all Vue 3 features, such as the [Composition API](https://composition-api.vuejs.org/).
 
-{% sample %}
-{% samplefile "App.vue" %}
+<sample>
+<sample-file name="App.vue">
 
 ```html
 <template>
@@ -101,8 +101,8 @@ Since Parcel uses the latest Vue 3 beta, you can use all Vue 3 features, such as
 </script>
 ```
 
-{% endsamplefile %}
-{% endsample %}
+</sample-file>
+</sample>
 
 ## Language Support
 
@@ -112,8 +112,8 @@ Almost any templating language (all those supported by [consolidate](https://www
 
 For styling, [Less](/languages/less), [Sass](/languages/sass), and [Stylus](/languages/stylus) are supported. In addition, [CSS Modules](/languages/css/#css-modules) and [scoped style](https://vue-loader.vuejs.org/guide/scoped-css.html) can be used with the `module` and `scoped` modifiers.
 
-{% sample %}
-{% samplefile "App.vue" %}
+<sample>
+<sample-file name="App.vue">
 
 ```html
 <style lang="scss" scoped>
@@ -145,15 +145,15 @@ For styling, [Less](/languages/less), [Sass](/languages/sass), and [Stylus](/lan
 </script>
 ```
 
-{% endsamplefile %}
-{% endsample %}
+</sample-file>
+</sample>
 
 ## Custom Blocks
 
 You can use custom blocks in your Vue components, but must configure Vue with `.vuerc`, `vue.config.js`, etc. to define how you will preprocess those blocks.
 
-{% sample %}
-{% samplefile ".vuerc" %}
+<sample>
+<sample-file name=".vuerc">
 
 ```json
 {
@@ -163,8 +163,8 @@ You can use custom blocks in your Vue components, but must configure Vue with `.
 }
 ```
 
-{% endsamplefile %}
-{% samplefile "src/docs-preprocessor.js" %}
+</sample-file>
+<sample-file name="src/docs-preprocessor.js">
 
 ```js
 export default function (component, blockContent, blockAttrs) {
@@ -176,8 +176,8 @@ export default function (component, blockContent, blockAttrs) {
 }
 ```
 
-{% endsamplefile %}
-{% samplefile "HomePage.vue" %}
+</sample-file>
+<sample-file name="HomePage.vue">
 
 ```html
 <template>
@@ -189,8 +189,8 @@ export default function (component, blockContent, blockAttrs) {
 <docs brief> Home Page </docs>
 ```
 
-{% endsamplefile %}
-{% samplefile "App.vue" %}
+</sample-file>
+<sample-file name="App.vue">
 
 ```html
 <template>
@@ -215,5 +215,5 @@ export default function (component, blockContent, blockAttrs) {
 </script>
 ```
 
-{% endsamplefile %}
-{% endsample %}
+</sample-file>
+</sample>

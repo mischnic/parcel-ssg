@@ -1,9 +1,9 @@
 ---
-layout: layout.njk
+layout: ~/template/layout.njk
 title: JSON
 eleventyNavigation:
   key: languages-json
-  title: <img src="/assets/lang-icons/json.svg" class="dark-invert" alt=""/> JSON
+  title: <img src="~/src/assets/lang-icons/json.svg" class="dark-invert" alt=""/> JSON
   order: 11
 ---
 
@@ -11,8 +11,8 @@ Parcel supports importing JSON and [JSON5](https://json5.org) files into JavaScr
 
 ## Example usage
 
-{% sample %}
-{% samplefile "app.js" %}
+<sample>
+<sample-file name="app.js">
 
 ```js
 import data from './data.json';
@@ -20,8 +20,8 @@ console.log(data.hello[0]);
 // => "world"
 ```
 
-{% endsamplefile %}
-{% samplefile "data.json" %}
+</sample-file>
+<sample-file name="data.json">
 
 ```json
 {
@@ -32,5 +32,5 @@ console.log(data.hello[0]);
 }
 ```
 
-{% endsamplefile %}
-{% endsample %}
+</sample-file>
+</sample>

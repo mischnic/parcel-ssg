@@ -1,9 +1,9 @@
 ---
-layout: layout.njk
+layout: ~/template/layout.njk
 title: GLSL
 eleventyNavigation:
   key: languages-glsl
-  title: <img src="/assets/lang-icons/openGL.svg" alt=""/> GLSL
+  title: <img src="~/src/assets/lang-icons/openGL.svg" alt=""/> GLSL
   order: 14
 ---
 
@@ -25,8 +25,8 @@ gl.shaderSource(..., frag);
 
 Parcel also supports dependencies within GLSL files using a pragma, including from libraries in node_modules. These are bundled together into a single shader that you can load into a WebGL context.
 
-{% sample %}
-{% samplefile "app.js" %}
+<sample>
+<sample-file name="app.js">
 
 ```js
 import frag from './shader.frag';
@@ -36,8 +36,8 @@ gl.shaderSource(..., frag);
 // ...
 ```
 
-{% endsamplefile %}
-{% samplefile "shader.frag" %}
+</sample-file>
+<sample-file name="shader.frag">
 
 ```glsl
 // import a function from another file
@@ -51,8 +51,8 @@ void main() {
 }
 ```
 
-{% endsamplefile %}
-{% samplefile "lib.glsl" %}
+</sample-file>
+<sample-file name="lib.glsl">
 
 ```glsl
 // import a function from node_modules
@@ -67,5 +67,5 @@ vec4 calc_frag_color(vec3 pos) {
 
 ```
 
-{% endsamplefile %}
-{% endsample %}
+</sample-file>
+</sample>

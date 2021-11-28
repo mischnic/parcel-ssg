@@ -12,5 +12,12 @@ module.exports = new Namer({
       return entry.meta.frontmatter.permalink;
     }
 
+    // TODO move into home/index.html frontmatter
+    if (
+      bundle.needsStableName &&
+      entry?.filePath.endsWith("src/home/index.html")
+    ) {
+      return "index.html";
+    }
   },
 });

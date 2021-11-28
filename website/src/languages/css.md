@@ -1,9 +1,9 @@
 ---
-layout: layout.njk
+layout: ~/template/layout.njk
 title: CSS
 eleventyNavigation:
   key: languages-css
-  title: <img src="/assets/lang-icons/postcss.svg" alt=""/> CSS
+  title: <img src="~/src/assets/lang-icons/postcss.svg" alt=""/> CSS
   order: 2
 ---
 
@@ -89,11 +89,11 @@ CSS modules also work with other languages that compile to CSS, such as SASS, Le
 
 Using CSS modules also has the benefit of making dependencies on specific class names explicit in your code. This enables unused CSS classes to be automatically removed.
 
-![Example of tree shaking CSS modules](/blog/beta3/tree-shaking-css-modules.jpg)
+![Example of tree shaking CSS modules](~/src/blog/beta3/tree-shaking-css-modules.jpg)
 
 As you can see in the above example, only the `.button` class is used, so the unused `.cta` class is removed from the compiled CSS file.
 
-{% warning %}
+<warning>
 
 **Note**: Tree shaking only works when you reference classes using either a [namespace](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import#import_an_entire_modules_contents) or [named](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import#import_a_single_export_from_a_module) import. Tree shaking does not work with [default imports](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import#importing_defaults).
 
@@ -107,14 +107,14 @@ should be replaced with:
 import * as styles from './styles.module.css';
 ```
 
-{% endwarning %}
+</warning>
 
 ### Enabling CSS modules globally
 
 By default, CSS modules are only enabled for files ending with `.module.css`. All other CSS files are treated as global CSS by default. However, this can be overridden using a PostCSS config. This also allows customizing the options of [postcss-modules](https://github.com/madyankin/postcss-modules).
 
-{% sample %}
-{% samplefile ".postcssrc" %}
+<sample>
+<sample-file name=".postcssrc">
 
 ```json/1
 {
@@ -127,8 +127,8 @@ By default, CSS modules are only enabled for files ending with `.module.css`. Al
 }
 ```
 
-{% endsamplefile %}
-{% endsample %}
+</sample-file>
+</sample>
 
 ## PostCSS
 
@@ -142,8 +142,8 @@ yarn add autoprefixer --dev
 
 Then, create a `.postcssrc`:
 
-{% sample %}
-{% samplefile ".postcssrc" %}
+<sample>
+<sample-file name=".postcssrc">
 
 ```json
 {
@@ -155,8 +155,8 @@ Then, create a `.postcssrc`:
 }
 ```
 
-{% endsamplefile %}
-{% endsample %}
+</sample-file>
+</sample>
 
 Plugins are specified in the `plugins` object as keys, and options are defined using object values. If there are no options for a plugin, just set it to `true` instead.
 
@@ -168,8 +168,8 @@ By default, Parcel transforms each CSS file with PostCSS independently. However,
 
 In these cases, you can use [`postcss-import`](https://github.com/postcss/postcss-import) to run PostCSS over the whole bundle at once instead. [`postcss-url`](https://github.com/postcss/postcss-url) should also be used to ensure `url()` references are resolved correctly when imported files are inlined.
 
-{% sample %}
-{% samplefile ".postcssrc" %}
+<sample>
+<sample-file name=".postcssrc">
 
 ```json
 {
@@ -181,8 +181,8 @@ In these cases, you can use [`postcss-import`](https://github.com/postcss/postcs
 }
 ```
 
-{% endsamplefile %}
-{% samplefile "app.css" %}
+</sample-file>
+<sample-file name="app.css">
 
 ```css
 @import "./config/index.css";
@@ -198,8 +198,8 @@ html {
 }
 ```
 
-{% endsamplefile %}
-{% samplefile "config/index.css" %}
+</sample-file>
+<sample-file name="config/index.css">
 
 ```css
 :root {
@@ -208,8 +208,8 @@ html {
 }
 ```
 
-{% endsamplefile %}
-{% endsample %}
+</sample-file>
+</sample>
 
 ## Production
 
@@ -219,8 +219,8 @@ In production mode, Parcel includes optimizations to reduce the file size of you
 
 In production mode, Parcel automatically minifies your code to reduce the file sizes of your bundles. By default, Parcel uses [cssnano](http://cssnano.co/) to perform CSS minification. To configure cssnano, you can create a `.cssnanorc` or `cssnano.config.json` file in your project root directory.
 
-{% sample %}
-{% samplefile ".cssnanorc" %}
+<sample>
+<sample-file name=".cssnanorc">
 
 ```json
 {
@@ -236,11 +236,11 @@ In production mode, Parcel automatically minifies your code to reduce the file s
 }
 ```
 
-{% endsamplefile %}
-{% endsample %}
+</sample-file>
+</sample>
 
-{% warning %}
+<warning>
 
 **Note**: `cssnano.config.js` is also supported for JavaScript-based configuration, but should be avoided when possible because it reduces the effectiveness of Parcel's caching. Use a JSON based configuration format (e.g. `cssnano.config.json`) instead.
 
-{% endwarning %}
+</warning>

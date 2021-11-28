@@ -1,9 +1,9 @@
 ---
-layout: layout.njk
+layout: ~/template/layout.njk
 title: SVG
 eleventyNavigation:
   key: languages-svg
-  title: <img src="/assets/lang-icons/svg.svg" alt=""/> SVG
+  title: <img src="~/src/assets/lang-icons/svg.svg" alt=""/> SVG
   order: 3
 ---
 
@@ -19,8 +19,8 @@ File names are resolved relative to the current SVG file, but you can also use [
 
 External stylesheets can be referenced via the `xml-stylesheet` processing instruction in an SVG document. You can reference a CSS file, or any other file that compiles to CSS such as [SASS](/languages/sass/), [Less](/languages/less/), or [Stylus](/languages/stylus).
 
-{% sample %}
-{% samplefile "example.svg" %}
+<sample>
+<sample-file name="example.svg">
 
 ```xml/0
 <?xml-stylesheet href="style.css" ?>
@@ -29,8 +29,8 @@ External stylesheets can be referenced via the `xml-stylesheet` processing instr
 </svg>
 ```
 
-{% endsamplefile %}
-{% samplefile "style.css" %}
+</sample-file>
+<sample-file name="style.css">
 
 ```css
 text {
@@ -38,8 +38,8 @@ text {
 }
 ```
 
-{% endsamplefile %}
-{% endsample %}
+</sample-file>
+</sample>
 
 See the [CSS](/languages/css/) docs for details on how CSS is processed by Parcel.
 
@@ -49,14 +49,14 @@ The `<script>` element can be used to reference a script file from SVG. You can 
 
 The `type="module"` attribute should be used to indicate that a file is an [ES module](/languages/javascript/#es-modules) or [CommonJS](/languages/javascript/#commonjs) file. If it is omitted, then the referenced file is treated as a classic script. See [Classic scripts](/languages/javascript/#classic-scripts) for more information about this. ES modules are not yet supported natively in SVG, so Parcel compiles all JavaScript to classic scripts even if authored as a module.
 
-{% note %}
+<note>
 
 **Note**: SVG uses the `href` attribute rather than the `src` attribute for `<script>` elements.
 
-{% endnote %}
+</note>
 
-{% sample %}
-{% samplefile "example.svg" %}
+<sample>
+<sample-file name="example.svg">
 
 ```xml/2
 <svg viewBox="0 0 240 80" xmlns="http://www.w3.org/2000/svg">
@@ -65,8 +65,8 @@ The `type="module"` attribute should be used to indicate that a file is an [ES m
 </svg>
 ```
 
-{% endsamplefile %}
-{% samplefile "interactions.js" %}
+</sample-file>
+<sample-file name="interactions.js">
 
 ```javascript
 let circle = document.querySelector('circle');
@@ -75,8 +75,8 @@ circle.addEventListener('click', () => {
 });
 ```
 
-{% endsamplefile %}
-{% endsample %}
+</sample-file>
+</sample>
 
 See the [MDN docs](https://developer.mozilla.org/en-US/docs/Web/SVG/Element/script) for the `<script>` element for more info, and the [JavaScript](/languages/javascript/) docs for details on how Parcel processes JavaScript.
 
@@ -94,11 +94,11 @@ Parcel’s image transformer can also be used to resize and convert images by us
 <image href="image.jpg?as=webp" width="100" height="50" />
 ```
 
-{% note %}
+<note>
 
 **Note**: SVGs referenced via the `<image>` element do not load external resources such as stylesheets, fonts, and other images, and scripting and interactivity is disabled.
 
-{% endnote %}
+</note>
 
 See the [Image](/recipes/image/) docs for details on how Parcel processes images.
 
@@ -139,8 +139,8 @@ External resources referenced via the `url()` function in presentation attribute
 
 `<script>` and `<style>` tags with text content are also processed just like standalone files, and the generated bundles are inserted back into the SVG file. Use the `type="module"` attribute as described above to enable importing other modules from an inline script.
 
-{% sample %}
-{% samplefile "example.svg" %}
+<sample>
+<sample-file name="example.svg">
 
 ```xml/3,6-8
 <svg viewBox="0 0 240 80" xmlns="http://www.w3.org/2000/svg">
@@ -156,8 +156,8 @@ External resources referenced via the `url()` function in presentation attribute
 </svg>
 ```
 
-{% endsamplefile %}
-{% samplefile "style.scss" %}
+</sample-file>
+<sample-file name="style.scss">
 
 ```scss
 $fill: blue;
@@ -167,8 +167,8 @@ circle {
 }
 ```
 
-{% endsamplefile %}
-{% samplefile "interactions.ts" %}
+</sample-file>
+<sample-file name="interactions.ts">
 
 ```typescript
 export function setup(element: SVGElement) {
@@ -178,8 +178,8 @@ export function setup(element: SVGElement) {
 }
 ```
 
-{% endsamplefile %}
-{% endsample %}
+</sample-file>
+</sample>
 
 CSS files referenced via `@import`, and JavaScript referenced via `import` will be bundled into the compiled SVG file. See [Stylesheets](#stylesheets) and [Scripts](#scripts) for how to reference an external file.
 
@@ -310,8 +310,8 @@ yarn add @parcel/transformer-svg-react --dev
 
 You can either configure your `.parcelrc` to convert all SVGs to JSX, or use a named pipeline to create a URL scheme that you can reference from a JavaScript import statement. This approach allows SVG files referenced from JavaScript to be converted to JSX, but SVGs referenced elsewhere to be kept as SVG files. Use the `"..."` syntax to run the default SVG transformer first before converting the SVG to JSX.
 
-{% sample %}
-{% samplefile ".parcelrc" %}
+<sample>
+<sample-file name=".parcelrc">
 
 ```json/3
 {
@@ -322,8 +322,8 @@ You can either configure your `.parcelrc` to convert all SVGs to JSX, or use a n
 }
 ```
 
-{% endsamplefile %}
-{% samplefile "example.jsx" %}
+</sample-file>
+<sample-file name="example.jsx">
 
 ```jsx/0
 import Icon from "jsx:./icon.svg";
@@ -331,8 +331,8 @@ import Icon from "jsx:./icon.svg";
 export const App = () => <Icon />;
 ```
 
-{% endsamplefile %}
-{% endsample %}
+</sample-file>
+</sample>
 
 ## Production
 
@@ -344,8 +344,8 @@ In production mode, Parcel automatically minifies your code to reduce the file s
 
 To configure SVGO, you can create a `svgo.config.json` file in your project root directory. To see all the available configuration options for SVGO, see the [official documentation](https://github.com/svg/svgo#configuration).
 
-{% sample %}
-{% samplefile "svgo.config.json" %}
+<sample>
+<sample-file name="svgo.config.json">
 
 ```json
 {
@@ -362,12 +362,12 @@ To configure SVGO, you can create a `svgo.config.json` file in your project root
 }
 ```
 
-{% endsamplefile %}
-{% endsample %}
+</sample-file>
+</sample>
 
-{% warning %}
+<warning>
 
 **Note**: `svgo.config.js` is also supported for JavaScript-based configuration, but should be avoided when possible because it reduces the effectiveness of Parcel's caching. Use a JSON based configuration format instead.
 
-{% endwarning %}
+</warning>
 

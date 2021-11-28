@@ -1,9 +1,9 @@
 ---
-layout: layout.njk
+layout: ~/template/layout.njk
 title: YAML
 eleventyNavigation:
   key: languages-yaml
-  title: <img src="/assets/lang-icons/yaml.svg" class="dark-invert" alt=""/> YAML
+  title: <img src="~/src/assets/lang-icons/yaml.svg" class="dark-invert" alt=""/> YAML
   order: 13
 ---
 
@@ -11,8 +11,8 @@ Parcel supports importing YAML files from JavaScript using the `@parcel/transfor
 
 ## Example usage
 
-{% sample %}
-{% samplefile "app.js" %}
+<sample>
+<sample-file name="app.js">
 
 ```js
 import data from './data.yaml';
@@ -20,8 +20,8 @@ console.log(data.hello[0]);
 // => "world"
 ```
 
-{% endsamplefile %}
-{% samplefile "data.yaml" %}
+</sample-file>
+<sample-file name="data.yaml">
 
 ```yaml
 hello:
@@ -29,5 +29,5 @@ hello:
   - computer
 ```
 
-{% endsamplefile %}
-{% endsample %}
+</sample-file>
+</sample>

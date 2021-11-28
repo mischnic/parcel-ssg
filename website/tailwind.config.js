@@ -4,7 +4,8 @@ module.exports = {
   mode: 'jit',
   purge: [
     './src/**/*.html',
-    './src/**/*.njk'
+    './src/docs.md',
+    './template/layout.njk'
   ],
   darkMode: 'class',
   theme: {

@@ -1,5 +1,5 @@
 ---
-layout: layout.njk
+layout: ~/template/layout.njk
 title: Production
 eleventyNavigation:
   key: features-production
@@ -78,8 +78,8 @@ Because not everyone needs it, compression is not enabled by default. To enable 
 yarn add @parcel/compressor-gzip @parcel/compressor-brotli --dev
 ```
 
-{% sample %}
-{% samplefile ".parcelrc" %}
+<sample>
+<sample-file name=".parcelrc">
 
 ```json
 {
@@ -93,15 +93,15 @@ yarn add @parcel/compressor-gzip @parcel/compressor-brotli --dev
 }
 ```
 
-{% endsamplefile %}
-{% endsample %}
+</sample-file>
+</sample>
 
 Now you’ll get a `.gz` and a `.br` file along side the original uncompressed bundle. If you have more text-based file types than listed in the above example, you'll need to extend the glob accordingly.
 
 If you don’t need the uncompressed bundle, you can also remove the `"..."` from the above example to *only* output compressed files. For example, to only output a `.gz` file, you could use the following config:
 
-{% sample %}
-{% samplefile ".parcelrc" %}
+<sample>
+<sample-file name=".parcelrc">
 
 ```json
 {
@@ -111,8 +111,8 @@ If you don’t need the uncompressed bundle, you can also remove the `"..."` fro
 }
 ```
 
-{% endsamplefile %}
-{% endsample %}
+</sample-file>
+</sample>
 
 ## Cache optimization
 
@@ -158,7 +158,7 @@ This generates a folder `parcel-bundle-reports` in your project root with an HTM
 
 <div style="border: 1px solid black">
 
-![A screenshot of the bundle analyzer output](/assets/bundle-analyzer.png)
+![A screenshot of the bundle analyzer output](~/src/assets/bundle-analyzer.png)
 
 </div>
 
@@ -176,6 +176,6 @@ Now upload the files in the `dist` directory to the [Bundle Buddy website](https
 
 <div style="border: 1px solid black">
 
-![A screenshot of the Bundle Buddy website with a loaded project](/assets/bundle-buddy.png)
+![A screenshot of the Bundle Buddy website with a loaded project](~/src/assets/bundle-buddy.png)
 
 </div>

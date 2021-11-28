@@ -1,6 +1,7 @@
 ---
-layout: layout.njk
+layout: ~/template/layout.njk
 title: Parcel Documentation
+tags: ["docs-home"]
 ---
 
 <h2>Getting started</h2>
@@ -141,35 +142,35 @@ title: Parcel Documentation
 <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-3 max-w-5xl">
   <a href="/languages/html/" class="card bg-gradient-to-br from-purple-200 to-indigo-200 dark:from-purple-800 dark:to-indigo-800 p-5 rounded-xl dark:text-white">
     <div class="flex items-start gap-2 mb-2">
-      <img src="/assets/lang-icons/html5.svg" alt="" class="w-6" />
+      <img src="~/src/assets/lang-icons/html5.svg" alt="" class="w-6" />
       <div class="font-bold text-lg">HTML</div>
     </div>
     <div>The entry of most Parcel apps. From here, you can reference scripts, styles, images, and more.</div>
   </a>
   <a href="/languages/javascript/" class="card bg-gradient-to-br from-purple-200 to-indigo-200 dark:from-purple-800 dark:to-indigo-800 p-5 rounded-xl dark:text-white">
     <div class="flex items-start gap-2 mb-2">
-      <img src="/assets/lang-icons/javascript.svg" alt="" class="w-6" />
+      <img src="~/src/assets/lang-icons/javascript.svg" alt="" class="w-6" />
       <div class="font-bold text-lg">JavaScript</div>
     </div>
     <div>Using ES modules and CommonJS, setting up transpilation, JSX, workers, and more.</div>
   </a>
   <a href="/languages/css/" class="card bg-gradient-to-br from-purple-200 to-indigo-200 dark:from-purple-800 dark:to-indigo-800 p-5 rounded-xl dark:text-white">
     <div class="flex items-start gap-2 mb-2">
-      <img src="/assets/lang-icons/css.svg" alt="" class="w-6" />
+      <img src="~/src/assets/lang-icons/css.svg" alt="" class="w-6" />
       <div class="font-bold text-lg">CSS</div>
     </div>
     <div>Using CSS with Parcel, including dependencies, CSS modules, PostCSS, and more.</div>
   </a>
   <a href="/languages/svg/" class="card bg-gradient-to-br from-purple-200 to-indigo-200 dark:from-purple-800 dark:to-indigo-800 p-5 rounded-xl dark:text-white">
     <div class="flex items-start gap-2 mb-2">
-      <img src="/assets/lang-icons/svg.svg" alt="" class="w-6" />
+      <img src="~/src/assets/lang-icons/svg.svg" alt="" class="w-6" />
       <div class="font-bold text-lg">SVG</div>
     </div>
     <div>Referencing SVG from HTML, CSS, JavaScript, and JSX, including scripts and styles, and more.</div>
   </a>
   <a href="/languages/typescript/" class="card bg-gradient-to-br from-purple-200 to-indigo-200 dark:from-purple-800 dark:to-indigo-800 p-5 rounded-xl dark:text-white">
     <div class="flex items-start gap-2 mb-2">
-      <img src="/assets/lang-icons/typescript.svg" alt="" class="w-6" />
+      <img src="~/src/assets/lang-icons/typescript.svg" alt="" class="w-6" />
       <div class="font-bold text-lg">TypeScript</div>
     </div>
     <div>Using TypeScript with Parcel, including transpilation and generating typings.</div>
@@ -185,14 +186,14 @@ title: Parcel Documentation
   </a>
   <a href="/recipes/react/" class="card bg-gradient-to-br from-purple-200 to-indigo-200 dark:from-purple-800 dark:to-indigo-800 p-5 rounded-xl dark:text-white">
     <div class="flex items-start gap-2 mb-2">
-      <img src="/assets/lang-icons/react.svg" alt="" class="w-6" />
+      <img src="~/src/assets/lang-icons/react.svg" alt="" class="w-6" />
       <div class="font-bold text-lg">React</div>
     </div>
     <div>Using React with Parcel, including Fast Refresh, styling, images, code splitting, and more.</div>
   </a>
   <a href="/languages/vue/" class="card bg-gradient-to-br from-purple-200 to-indigo-200 dark:from-purple-800 dark:to-indigo-800 p-5 rounded-xl dark:text-white">
     <div class="flex items-start gap-2 mb-2">
-      <img src="/assets/lang-icons/vue.svg" alt="" class="w-6" />
+      <img src="~/src/assets/lang-icons/vue.svg" alt="" class="w-6" />
       <div class="font-bold text-lg">Vue</div>
     </div>
     <div>Using Vue 3 SFCs with Parcel.</div>
@@ -223,7 +224,7 @@ title: Parcel Documentation
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
     </svg>
     <div class="font-bold text-lg mt-4 mb-2">Diagnostics</div>
-    <div>How to emit errors and logs using Parcel's unified diagnostics format.</p>
+    <div>How to emit errors and logs using Parcel's unified diagnostics format.</div>
   </a>
   <a href="/plugin-system/source-maps/" class="card bg-gradient-to-br sm:bg-gradient-to-r from-rose-200 to-orange-200 dark:from-rose-800 dark:to-orange-800 sm:from-purple-200 sm:to-pink-200 sm:dark:from-purple-800 sm:dark:to-pink-800 md:from-rose-200 md:to-orange-200 md:dark:from-rose-800 md:dark:to-orange-800 p-5 rounded-xl dark:text-white">
     <svg aria-hidden="true" class="h-6 w-6 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">

@@ -1,9 +1,9 @@
 ---
-layout: layout.njk
+layout: ~/template/layout.njk
 title: Less
 eleventyNavigation:
   key: languages-less
-  title: <img src="/assets/lang-icons/less.svg" class="dark-invert" alt=""/> Less
+  title: <img src="~/src/assets/lang-icons/less.svg" class="dark-invert" alt=""/> Less
   order: 8
 ---
 
@@ -37,8 +37,8 @@ parcel build style.less
 
 To configure Less, create a `.lessrc` file. To see the available options to configure Less see the official [Less documentation](http://lesscss.org/usage/#less-options).
 
-{% warning %}
+<warning>
 
 **Note**: `.lessrc.js` is also supported for JavaScript-based configuration, but should be avoided when possible because it reduces the effectiveness of Parcel's caching. Use a JSON based configuration format (e.g. `.lessrc`) instead.
 
-{% endwarning %}
+</warning>

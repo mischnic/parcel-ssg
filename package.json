@@ -12,6 +12,7 @@
   },
   "devDependencies": {
     "@parcel/config-default": "^2.0.1",
+    "@parcel/transformer-sass": "^2.0.1",
     "parcel": "^2.0.1",
     "patch-package": "^6.4.7"
   }

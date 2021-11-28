@@ -1,5 +1,5 @@
 ---
-layout: layout.njk
+layout: ~/template/layout.njk
 eleventyNavigation:
   key: plugin-system-packager
   title: Packager
@@ -34,11 +34,11 @@ export default new Packager({
 
 Loading configuration from the user’s project should be done in the `loadConfig` method of a Packager plugin. See [Loading configuration](/plugin-system/authoring-plugins/#loading-configuration) for details on how to do this.
 
-{% warning %}
+<warning>
 
 **Note**: It's important to use Parcel's config loading mechanism so that the cache can be properly invalidated. Avoid loading files directly from the file system.
 
-{% endwarning %}
+</warning>
 
 ## Source maps
 
@@ -139,4 +139,4 @@ export default new Packager({
 
 ## Relevant API
 
-{% include "../../api/packager.html" %}
+<include src="packager.html"></include>

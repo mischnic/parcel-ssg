@@ -1,5 +1,5 @@
 ---
-layout: layout.njk
+layout: ~/template/layout.njk
 title: Plugins
 eleventyNavigation:
   key: features-plugins
@@ -19,8 +19,8 @@ Parcel configuration is specified in a `.parcelrc` file. It is written in [JSON5
 
 Parcel’s default config is specified in `@parcel/config-default`. Most of the time, you'll want to extend it in your own Parcel config. To do this, use the `extends` field in your `.parcelrc`.
 
-{% sample %}
-{% samplefile ".parcelrc" %}
+<sample>
+<sample-file name=".parcelrc">
 
 ```json
 {
@@ -28,13 +28,13 @@ Parcel’s default config is specified in `@parcel/config-default`. Most of the 
 }
 ```
 
-{% endsamplefile %}
-{% endsample %}
+</sample-file>
+</sample>
 
 You may also extend multiple configs by passing an array. Configs are merged in the order they are specified.
 
-{% sample %}
-{% samplefile ".parcelrc" %}
+<sample>
+<sample-file name=".parcelrc">
 
 ```json
 {
@@ -42,13 +42,13 @@ You may also extend multiple configs by passing an array. Configs are merged in 
 }
 ```
 
-{% endsamplefile %}
-{% endsample %}
+</sample-file>
+</sample>
 
 You can also reference another config in your project using a relative path.
 
-{% sample %}
-{% samplefile ".parcelrc" %}
+<sample>
+<sample-file name=".parcelrc">
 
 ```json
 {
@@ -56,8 +56,8 @@ You can also reference another config in your project using a relative path.
 }
 ```
 
-{% endsamplefile %}
-{% endsample %}
+</sample-file>
+</sample>
 
 Extended configs may also extend other configs, which forms a config chain.
 
@@ -67,8 +67,8 @@ Many fields in `.parcelrc` like `transformers` or `packagers` use objects as map
 
 The order of fields in glob maps maps defines their priority when a file name is being tested against them. This lets you configure different behavior for certain files within your project, such as files in a specific directory.
 
-{% sample %}
-{% samplefile ".parcelrc" %}
+<sample>
+<sample-file name=".parcelrc">
 
 ```json
 {
@@ -79,8 +79,8 @@ The order of fields in glob maps maps defines their priority when a file name is
 }
 ```
 
-{% endsamplefile %}
-{% endsample %}
+</sample-file>
+</sample>
 
 Here if we are trying to find a transform for the file `icons/home.svg`, we'll work our way down the globs until we find a match, which would be `icons/*.svg`. We never reach `*.svg`.
 
@@ -92,8 +92,8 @@ Many fields in `.parcelrc` like `transformers`, `optimizers`, and `reporters` ac
 
 If you’d like to define a higher priority pipeline that extends a lower priority one rather than overriding it, you can use the special `"..."` syntax to do so. Add this within a pipeline to embed the next priority pipeline within it. You can insert it at the beginning, end, or even in the middle of a pipeline, which gives you full control over how pipelines are extended.
 
-{% sample %}
-{% samplefile ".parcelrc" %}
+<sample>
+<sample-file name=".parcelrc">
 
 ```json
 {
@@ -104,8 +104,8 @@ If you’d like to define a higher priority pipeline that extends a lower priori
 }
 ```
 
-{% endsamplefile %}
-{% endsample %}
+</sample-file>
+</sample>
 
 In the above example, when processing `icons/home.svg`, we first run `@company/parcel-transformer-svg-icons` and then `@parcel/transformer-svg`.
 
@@ -113,8 +113,8 @@ This also applies to configs that have been extended. If a  `"..."` is used and 
 
 Since `@parcel/transformer-svg` is included in the default config, the above example could be rewritten like this:
 
-{% sample %}
-{% samplefile ".parcelrc" %}
+<sample>
+<sample-file name=".parcelrc">
 
 ```json
 {
@@ -125,8 +125,8 @@ Since `@parcel/transformer-svg` is included in the default config, the above exa
 }
 ```
 
-{% endsamplefile %}
-{% endsample %}
+</sample-file>
+</sample>
 
 ### Named pipelines
 
@@ -134,8 +134,8 @@ In addition to glob-based pipelines, Parcel supports **named pipelines**, which 
 
 For example, by default, importing an image normally returns a URL to an external file, but you could use the `data-url:` named pipeline defined in the default Parcel config to inline it as a data URL instead. See [Bundle inlining](/features/bundle-inlining/) for details.
 
-{% sample %}
-{% samplefile "src/example.css" %}
+<sample>
+<sample-file name="src/example.css">
 
 ```css
 .logo {
@@ -143,13 +143,13 @@ For example, by default, importing an image normally returns a URL to an externa
 }
 ```
 
-{% endsamplefile %}
-{% endsample %}
+</sample-file>
+</sample>
 
 You can also define your own named pipelines. For example, you could define an `arraybuffer:` named pipeline that allows you to import a file as an [ArrayBuffer](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer). The `*` glob matches any file in this example, but you could also use a more-specific glob. The `"..."` syntax is used to allow Parcel to process the file as it normally would before running the `parcel-transformer-arraybuffer` plugin to convert it to an ArrayBuffer.
 
-{% sample %}
-{% samplefile ".parcelrc" %}
+<sample>
+<sample-file name=".parcelrc">
 
 ```json
 {
@@ -160,15 +160,15 @@ You can also define your own named pipelines. For example, you could define an `
 }
 ```
 
-{% endsamplefile %}
-{% samplefile "src/example.js" %}
+</sample-file>
+<sample-file name="src/example.js">
 
 ```javascript
 import buffer from 'arraybuffer:./file.png';
 ```
 
-{% endsamplefile %}
-{% endsample %}
+</sample-file>
+</sample>
 
 Named pipelines are supported for transformer and optimizer pipelines. For transformers, the pipeline is specified in the dependency that referenced the asset. For optimizers, it is inherited from the entry asset of the bundle.
 
@@ -180,8 +180,8 @@ Parcel supports many different kinds of plugins which perform a specific task as
 
 [Transformer](/plugin-system/transformer/) plugins transform a single asset to compile it, discover dependencies, or convert it to a different format. They are configured using a [glob map](#glob-maps) in `.parcelrc`. Multiple transformers may run in series over the same asset using [pipelines](#pipelines), and [named pipelines](#named-pipelines) are supported to allow compiling the same file in multiple different ways within the same project. The `"..."` syntax can be used to extend the default transformers for a file.
 
-{% sample %}
-{% samplefile ".parcelrc" %}
+<sample>
+<sample-file name=".parcelrc">
 
 ```json
 {
@@ -192,13 +192,13 @@ Parcel supports many different kinds of plugins which perform a specific task as
 }
 ```
 
-{% endsamplefile %}
-{% endsample %}
+</sample-file>
+</sample>
 
 When compiling an asset, its file type may change. For example, when compiling TypeScript, the asset’s type changes from `ts` or `tsx` to `js`. When this happens, Parcel re-evaluates how the asset should be further processed, and runs it through the matching pipeline for `.js` files.
 
-{% sample %}
-{% samplefile ".parcelrc" %}
+<sample>
+<sample-file name=".parcelrc">
 
 ```json
 {
@@ -209,14 +209,14 @@ When compiling an asset, its file type may change. For example, when compiling T
 }
 ```
 
-{% endsamplefile %}
-{% endsample %}
+</sample-file>
+</sample>
 
-{% warning %}
+<warning>
 
 Once a transformer changes the asset type so that it no longer matches the current pipeline, the asset will be put into a different pipeline. If there is no matching pipeline for the new asset type, then transformation is finished. Transformers defined later in the current pipeline will not be run.
 
-{% endwarning %}
+</warning>
 
 ### Resolvers
 
@@ -224,8 +224,8 @@ Once a transformer changes the asset type so that it no longer matches the curre
 
 The `"..."` syntax can be used to extend the default resolvers. This allows you to override the resolution for certain dependencies, but fall back to the default for others. Generally, you'll want to add your custom resolvers before running the default ones.
 
-{% sample %}
-{% samplefile ".parcelrc" %}
+<sample>
+<sample-file name=".parcelrc">
 
 ```json
 {
@@ -234,8 +234,8 @@ The `"..."` syntax can be used to extend the default resolvers. This allows you 
 }
 ```
 
-{% endsamplefile %}
-{% endsample %}
+</sample-file>
+</sample>
 
 If `"..."` is omitted, your resolver must be able to handle all dependencies or resolution will fail.
 
@@ -243,8 +243,8 @@ If `"..."` is omitted, your resolver must be able to handle all dependencies or 
 
 A [Bundler](/plugin-system/bundler/) plugin is responsible for grouping assets together into bundles. The bundler can be configured by specifying a plugin name in `.parcelrc`.
 
-{% sample %}
-{% samplefile ".parcelrc" %}
+<sample>
+<sample-file name=".parcelrc">
 
 ```json
 {
@@ -253,21 +253,21 @@ A [Bundler](/plugin-system/bundler/) plugin is responsible for grouping assets t
 }
 ```
 
-{% endsamplefile %}
-{% endsample %}
+</sample-file>
+</sample>
 
-{% warning %}
+<warning>
 
 **Note**: Bundler plugins are experimental, and subject to change, even between minor updates.
 
-{% endwarning %}
+</warning>
 
 ### Runtimes (experimental)
 
 [Runtime](/plugin-system/runtime/) plugins allow you to inject assets into bundles. They can be configured using an array of plugin names in `.parcelrc`. All runtime plugins in this list are run over each bundle. The `"..."` syntax can be used to extend the default runtimes.
 
-{% sample %}
-{% samplefile ".parcelrc" %}
+<sample>
+<sample-file name=".parcelrc">
 
 ```json
 {
@@ -276,16 +276,16 @@ A [Bundler](/plugin-system/bundler/) plugin is responsible for grouping assets t
 }
 ```
 
-{% endsamplefile %}
-{% endsample %}
+</sample-file>
+</sample>
 
 If `"..."` is omitted, the default runtimes will not be run. This will probably break things, as many Parcel features rely on the default runtimes.
 
-{% warning %}
+<warning>
 
 **Note**: Runtime plugins are experimental, and subject to change, even between minor updates.
 
-{% endwarning %}
+</warning>
 
 ### Namers
 
@@ -293,8 +293,8 @@ If `"..."` is omitted, the default runtimes will not be run. This will probably 
 
 The `"..."` syntax can be used to extend the default namers. This allows you to override naming of certain bundles, but fall back to the default for others. Generally, you'll want to add your custom namers before running the default ones.
 
-{% sample %}
-{% samplefile ".parcelrc" %}
+<sample>
+<sample-file name=".parcelrc">
 
 ```json
 {
@@ -303,8 +303,8 @@ The `"..."` syntax can be used to extend the default namers. This allows you to 
 }
 ```
 
-{% endsamplefile %}
-{% endsample %}
+</sample-file>
+</sample>
 
 If `"..."` is omitted, your namer must be able to handle naming all bundles or the build will fail.
 
@@ -312,8 +312,8 @@ If `"..."` is omitted, your namer must be able to handle naming all bundles or t
 
 [Packager](/plugin-system/packager/) plugins are responsible for combining all of the assets in a bundle together into an output file. They are configured using a [glob map](#glob-maps) in `.parcelrc`. Globs are matched against the output filename of a bundle. A single packager plugin may be configured to run per bundle.
 
-{% sample %}
-{% samplefile ".parcelrc" %}
+<sample>
+<sample-file name=".parcelrc">
 
 ```json
 {
@@ -324,15 +324,15 @@ If `"..."` is omitted, your namer must be able to handle naming all bundles or t
 }
 ```
 
-{% endsamplefile %}
-{% endsample %}
+</sample-file>
+</sample>
 
 ### Optimizers
 
 [Optimizer](/plugin-system/optimizer/) plugins are similar to transformers but they accept a bundle instead of a single asset. They are configured using a [glob map](#glob-maps) in `.parcelrc`. Multiple optimizers may run in series over the same bundle using [pipelines](#pipelines), and [named pipelines](#named-pipelines) are supported to allow compiling the same bundle in multiple different ways within the same project. The `"..."` syntax can be used to extend the default optimizers for a bundle.
 
-{% sample %}
-{% samplefile ".parcelrc" %}
+<sample>
+<sample-file name=".parcelrc">
 
 ```json
 {
@@ -343,15 +343,15 @@ If `"..."` is omitted, your namer must be able to handle naming all bundles or t
 }
 ```
 
-{% endsamplefile %}
-{% endsample %}
+</sample-file>
+</sample>
 
 ### Compressors
 
 [Compressor](/plugin-system/compressor/) plugins are used when writing a final bundle to disk and may compress or encode it in some way (e.g. Gzip). They are configured using a [glob map](#glob-maps) in `.parcelrc`. Multiple compressors may run over the same bundle using [pipelines](#pipelines). Each compressor plugin produces an additional file to be written in parallel, for example `bundle.js`, `bundle.js.gz` and `bundle.js.br`. The `"..."` syntax can be used to extend the default compressors for a bundle.
 
-{% sample %}
-{% samplefile ".parcelrc" %}
+<sample>
+<sample-file name=".parcelrc">
 
 ```json
 {
@@ -366,15 +366,15 @@ If `"..."` is omitted, your namer must be able to handle naming all bundles or t
 }
 ```
 
-{% endsamplefile %}
-{% endsample %}
+</sample-file>
+</sample>
 
 ### Reporters
 
 [Reporter](/plugin-system/reporter/) plugins receive events from Parcel as they happen throughout the build process. For example, reporters may write status information to stdout, run a dev server, or generate a bundle analysis report at the end of a build. Reporters are configured using an array of package names in `.parcelrc`. All reporters in this list are run for each build event. The `"..."` syntax can be used to extend the default reporters.
 
-{% sample %}
-{% samplefile ".parcelrc" %}
+<sample>
+<sample-file name=".parcelrc">
 
 ```json
 {
@@ -383,8 +383,8 @@ If `"..."` is omitted, your namer must be able to handle naming all bundles or t
 }
 ```
 
-{% endsamplefile %}
-{% endsample %}
+</sample-file>
+</sample>
 
 Reporters that you use infrequently may also be specified on the [CLI](/features/cli/) using the `--reporter` option, or via the [API](/features/parcel-api/) using the `additionalReporters` option. Reporters specified in `.parcelrc` always run.
 
@@ -415,8 +415,8 @@ project
 
 In your root `package.json`, use the `workspaces` field to reference your packages.
 
-{% sample %}
-{% samplefile "package.json" %}
+<sample>
+<sample-file name="package.json">
 
 ```json
 {
@@ -426,8 +426,8 @@ In your root `package.json`, use the `workspaces` field to reference your packag
 }
 ```
 
-{% endsamplefile %}
-{% endsample %}
+</sample-file>
+</sample>
 
 Then, in your `.parcelrc` you can reference `parcel-transformer-foo` as you would a published package. Whenever you update the code for your plugin, Parcel will rebuild your project.
 
@@ -451,8 +451,8 @@ project
 
 In your root package.json, you can define a dependency on the `parcel-transformer-foo` package using the `link:` protocol.
 
-{% sample %}
-{% samplefile "package.json" %}
+<sample>
+<sample-file name="package.json">
 
 ```json
 {
@@ -464,8 +464,8 @@ In your root package.json, you can define a dependency on the `parcel-transforme
 }
 ```
 
-{% endsamplefile %}
-{% endsample %}
+</sample-file>
+</sample>
 
 Then, in your `.parcelrc` you can reference `parcel-transformer-foo` as you would a published package. Whenever you update the code for your plugin, Parcel will rebuild your project.
 

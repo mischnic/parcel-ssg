@@ -1,9 +1,9 @@
 ---
-layout: layout.njk
+layout: ~/template/layout.njk
 title: JavaScript
 eleventyNavigation:
   key: languages-js
-  title: <img src="/assets/lang-icons/javascript.svg" alt=""/> JavaScript
+  title: <img src="~/src/assets/lang-icons/javascript.svg" alt=""/> JavaScript
   order: 0
 ---
 
@@ -21,8 +21,8 @@ ES module syntax is the standard way to import and export values between files i
 
 This example imports a `multiply` function from `math.js`, and uses it to implement a `square` function.
 
-{% sample %}
-{% samplefile "square.js" %}
+<sample>
+<sample-file name="square.js">
 
 ```javascript
 import {multiply} from './math.js';
@@ -32,8 +32,8 @@ export function square(x) {
 }
 ```
 
-{% endsamplefile %}
-{% samplefile "math.js" %}
+</sample-file>
+<sample-file name="math.js">
 
 ```javascript
 export function multiply(a, b) {
@@ -41,8 +41,8 @@ export function multiply(a, b) {
 }
 ```
 
-{% endsamplefile %}
-{% endsample %}
+</sample-file>
+</sample>
 
 To learn more about ES modules, see the documentation on [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules).
 
@@ -52,8 +52,8 @@ CommonJS is a legacy module system supported in Node, and widely used by librari
 
 This example uses `require` to load the `math.js` module, and uses the `multiply` function on its exports object to implement a `square` function.
 
-{% sample %}
-{% samplefile "square.js" %}
+<sample>
+<sample-file name="square.js">
 
 ```javascript
 let math = require('./math');
@@ -63,8 +63,8 @@ exports.square = function(x) {
 };
 ```
 
-{% endsamplefile %}
-{% samplefile "math.js" %}
+</sample-file>
+<sample-file name="math.js">
 
 ```javascript
 exports.multiply = function(a, b) {
@@ -72,8 +72,8 @@ exports.multiply = function(a, b) {
 };
 ```
 
-{% endsamplefile %}
-{% endsample %}
+</sample-file>
+</sample>
 
 In addition to `require` and `exports`, Parcel also supports `module.exports`, as well as the `__dirname` and `__filename` module globals, and `process.env` for access to environment variables. See the [Node emulation](/features/node-emulation/) docs for more details.
 
@@ -113,7 +113,7 @@ In addition, classic scripts do not support synchronous imports or exports via e
 
 Parcel matches browser behavior for classic scripts and modules. If you wish to use imports or exports within your code, you’ll need to use `<script type="module">` to reference your JavaScript from an HTML file. For workers, use the `{type: 'module'}` option (see below). If this is missing, you'll see a diagnostic like the one below.
 
-![Screenshot of an error message showing "Browser scripts cannot have imports or exports. Add the type='module' attribute to the script tag."](/blog/rc0/script-module-error.png)
+![Screenshot of an error message showing "Browser scripts cannot have imports or exports. Add the type='module' attribute to the script tag."](~/src/blog/rc0/script-module-error.png)
 
 ## `import.meta`
 
@@ -175,11 +175,11 @@ navigator.serviceWorker.register(
 );
 ```
 
-{% note %}
+<note>
 
 **Note**: dynamic `import()` is not supported in service workers.
 
-{% endnote %}
+</note>
 
 Service workers are commonly used for pre-caching static assets like JavaScript, CSS, and images. `@parcel/service-worker` can be used to access a list of bundle URLs from within your service worker. It also provides a `version` hash, which changes every time the manifest does. You can use this to generate a cache name.
 
@@ -191,8 +191,8 @@ yarn add @parcel/service-worker
 
 This example shows how you could pre-cache all bundles when the service worker is installed, and clean up old versions when it is activated.
 
-{% sample %}
-{% samplefile "service-worker.js" %}
+<sample>
+<sample-file name="service-worker.js">
 
 ```javascript
 import {manifest, version} from '@parcel/service-worker';
@@ -212,8 +212,8 @@ async function activate() {
 addEventListener('activate', e => e.waitUntil(activate()));
 ```
 
-{% endsamplefile %}
-{% endsample %}
+</sample-file>
+</sample>
 
 To learn more about service workers, see the docs on [MDN](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API/Using_Service_Workers), and the [Offline Cookbook](https://web.dev/offline-cookbook/) on web.dev.
 
@@ -278,8 +278,8 @@ The correct JSX pragma is also automatically inferred based on the library you u
 
 JSX compilation can also be configured using a `tsconfig.json` or `jsconfig.json` file. This allows overriding the runtime, pragma, and other options. See the [TSConfig reference](https://www.typescriptlang.org/tsconfig) for more information.
 
-{% sample %}
-{% samplefile "tsconfig.json" %}
+<sample>
+<sample-file name="tsconfig.json">
 
 ```json
 {
@@ -290,8 +290,8 @@ JSX compilation can also be configured using a `tsconfig.json` or `jsconfig.json
 }
 ```
 
-{% endsamplefile %}
-{% endsample %}
+</sample-file>
+</sample>
 
 ### Flow
 
@@ -307,8 +307,8 @@ See [TypeScript](/languages/typescript/).
 
 By default Parcel does not perform any transpilation of JavaScript syntax for older browsers. This means that if you write your code using modern language features, that’s what Parcel will output. You can declare your app’s supported browsers using the `browserslist` field in your package.json. When this field is declared, Parcel will transpile your code accordingly to ensure compatibility with your supported browsers.
 
-{% sample %}
-{% samplefile "package.json" %}
+<sample>
+<sample-file name="package.json">
 
 ```json
 {
@@ -316,15 +316,15 @@ By default Parcel does not perform any transpilation of JavaScript syntax for ol
 }
 ```
 
-{% endsamplefile %}
-{% endsample %}
+</sample-file>
+</sample>
 
 See the [Targets](/features/targets/) docs for more details on how to configure this, as well as Parcel's support for automatic [differential bundling](/features/targets/#differential-bundling).
 
 By default, Parcel supports all standard JavaScript features, as well as proposals that have shipped in one or more browsers. You can also enable support for future proposals using a `tsconfig.json` or `jsconfig.json` file. Currently, the only supported proposal is [decorators](https://github.com/tc39/proposal-decorators), which you may be using through TypeScript.
 
-{% sample %}
-{% samplefile "tsconfig.json" %}
+<sample>
+<sample-file name="tsconfig.json">
 
 ```json
 {
@@ -334,8 +334,8 @@ By default, Parcel supports all standard JavaScript features, as well as proposa
 }
 ```
 
-{% endsamplefile %}
-{% endsample %}
+</sample-file>
+</sample>
 
 More experimental features can be enabled using [Babel](#babel).
 
@@ -345,11 +345,11 @@ More experimental features can be enabled using [Babel](#babel).
 
 Parcel supports both project wide config files such as `babel.config.json`, as well as file relative configs such as `.babelrc`. See the [Babel docs](https://babeljs.io/docs/en/config-files) for details on configuration for more details.
 
-{% warning %}
+<warning>
 
 **Note**: JavaScript Babel configs (e.g. `babel.config.js`) should be avoided. These cause Parcel’s caching to be less effective, which means all of your JS files will be recompiled each time you restart Parcel. To avoid this, use a JSON-based config format instead (e.g. `babel.config.json`).
 
-{% endwarning %}
+</warning>
 
 #### Default presets
 
@@ -361,8 +361,8 @@ If you have an existing project with a Babel config containing only the above pr
 
 If you have custom Babel presets or plugins beyond the ones listed above, you can configure Babel to only include these custom plugins and omit the standard presets. This will improve build performance by allowing Babel to do less work and letting Parcel handle the default transformations.
 
-{% sample %}
-{% samplefile "babel.config.json" %}
+<sample>
+<sample-file name="babel.config.json">
 
 ```json
 {
@@ -370,8 +370,8 @@ If you have custom Babel presets or plugins beyond the ones listed above, you ca
 }
 ```
 
-{% endsamplefile %}
-{% endsample %}
+</sample-file>
+</sample>
 
 Since Parcel uses Babel to transpile Flow, you'll need to keep `@babel/preset-flow` in your Babel config along with any custom plugins. Otherwise, your Babel config overrides Parcel's defaults. Other Babel presets listed above can be removed.
 
@@ -379,8 +379,8 @@ Since Parcel uses Babel to transpile Flow, you'll need to keep `@babel/preset-fl
 
 `@babel/preset-env` and `@babel/plugin-transform-runtime` are not necessary, since transpilation for your browser targets is handled automatically by Parcel. However, if you need them for some reason, you can use Parcel's wrappers which are aware of Parcel's targets instead.
 
-{% sample %}
-{% samplefile "babel.config.json" %}
+<sample>
+<sample-file name="babel.config.json">
 
 ```json
 {
@@ -389,8 +389,8 @@ Since Parcel uses Babel to transpile Flow, you'll need to keep `@babel/preset-fl
 }
 ```
 
-{% endsamplefile %}
-{% endsample %}
+</sample-file>
+</sample>
 
 #### Usage with other tools
 
@@ -398,8 +398,8 @@ While Parcel includes transpilation by default, you may still need to use Babel 
 
 To disable Babel transpilation in Parcel, override the default Parcel config for JavaScript to exclude `@parcel/transformer-babel`.
 
-{% sample %}
-{% samplefile ".parcelrc" %}
+<sample>
+<sample-file name=".parcelrc">
 
 ```json
 {
@@ -413,8 +413,8 @@ To disable Babel transpilation in Parcel, override the default Parcel config for
 }
 ```
 
-{% endsamplefile %}
-{% endsample %}
+</sample-file>
+</sample>
 
 This will allow other tools to continue using your Babel config, but disable Babel transpilation in Parcel.
 

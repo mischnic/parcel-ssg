@@ -1,5 +1,5 @@
 ---
-layout: layout.njk
+layout: ~/template/layout.njk
 title: Targets
 eleventyNavigation:
   key: features-targets

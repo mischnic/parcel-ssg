@@ -1,5 +1,5 @@
 ---
-layout: layout.njk
+layout: ~/template/layout.njk
 title: Plugin System Overview
 eleventyNavigation:
   key: plugin-system-overview
@@ -9,8 +9,8 @@ summary: A high-level overview over the plugin system
 ---
 
 <figure>
-  <a href="/assets/diagram-plugin-system.opt.png" target="_blank">
-    <img class="img-plugin-diagram" alt="A diagram of the Parcel plugin system" src="/assets/diagram-plugin-system.opt.png"/>
+  <a href="~/src/assets/diagram-plugin-system.opt.png" target="_blank">
+    <img class="img-plugin-diagram" alt="A diagram of the Parcel plugin system" src="~/src/assets/diagram-plugin-system.opt.png"/>
   </a>
 </figure>
 

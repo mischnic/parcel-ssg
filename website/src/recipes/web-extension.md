@@ -1,9 +1,9 @@
 ---
-layout: layout.njk
+layout: ~/template/layout.njk
 title: Web Extension
 eleventyNavigation:
   key: recipes-webext
-  title: <img class="dark-invert" src="/assets/lang-icons/webext.svg" alt=""/> Web Extension
+  title: <img class="dark-invert" src="~/src/assets/lang-icons/webext.svg" alt=""/> Web Extension
   order: 7
 ---
 
@@ -27,8 +27,8 @@ parcel build manifest.json --config @parcel/config-webextension
 
 You can also create a `.parcelrc` file in your project extending `@parcel/config-webextension`. This way you don't need to pass the `--config` option to the Parcel CLI every time.
 
-{% sample %}
-{% samplefile ".parcelrc" %}
+<sample>
+<sample-file name=".parcelrc">
 
 ```json
 {
@@ -36,8 +36,8 @@ You can also create a `.parcelrc` file in your project extending `@parcel/config
 }
 ```
 
-{% endsamplefile %}
-{% endsample %}
+</sample-file>
+</sample>
 
 ## HMR
 
@@ -48,8 +48,8 @@ For the best experience, you'll also want to enable a few options:
 
 To do this, create two [targets](/features/targets/) in your `package.json`: one for development with inline source maps enabled, and one for production without. Then, create some scripts to start the development server and build for production.
 
-{% sample %}
-{% samplefile "package.json" %}
+<sample>
+<sample-file name="package.json">
 
 ```json
 {
@@ -69,8 +69,8 @@ To do this, create two [targets](/features/targets/) in your `package.json`: one
 }
 ```
 
-{% endsamplefile %}
-{% endsample %}
+</sample-file>
+</sample>
 
 Running `yarn start` or `npm start` will start the development server. HMR and source maps will work for background scripts, content scripts, the popup page, and the options page. To add the extension to your browser, research how to load an extension unpacked (for example, in Chrome, [click "Load Unpacked"](https://developer.chrome.com/extensions/getstarted#manifest)).
 
@@ -89,8 +89,8 @@ One unfortunate consequence of using web extensions is that importing style file
 ### Asset URLs
 
 Asset URLs will not have the extension prefix added, so trying to use assets such as images by [importing them with the `url:` pipeline](</features/plugins#predefined-(offical)-named-pipelines>) in content scripts will fail. However, when add the assets you need to the [`web_accessible_resources` key](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/web_accessible_resources) (which is necessary anyway to use them in content scripts), the filepaths will remain the same as during build time. With that in mind, you can just do:
-{% sample %}
-{% samplefile "content_script.js" %}
+<sample>
+<sample-file name="content_script.js">
 
 ```js
 // If you have a file images/example.png and you've either added that image
@@ -100,7 +100,7 @@ const assetURL = browser.runtime.getURL("images/example.png");
 document.getElementById("myImage").href = assetURL;
 ```
 
-{% endsamplefile %}
-{% endsample %}
+</sample-file>
+</sample>
 
 Note that if you're only supporting Chrome, you should use `chrome.runtime.getURL`.

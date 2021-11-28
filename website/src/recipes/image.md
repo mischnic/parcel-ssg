@@ -1,9 +1,9 @@
 ---
-layout: layout.njk
+layout: ~/template/layout.njk
 title: Image
 eleventyNavigation:
   key: recipes-image
-  title: <img src="/assets/lang-icons/image.svg" alt=""/> Image
+  title: <img src="~/src/assets/lang-icons/image.svg" alt=""/> Image
   order: 2
 ---
 
@@ -41,8 +41,8 @@ For more guidance on choosing the right image formats, see the guide on [web.dev
 
 To reference an image from JavaScript, use the `URL` constructor. For more details, see [URL dependencies](/languages/javascript/#url-dependencies) in the JavaScript docs.
 
-{% sample %}
-{% samplefile "main.js" %}
+<sample>
+<sample-file name="main.js">
 
 ```js
 const imageUrl = new URL(
@@ -51,15 +51,15 @@ const imageUrl = new URL(
 );
 ```
 
-{% endsamplefile %}
-{% endsample %}
+</sample-file>
+</sample>
 
 ### HTML
 
 To reference an image from HTML, use the `<img>` or `<picture>` element. The same image can be referenced multiple times with different query parameters to create multiple versions in different formats or sizes. See the [HTML docs](/languages/html/#images) for more details.
 
-{% sample %}
-{% samplefile "index.html" %}
+<sample>
+<sample-file name="index.html">
 
 ```html
 <!DOCTYPE html>
@@ -79,8 +79,8 @@ To reference an image from HTML, use the `<img>` or `<picture>` element. The sam
 </html>
 ```
 
-{% endsamplefile %}
-{% endsample %}
+</sample-file>
+</sample>
 
 ## Configuration
 
@@ -88,8 +88,8 @@ In addition to query parameters, Parcel also supports using a configuration file
 
 To set the quality across all images in your project, create a `sharp.config.json` file in your project and define the `quality` field. This will re-encode every image, not just ones referenced with query params.
 
-{% sample %}
-{% samplefile "sharp.config.json" %}
+<sample>
+<sample-file name="sharp.config.json">
 
 ```json
 {
@@ -97,13 +97,13 @@ To set the quality across all images in your project, create a `sharp.config.jso
 }
 ```
 
-{% endsamplefile %}
-{% endsample %}
+</sample-file>
+</sample>
 
 You can also define more advanced options per format. All images in formats with options defined in `sharp.config.json` will be re-encoded. See the full list of supported options [here](https://sharp.pixelplumbing.com/api-output#jpeg).
 
-{% sample %}
-{% samplefile "sharp.config.json" %}
+<sample>
+<sample-file name="sharp.config.json">
 
 ```json
 {
@@ -120,8 +120,8 @@ You can also define more advanced options per format. All images in formats with
 }
 ```
 
-{% endsamplefile %}
-{% endsample %}
+</sample-file>
+</sample>
 
 ## Image optimization
 
@@ -131,8 +131,8 @@ Parcel also includes lossless image optimization for JPEGs and PNGs by default i
 
 To disable the default image optimization for JPEGs and PNGs in production mode, add the following to your .parcelrc configuration file:
 
-{% sample %}
-{% samplefile ".parcelrc" %}
+<sample>
+<sample-file name=".parcelrc">
 
 ```json
 {
@@ -143,5 +143,5 @@ To disable the default image optimization for JPEGs and PNGs in production mode,
 }
 ```
 
-{% endsamplefile %}
-{% endsample %}
+</sample-file>
+</sample>

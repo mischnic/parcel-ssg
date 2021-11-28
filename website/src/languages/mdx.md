@@ -1,9 +1,9 @@
 ---
-layout: layout.njk
+layout: ~/template/layout.njk
 title: MDX
 eleventyNavigation:
   key: languages-mdx
-  title: <img src="/assets/lang-icons/mdx.svg" alt=""/> MDX
+  title: <img src="~/src/assets/lang-icons/mdx.svg" alt=""/> MDX
   order: 16
 ---
 
@@ -19,8 +19,8 @@ yarn add @mdx-js/react
 
 Then, you can import a `.mdx` file into your JavaScript and render it using React:
 
-{% sample %}
-{% samplefile "app.js" %}
+<sample>
+<sample-file name="app.js">
 
 ```js
 import Hello from './hello.mdx';
@@ -30,8 +30,8 @@ export function App() {
 }
 ```
 
-{% endsamplefile %}
-{% samplefile "hello.mdx" %}
+</sample-file>
+<sample-file name="hello.mdx">
 
 ```md
 # Hello, MDX!
@@ -39,5 +39,5 @@ export function App() {
 This is a pretty cool MDX file.
 ```
 
-{% endsamplefile %}
-{% endsample %}
+</sample-file>
+</sample>

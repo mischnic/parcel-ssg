@@ -1,5 +1,5 @@
 ---
-layout: layout.njk
+layout: ~/template/layout.njk
 title: Code Splitting
 eleventyNavigation:
   key: features-code-splitting
@@ -15,8 +15,8 @@ Code splitting is controlled by use of the dynamic `import()` syntax, which work
 
 The following example shows how you might use dynamic imports to load a sub-page of your application on demand.
 
-{% sample %}
-{% samplefile "pages/index.js" %}
+<sample>
+<sample-file name="pages/index.js">
 
 ```js
 import("./pages/about").then(function (page) {
@@ -25,8 +25,8 @@ import("./pages/about").then(function (page) {
 });
 ```
 
-{% endsamplefile %}
-{% samplefile "pages/about.js" %}
+</sample-file>
+<sample-file name="pages/about.js">
 
 ```js
 export function render() {
@@ -34,13 +34,13 @@ export function render() {
 }
 ```
 
-{% endsamplefile %}
-{% endsample %}
+</sample-file>
+</sample>
 
 Because `import()` returns a Promise, you can also use async/await syntax.
 
-{% sample %}
-{% samplefile "pages/index.js" %}
+<sample>
+<sample-file name="pages/index.js">
 
 ```js
 async function load() {
@@ -51,8 +51,8 @@ async function load() {
 load();
 ```
 
-{% endsamplefile %}
-{% samplefile "pages/about.js" %}
+</sample-file>
+<sample-file name="pages/about.js">
 
 ```js
 export function render() {
@@ -60,56 +60,56 @@ export function render() {
 }
 ```
 
-{% endsamplefile %}
-{% endsample %}
+</sample-file>
+</sample>
 
 ### Tree shaking
 
 When Parcel can determine which exports of a dynamically imported module you use, it will tree shake the unused exports from that module. This works with static property accesses or destructuring, with either `await` or Promise `.then` syntax.
 
-{% note %}
+<note>
 
 **Note:** For the `await` cases, unused exports can unfortunately only be removed when `await` is not transpilied away (i.e. with a modern browserslist config).
 
-{% endnote %}
+</note>
 
-{% sample null, "column" %}
+<sample>
 
-{% samplefile %}
+<sample-file>
 
 ```js
 let { x: y } = await import("./b.js");
 ```
 
-{% endsamplefile %}
+</sample-file>
 
 
-{% samplefile %}
+<sample-file>
 
 ```js
 let ns = await import("./b.js");
 console.log(ns.x);
 ```
 
-{% endsamplefile %}
+</sample-file>
 
-{% samplefile %}
+<sample-file>
 
 ```js
 import("./b.js").then((ns) => console.log(ns.x));
 ```
 
-{% endsamplefile %}
+</sample-file>
 
-{% samplefile %}
+<sample-file>
 
 ```js
 import("./b.js").then(({ x: y }) => console.log(y));
 ```
 
-{% endsamplefile %}
+</sample-file>
 
-{% endsample %}
+</sample>
 
 ## Shared bundles
 
@@ -117,8 +117,8 @@ When multiple parts of your application depend on the same common modules, they 
 
 For example, if your application has multiple pages with `<script>` tags that depend on the same common modules, those modules will be split out into a "shared bundle”. This way, if a user navigates from one page to another, they only need to download the new code for that page, and not the common dependencies between the pages.
 
-{% sample %}
-{% samplefile "home.html" %}
+<sample>
+<sample-file name="home.html">
 
 ```html
 <!doctype html>
@@ -126,8 +126,8 @@ For example, if your application has multiple pages with `<script>` tags that de
 <script type="module" src="home.js"></script>
 ```
 
-{% endsamplefile %}
-{% samplefile "home.js" %}
+</sample-file>
+<sample-file name="home.js">
 
 ```jsx
 import ReactDOM from 'react-dom';
@@ -135,8 +135,8 @@ import ReactDOM from 'react-dom';
 ReactDOM.render(<h1>Home</h1>, app);
 ```
 
-{% endsamplefile %}
-{% samplefile "profile.html" %}
+</sample-file>
+<sample-file name="profile.html">
 
 ```html
 <!doctype html>
@@ -144,8 +144,8 @@ ReactDOM.render(<h1>Home</h1>, app);
 <script type="module" src="profile.js"></script>
 ```
 
-{% endsamplefile %}
-{% samplefile "profile.js" %}
+</sample-file>
+<sample-file name="profile.js">
 
 ```jsx
 import ReactDOM from 'react-dom';
@@ -153,13 +153,13 @@ import ReactDOM from 'react-dom';
 ReactDOM.render(<h1>Profile</h1>, app);
 ```
 
-{% endsamplefile %}
-{% endsample %}
+</sample-file>
+</sample>
 
 Compiled HTML:
 
-{% sample %}
-{% samplefile "home.html" %}
+<sample>
+<sample-file name="home.html">
 
 ```html
 <!doctype html>
@@ -168,8 +168,8 @@ Compiled HTML:
 <script type="module" src="home.fac9ed.js"></script>
 ```
 
-{% endsamplefile %}
-{% samplefile "profile.html" %}
+</sample-file>
+<sample-file name="profile.html">
 
 ```html
 <!doctype html>
@@ -178,8 +178,8 @@ Compiled HTML:
 <script type="module" src="profile.9fc67e.js"></script>
 ```
 
-{% endsamplefile %}
-{% endsample %}
+</sample-file>
+</sample>
 
 In the above example, both `home.js` and `profile.js` depend on `react-dom`, so it is split out into a separate bundle and loaded in parallel by adding an extra `<script>` tag to both HTML pages.
 
@@ -193,8 +193,8 @@ Parcel also has a maximum parallel request limit to avoid overloading the browse
 
 By default, these parameters have been tuned for HTTP/2. However, you can adjust these options to raise or lower them for your application. You can do this by configuring the `@parcel/bundler-default` key in the package.json in your project root.
 
-{% sample %}
-{% samplefile "package.json" %}
+<sample>
+<sample-file name="package.json">
 
 ```json5
 {
@@ -206,8 +206,8 @@ By default, these parameters have been tuned for HTTP/2. However, you can adjust
 }
 ```
 
-{% endsamplefile %}
-{% endsample %}
+</sample-file>
+</sample>
 
 The available options are:
 

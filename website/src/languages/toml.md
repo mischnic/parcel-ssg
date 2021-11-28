@@ -1,9 +1,9 @@
 ---
-layout: layout.njk
+layout: ~/template/layout.njk
 title: TOML
 eleventyNavigation:
   key: languages-toml
-  title: <img src="/assets/lang-icons/toml.svg" alt=""/> TOML
+  title: <img src="~/src/assets/lang-icons/toml.svg" alt=""/> TOML
   order: 12
 ---
 
@@ -11,8 +11,8 @@ Parcel supports importing TOML files from JavaScript using the `@parcel/transfor
 
 ## Example usage
 
-{% sample %}
-{% samplefile "app.js" %}
+<sample>
+<sample-file name="app.js">
 
 ```js
 import data from './data.toml';
@@ -20,8 +20,8 @@ console.log(data.hello[0]);
 // => "world"
 ```
 
-{% endsamplefile %}
-{% samplefile "data.toml" %}
+</sample-file>
+<sample-file name="data.toml">
 
 ```toml
 hello = [
@@ -30,5 +30,5 @@ hello = [
 ]
 ```
 
-{% endsamplefile %}
-{% endsample %}
+</sample-file>
+</sample>

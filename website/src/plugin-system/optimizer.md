@@ -1,5 +1,5 @@
 ---
-layout: layout.njk
+layout: ~/template/layout.njk
 eleventyNavigation:
   key: plugin-system-optimizer
   title: Optimizer
@@ -30,11 +30,11 @@ export default new Optimizer({
 
 Loading configuration from the user’s project should be done in the `loadConfig` method of an Optimizer plugin. See [Loading configuration](/plugin-system/authoring-plugins/#loading-configuration) for details on how to do this.
 
-{% warning %}
+<warning>
 
 **Note**: It's important to use Parcel's config loading mechanism so that the cache can be properly invalidated. Avoid loading files directly from the file system.
 
-{% endwarning %}
+</warning>
 
 ## Conditional optimization
 
@@ -111,4 +111,4 @@ export default new Optimizer({
 
 ## Relevant API
 
-{% include "../../api/optimizer.html" %}
+<include src="optimizer.html"></include>

@@ -1,9 +1,9 @@
 ---
-layout: layout.njk
+layout: ~/template/layout.njk
 title: XML
 eleventyNavigation:
   key: languages-xml
-  title: <img src="/assets/lang-icons/xml.svg" class="dark-invert" alt=""/> XML
+  title: <img src="~/src/assets/lang-icons/xml.svg" class="dark-invert" alt=""/> XML
   order: 17
 ---
 

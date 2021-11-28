@@ -1,9 +1,9 @@
 ---
-layout: layout.njk
+layout: ~/template/layout.njk
 title: Stylus
 eleventyNavigation:
   key: languages-stylus
-  title: <img src="/assets/lang-icons/stylus.svg" class="dark-invert" alt=""/> Stylus
+  title: <img src="~/src/assets/lang-icons/stylus.svg" class="dark-invert" alt=""/> Stylus
   order: 7
 ---
 
@@ -37,8 +37,8 @@ parcel build style.styl
 
 To configure Stylus, create a `.stylusrc` file. To see the available options to configure stylus see the official [Stylus documentation](https://stylus-lang.com/docs/js.html).
 
-{% warning %}
+<warning>
 
 **Note**: `.stylusrc.js` is also supported for JavaScript-based configuration, but should be avoided when possible because it reduces the effectiveness of Parcel's caching. Use a JSON based configuration format (e.g. `.stylusrc`) instead.
 
-{% endwarning %}
+</warning>

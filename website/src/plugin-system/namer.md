@@ -1,5 +1,5 @@
 ---
-layout: layout.njk
+layout: ~/template/layout.njk
 eleventyNavigation:
   key: plugin-system-namer
   title: Namer
@@ -31,11 +31,11 @@ export default new Namer({
 });
 ```
 
-{% error %}
+<error>
 
 **Note**: This example does not ensure that all filenames are unique. If two images had the same filename in different directories, the build would fail.
 
-{% enderror %}
+</error>
 
 ## Content hashing
 
@@ -59,11 +59,11 @@ export default new Namer({
 });
 ```
 
-{% note %}
+<note>
 
 Hashes are also a good way to ensure that returned bundle names are unique, even when content hashing is disabled (e.g. in development, or with `--no-content-hash`). In this case, the `hashReference` is replaced with a hash of the original file path, which will not change over time.
 
-{% endnote %}
+</note>
 
 ## Targets
 
@@ -101,12 +101,12 @@ export default new Namer({
 
 Loading configuration from the user’s project should be done in the `loadConfig` method of a Namer plugin. See [Loading configuration](/plugin-system/authoring-plugins/#loading-configuration) for details on how to do this.
 
-{% warning %}
+<warning>
 
 **Note**: It's important to use Parcel's config loading mechanism so that the cache can be properly invalidated. Avoid loading files directly from the file system.
 
-{% endwarning %}
+</warning>
 
 ## Relevant API
 
-{% include "../../api/namer.html" %}
+<include src="namer.html"></include>

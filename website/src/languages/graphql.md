@@ -1,9 +1,9 @@
 ---
-layout: layout.njk
+layout: ~/template/layout.njk
 title: GraphQL
 eleventyNavigation:
   key: languages-graphql
-  title: <img src="/assets/lang-icons/graphql.svg" alt=""/> GraphQL
+  title: <img src="~/src/assets/lang-icons/graphql.svg" alt=""/> GraphQL
   order: 13
 ---
 
@@ -13,15 +13,15 @@ Parcel supports importing [GraphQL](https://graphql.org) queries defined in a se
 
 GraphQL files are imported into JavaScript as a string, which you can send to a server directly or use with whatever GraphQL library you like.
 
-{% sample %}
-{% samplefile "app.js" %}
+<sample>
+<sample-file name="app.js">
 
 ```js
 import query from './query.graphql';
 ```
 
-{% endsamplefile %}
-{% samplefile "query.graphql" %}
+</sample-file>
+<sample-file name="query.graphql">
 
 ```graphql
 {
@@ -32,8 +32,8 @@ import query from './query.graphql';
 }
 ```
 
-{% endsamplefile %}
-{% endsample %}
+</sample-file>
+</sample>
 
 ### Dependencies
 
@@ -54,8 +54,8 @@ or list the specific fragments you wish to import:
 
 Here is a full example showing how to use imports as part of a larger GraphQL query:
 
-{% sample %}
-{% samplefile "query.graphql" %}
+<sample>
+<sample-file name="query.graphql">
 
 ```graphql
 # import UserFragment from "user.graphql"
@@ -71,8 +71,8 @@ query UserQuery($id: ID) {
 }
 ```
 
-{% endsamplefile %}
-{% samplefile "user.graphql" %}
+</sample-file>
+<sample-file name="user.graphql">
 
 ```graphql
 fragment UserFragment on User {
@@ -81,8 +81,8 @@ fragment UserFragment on User {
 }
 ```
 
-{% endsamplefile %}
-{% samplefile "address.graphql" %}
+</sample-file>
+<sample-file name="address.graphql">
 
 ```graphql
 fragment AddressFragment on Address {
@@ -92,5 +92,5 @@ fragment AddressFragment on Address {
 }
 ```
 
-{% endsamplefile %}
-{% endsample %}
+</sample-file>
+</sample>

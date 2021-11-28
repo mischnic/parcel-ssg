@@ -1,5 +1,5 @@
 ---
-layout: layout.njk
+layout: ~/template/layout.njk
 eleventyNavigation:
   key: plugin-system-validator
   title: Validator
@@ -7,9 +7,9 @@ eleventyNavigation:
 summary: "A plugin type: Analyze assets and emit warnings and errors"
 ---
 
-{% warning %}
+<warning>
 The Validator API is experimental and therefore subject to change, even between minor updates.
-{% endwarning %}
+</warning>
 
 A validator is a plugin type that is used to validate assets, it is called on each asset and can throw errors or log warnings with diagnostics to validate the input. These can be linting issues, typing issues or similar.
 
@@ -101,4 +101,4 @@ export default new Validator({
 
 ## Relevant API
 
-{% include "../../api/validator.html" %}
+<include src="validator.html"></include>

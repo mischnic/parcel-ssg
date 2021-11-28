@@ -1,9 +1,9 @@
 ---
-layout: layout.njk
+layout: ~/template/layout.njk
 title: TypeScript
 eleventyNavigation:
   key: languages-typescript
-  title: <img src="/assets/lang-icons/typescript.svg" alt=""/> TypeScript
+  title: <img src="~/src/assets/lang-icons/typescript.svg" alt=""/> TypeScript
   order: 4
 ---
 
@@ -15,8 +15,8 @@ Parcel automatically transpiles TypeScript whenever you use a `.ts` or `.tsx` fi
 
 A `tsconfig.json` file can be used to configure some aspects of the transpilation. Currently, JSX options are supported, as well as the `experimentalDecorators` option. See the [TSConfig reference](https://www.typescriptlang.org/tsconfig) for details.
 
-{% sample %}
-{% samplefile "tsconfig.json" %}
+<sample>
+<sample-file name="tsconfig.json">
 
 ```json
 {
@@ -27,15 +27,15 @@ A `tsconfig.json` file can be used to configure some aspects of the transpilatio
 }
 ```
 
-{% endsamplefile %}
-{% endsample %}
+</sample-file>
+</sample>
 
 ### `isolatedModules`
 
 Because Parcel processes each file individually, it implicitly enables the [`isolatedModules`](https://www.typescriptlang.org/tsconfig#isolatedModules) option. This means that some TypeScript features like `const enum` that require cross-file type information to compile will not work. To be warned about usages of these features in your IDE and during type checking, you should enable this option in your `tsconfig.json`.
 
-{% sample %}
-{% samplefile "tsconfig.json" %}
+<sample>
+<sample-file name="tsconfig.json">
 
 ```json
 {
@@ -45,15 +45,15 @@ Because Parcel processes each file individually, it implicitly enables the [`iso
 }
 ```
 
-{% endsamplefile %}
-{% endsample %}
+</sample-file>
+</sample>
 
 ### TSC
 
 [TSC](https://www.typescriptlang.org/docs/handbook/compiler-options.html) is the official TypeScript compiler from Microsoft. While Parcel’s default transpiler for TypeScript is much faster than TSC, you may need to use TSC if you are using some configuration in `tsconfig.json` that Parcel doesn't support. In these cases, you can use the `@parcel/transformer-typescript-tsc` plugin by adding it to your `.parcelrc`.
 
-{% sample %}
-{% samplefile ".parcelrc" %}
+<sample>
+<sample-file name=".parcelrc">
 
 ```json/3
 {
@@ -64,8 +64,8 @@ Because Parcel processes each file individually, it implicitly enables the [`iso
 }
 ```
 
-{% endsamplefile %}
-{% endsample %}
+</sample-file>
+</sample>
 
 Even when using TSC, Parcel still processes each TypeScript file individually, so the note about about `isolatedModules` still applies. In addition, some resolution features such as `paths` are not currently supported by Parcel. The TSC transformer also does not perform any type checking ([see below](#type-checking)).
 
@@ -81,8 +81,8 @@ Parcel does not currently support the `baseUrl` or `paths` options in `tsconfig.
 
 When building a library, Parcel can extract the types from your entry point and generate a `.d.ts` file. Use the `types` field in `package.json` alongside a target such as `main` or `module` to enable this.
 
-{% sample %}
-{% samplefile "package.json" %}
+<sample>
+<sample-file name="package.json">
 
 ```json/3
 {
@@ -92,8 +92,8 @@ When building a library, Parcel can extract the types from your entry point and 
 }
 ```
 
-{% endsamplefile %}
-{% endsample %}
+</sample-file>
+</sample>
 
 See [Building a library with Parcel](/getting-started/library/) for more details.
 
@@ -101,8 +101,8 @@ See [Building a library with Parcel](/getting-started/library/) for more details
 
 By default, Parcel does not perform any type checking. The recommended way to type check is by using an editor with TypeScript support (such as VSCode), and using `tsc` to type check your code in CI. You can configure this using npm scripts to run alongside your build, tests, and linting.
 
-{% sample %}
-{% samplefile "package.json" %}
+<sample>
+<sample-file name="package.json">
 
 ```json/5
 {
@@ -116,15 +116,15 @@ By default, Parcel does not perform any type checking. The recommended way to ty
 }
 ```
 
-{% endsamplefile %}
-{% endsample %}
+</sample-file>
+</sample>
 
 ### Experimental validator plugin
 
 The `@parcel/validator-typescript` plugin is an experimental way to type check within your Parcel build. It runs in the background after bundles are generated. Make sure the `include` option in `tsconfig.json` includes all of your source files.
 
-{% sample %}
-{% samplefile ".parcelrc" %}
+<sample>
+<sample-file name=".parcelrc">
 
 ```json/3
 {
@@ -135,8 +135,8 @@ The `@parcel/validator-typescript` plugin is an experimental way to type check w
 }
 ```
 
-{% endsamplefile %}
-{% samplefile "tsconfig.json" %}
+</sample-file>
+<sample-file name="tsconfig.json">
 
 ```json
 {
@@ -148,11 +148,11 @@ The `@parcel/validator-typescript` plugin is an experimental way to type check w
 }
 ```
 
-{% endsamplefile %}
-{% endsample %}
+</sample-file>
+</sample>
 
-{% warning %}
+<warning>
 
 **Warning**: Parcel validator plugins are experimental and may be unstable.
 
-{% endwarning %}
+</warning>

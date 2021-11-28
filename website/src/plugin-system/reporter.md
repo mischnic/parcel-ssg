@@ -1,5 +1,5 @@
 ---
-layout: layout.njk
+layout: ~/template/layout.njk
 eleventyNavigation:
   key: plugin-system-reporter
   title: Reporter
@@ -25,11 +25,11 @@ export default new Reporter({
 });
 ```
 
-{% warning %}
+<warning>
 
 **Note**: Do not use `console.log` in Reporter plugins. Parcel overrides `console` methods and routes messages to Reporter plugins. This can create an infinite loop in your Reporter. If you intend to write to stdout/stderr, use `process.stdout`/`process.stderr` instead. If another reporter will handle log events, use the provided `logger`. See [Logging](/plugin-system/logging/) for more details.
 
-{% endwarning %}
+</warning>
 
 ## Build start
 
@@ -138,11 +138,11 @@ export default new Reporter({
 });
 ```
 
-{% error %}
+<error>
 
 **Note**: Do not use `console.log` in Reporter plugins, especially when handling `log` events. Parcel overrides `console` methods and routes messages to Reporter plugins. This will create an infinite loop in your Reporter. Use `process.stdout`/`process.stderr` instead.
 
-{% enderror %}
+</error>
 
 ## Watcher events
 
@@ -164,4 +164,4 @@ export default new Reporter({
 
 ## Relevant API
 
-{% include "../../api/reporter.html" %}
+<include src="reporter.html"></include>

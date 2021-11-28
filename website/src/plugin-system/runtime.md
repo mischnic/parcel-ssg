@@ -1,5 +1,5 @@
 ---
-layout: layout.njk
+layout: ~/template/layout.njk
 eleventyNavigation:
   key: plugin-system-runtime
   title: Runtime
@@ -7,9 +7,9 @@ eleventyNavigation:
 summary: "A plugin type: Programmatically insert assets out of thin air into bundles"
 ---
 
-{% warning %}
+<warning>
 The Runtime API is experimental and therefore subject to change, even between minor updates.
-{% endwarning %}
+</warning>
 
 Runtimes accept a bundle and return assets to be inserted into that bundle.
 
@@ -26,4 +26,4 @@ export default new Runtime({
 
 ## Relevant API
 
-{% include "../../api/runtime.html" %}
+<include src="runtime.html"></include>

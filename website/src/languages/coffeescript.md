@@ -1,9 +1,9 @@
 ---
-layout: layout.njk
+layout: ~/template/layout.njk
 title: CoffeeScript
 eleventyNavigation:
   key: languages-coffee
-  title: <img src="/assets/lang-icons/coffeescript.svg" class="dark-invert" alt=""/> CoffeeScript
+  title: <img src="~/src/assets/lang-icons/coffeescript.svg" class="dark-invert" alt=""/> CoffeeScript
   order: 5
 ---
 
@@ -15,22 +15,22 @@ CoffeeScript is compiled to JavaScript and processed as described in the [JavaSc
 
 ## Example usage
 
-{% sample %}
-{% samplefile "index.html" %}
+<sample>
+<sample-file name="index.html">
 
 ```html
 <script type="module" src="app.coffee"></script>
 ```
 
-{% endsamplefile %}
-{% samplefile "app.coffee" %}
+</sample-file>
+<sample-file name="app.coffee">
 
 ```coffeescript
 console.log 'Hello world!'
 ```
 
-{% endsamplefile %}
-{% endsample %}
+</sample-file>
+</sample>
 
 ### URL dependencies
 

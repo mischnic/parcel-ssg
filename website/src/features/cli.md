@@ -1,5 +1,5 @@
 ---
-layout: layout.njk
+layout: ~/template/layout.njk
 title: CLI
 eleventyNavigation:
   key: features-cli
@@ -17,13 +17,13 @@ The `serve` command starts a development server, which will automatically rebuil
 parcel src/index.html
 ```
 
-{% warning %}
+<warning>
 
 **Note**: If you have specified multiple HTML entry points and none of them has the output path `/index.html`, the dev server will respond to `http://localhost:1234/` with a 404, since Parcel doesn't know which HTML bundle is the index.
 
 In this case, load the file directly, e.g. `http://localhost:1234/a.html` and `http://localhost:1234/b.html`.
 
-{% endwarning %}
+</warning>
 
 See [Development](/features/development/) for more details.
 
@@ -49,11 +49,11 @@ See [Production](/features/production/) for more details.
 
 All Parcel commands accept one or more entries. Entries may be relative or absolute paths, or globs. They may also be directories containing a `package.json` with a `source` field. If entries are omitted entirely, the `source` field in the `package.json` in the current working directory is used. See [Entries](/features/targets/#entries) in the Targets documentation for more details.
 
-{% warning %}
+<warning>
 
 **Note**: Be sure to wrap globs in single quotes to ensure that they are not resolved by your shell and are passed to Parcel directly. This ensures that Parcel can automatically pick up newly created files matching globs without needing to restart.
 
-{% endwarning %}
+</warning>
 
 ```bash
 # Single file

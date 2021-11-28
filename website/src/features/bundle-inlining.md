@@ -1,5 +1,5 @@
 ---
-layout: layout.njk
+layout: ~/template/layout.njk
 title: Bundle inlining
 eleventyNavigation:
   key: features-bundle-inlining
@@ -42,8 +42,8 @@ One example where this could be useful is inlining small images inside a CSS fil
 
 In the Parcel config, it looks like the following. The `"..."` in each pipeline tells Parcel to run the normal transformers that match the file first, and then run `@parcel/transformer-inline-string`.
 
-{% sample %}
-{% samplefile "@parcel/config-default" %}
+<sample>
+<sample-file name="@parcel/config-default">
 
 ```json
 {
@@ -57,8 +57,8 @@ In the Parcel config, it looks like the following. The `"..."` in each pipeline 
 }
 ```
 
-{% endsamplefile %}
-{% endsample %}
+</sample-file>
+</sample>
 
 You can create your own named pipelines to customize inlining however you’d like, reusing the above plugins or creating custom ones. See [Parcel configuration](/features/plugins/) for more details.
 
@@ -88,8 +88,8 @@ See the [Plugin system](/plugin-system/overview/) docs for more details on writi
 
 You may want to inline the contents of a bundle as a [blob URL](https://developer.mozilla.org/en-US/docs/Web/API/URL/createObjectURL), which can be passed to many web APIs in the browser. The `@parcel/optimizer-blob-url` plugin can be used to do this, in combination `@parcel/transformer-inline`. A named pipeline for these is not included by default, so you'll need to create one in your `.parcelrc`.
 
-{% sample %}
-{% samplefile ".parcelrc" %}
+<sample>
+<sample-file name=".parcelrc">
 
 ```json
 {
@@ -103,8 +103,8 @@ You may want to inline the contents of a bundle as a [blob URL](https://develope
 }
 ```
 
-{% endsamplefile %}
-{% endsample %}
+</samplefile>
+</sample>
 
 ## Inlining without transforming
 
