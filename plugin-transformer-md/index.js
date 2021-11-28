@@ -38,15 +38,21 @@ async function rehypeResolveUnmarkNodes() {
           for (let name of ["src", "href"]) {
             if (
               node.properties[name] != null &&
-              node.properties[name][0] !== "#"
+              node.properties[name][0] !== "#" &&
+              // TODO
+              !node.properties[name].startsWith("http")
             ) {
               let specifier = node.properties[name];
-              let result = await resolve(layoutPath, specifier).catch(() =>
-                // TODO why is there no option for specifierType on resolve?
-                resolve(layoutPath, "./" + specifier)
-              );
-              let rel = path.posix.relative(path.dirname(assetPath), result);
-              node.properties[name] = rel.startsWith("../") ? rel : "./" + rel;
+              try {
+                let result = await resolve(layoutPath, specifier).catch(() =>
+                  // TODO why is there no option for specifierType on resolve?
+                  resolve(layoutPath, "./" + specifier)
+                );
+                let rel = path.posix.relative(path.dirname(assetPath), result);
+                node.properties[name] = rel.startsWith("../")
+                  ? rel
+                  : "./" + rel;
+              } catch (e) {}
             }
           }
         })
@@ -109,12 +115,23 @@ async function mdToHtml(asset, config) {
   return { content: result.value, frontmatter };
 }
 
-function renderTemplate(template, markdown, frontmatter) {
-  let env = nunjucks.configure({ autoescape: true });
-  return env.renderString(template, {
+async function renderTemplate({
+  layout,
+  layoutPath,
+  config,
+  content,
+  frontmatter,
+}) {
+  let env = new nunjucks.Environment(
+    new nunjucks.FileSystemLoader(path.dirname(layoutPath)),
+    {
+      autoescape: true,
+    }
+  );
+  config?.(env);
+  return env.renderString(layout, {
     ...frontmatter,
-    // pages,
-    content: markdown,
+    content,
   });
 }
 
@@ -131,7 +148,7 @@ async function loadParentConfigs({ config, options }) {
     }
   }
   let merged = {};
-  for (let i = result.length - 1; i--; i >= 0) {
+  for (let i = result.length - 1; i >= 0; i--) {
     merged = { ...merged, ...result[i] };
   }
   return merged;
@@ -143,8 +160,10 @@ module.exports = new Transformer({
       config,
       options,
     });
-    let pluginData = {};
+    // TODO actually relative to template
+    let nunjucksConfig = await config.getConfig([".nunjucksrc.js"]);
 
+    let pluginData = {};
     let remark = await config.getConfig([".remarkrc", ".remarkrc.js"]);
     let rehype = await config.getConfig([".rehyperc", ".rehyperc.js"]);
     let remarkResult = { plugins: [] };
@@ -185,6 +204,7 @@ module.exports = new Transformer({
     return {
       pluginData,
       data,
+      nunjucks: nunjucksConfig?.contents,
       remark: remarkResult,
       rehype: rehypeResult,
     };
@@ -192,18 +212,32 @@ module.exports = new Transformer({
 
   async transform({ asset, config, resolve, options }) {
     let { content, frontmatter } = await mdToHtml(asset, config);
-    frontmatter = { ...config.data, ...config.pluginData, ...frontmatter };
+    frontmatter = {
+      ...config.data,
+      ...config.pluginData,
+      ...frontmatter,
+      page: {
+        inputPath: path.posix.relative(options.projectRoot, asset.filePath),
+      },
+    };
 
     asset.meta.frontmatter = frontmatter ?? {};
 
     if (frontmatter?.layout != null) {
       let layoutPath = await resolve(asset.filePath, frontmatter?.layout);
       asset.invalidateOnFileChange(layoutPath);
-      content = renderTemplate(
-        await options.inputFS.readFile(layoutPath, "utf8"),
-        content,
-        frontmatter
+      let layout = await options.inputFS.readFile(layoutPath, "utf8");
+      layout = layout.replace(
+        /{% ssg %}([\s\S]*?){% endssg %}/g,
+        "{% raw %}<!--ssg $1 ssg-->{% endraw %}"
       );
+      content = await renderTemplate({
+        layout,
+        layoutPath,
+        config: config.nunjucks,
+        content,
+        frontmatter,
+      });
       content = await resolveAndUnmark({
         content,
         assetPath: asset.filePath,

@@ -1,8 +1,12 @@
 ## TODO
 
-- eleventy's `permalink`?
+- eleventy's `permalink`
+- `title: <img src="icon.svg"> Foo` doesn't work because its only inserted in the optimizer
+- do `{% ssg %}` properly, not with a regex
+
+"Long term":
+
 - using different templating languages (ejs, mdx, https://www.11ty.dev/docs/languages/) would require different transformers and/or optimizers
-- should rehype be run on the markdown output or at the end (after the template)?
 
 ## Problems
 
@@ -49,10 +53,14 @@ common case of specifying styles and scripts in the template would work correctl
 
 Available properties in the local template:
 
+- ...everything specified in parent `_data.json` files
 - ...everything specified in frontmatter
+- ...everything generated in plugins
+- `page.inputPath`: relative(project root, this)
 - `content`: the markdown file processed with remark and rehype
 
 Available properties in the global template (in `{% raw %}<!-- ssg ... ssg-->{% endraw %}`):
 
 - ...everything specified in frontmatter
-- `pages`: list of generated pages `Array<{ url: string, data: mixed }>` (`data` is the frontmatter)
+- `page.url`: absolute bundle url
+- `collections.*`: list of generated pages `Array<{ url: string, data: mixed }>` (`data` is the frontmatter)

@@ -1,3 +1,11 @@
+const escText = (text) => {
+  return String(text)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
+};
+
 function collectTocPlugin({ data }) {
   const visit = import("unist-util-visit");
   const _toString = import("hast-util-to-string");
@@ -44,7 +52,7 @@ function collectTocPlugin({ data }) {
         toc += "<ol>\n";
         for (let child of list) {
           toc += "<li>\n";
-          toc += `<a href="#${child.id}">${child.content}</a>`;
+          toc += `<a href="#${child.id}">${escText(child.content)}</a>`;
           if (child.children.length > 0) {
             walk(child.children);
           }
