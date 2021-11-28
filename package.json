@@ -2,6 +2,7 @@
   "private": true,
   "workspaces": [
     "example",
+    "plugin-namer-ssg",
     "plugin-optimizer-ssg",
     "plugin-transformer-md"
   ],

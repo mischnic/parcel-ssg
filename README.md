@@ -1,8 +1,12 @@
 ## TODO
 
-- eleventy's `permalink`
+- enable frontmatter for HTML/NJK (without markdown parsing inbetween)
 - `title: <img src="icon.svg"> Foo` doesn't work because its only inserted in the optimizer
-- do `{% ssg %}` properly, not with a regex
+- parse `{% ssg %}` properly, not with a regex
+
+ecosystem problems:
+
+- remark-prism doesnt's support marking specific lines
 
 "Long term":
 
@@ -10,9 +14,9 @@
 
 ## Problems
 
-### Packagers don't invalidate when bundlegraph changes
+### Packagers/Optimizers don't invalidate when bundlegraph changes
 
-So adding a page or changing frontmatter that is used in the second tempalte doesn't update the nav bar.
+So adding a page or changing frontmatter that is used in the second template doesn't update the nav bar.
 
 ### Two stages
 

@@ -2,6 +2,7 @@
 layout: ~/assets/layout.njk
 title: Home
 order: 1
+permalink: index.html
 ---
 
 home
