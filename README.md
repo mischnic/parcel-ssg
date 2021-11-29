@@ -1,6 +1,5 @@
 ## TODO
 
-- enable frontmatter for HTML/NJK (without markdown parsing inbetween)
 - `title: <img src="icon.svg"> Foo` doesn't work because its only inserted in the optimizer
 - parse `{% ssg %}` properly, not with a regex
 

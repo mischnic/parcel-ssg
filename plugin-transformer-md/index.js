@@ -1,8 +1,8 @@
 "use strict";
 const { Transformer } = require("@parcel/plugin");
-const yaml = require("js-yaml");
 const nunjucks = require("nunjucks");
 const path = require("path");
+const matter = require("gray-matter");
 
 const ATTRIBUTE_CONTENT = "dataParcelElementContent";
 
@@ -75,24 +75,14 @@ async function resolveAndUnmark({ content, assetPath, layoutPath, resolve }) {
   return result.value;
 }
 
-async function mdToHtml(asset, config) {
+async function mdToHtml(assetPath, content, config, hasTemplate) {
   const { VFile } = await import("vfile");
   const { remark } = await import("remark");
-  const { default: remarkFrontMatter } = await import("remark-frontmatter");
   const { default: remarkRehype } = await import("remark-rehype");
   const { default: rehypeRaw } = await import("rehype-raw");
   const { default: rehypeStringify } = await import("rehype-stringify");
 
   let processor = remark();
-
-  let frontmatter;
-  processor = processor.use(remarkFrontMatter).use(() => (tree) => {
-    let node = tree.children.find((c) => c.type === "yaml");
-    if (node) {
-      frontmatter = yaml.load(node.value);
-    }
-  });
-
   if (config?.remark?.plugins) {
     for (let [plugin, options] of config?.remark?.plugins) {
       processor = processor.use(plugin, options);
@@ -107,12 +97,14 @@ async function mdToHtml(asset, config) {
     }
   }
 
-  processor = processor.use(await rehypeMarkNodes());
+  if (hasTemplate) {
+    processor = processor.use(await rehypeMarkNodes());
+  }
 
   let result = await processor
     .use(rehypeStringify, { allowDangerousHtml: true })
-    .process(new VFile({ path: asset.filePath, value: await asset.getCode() }));
-  return { content: result.value, frontmatter };
+    .process(new VFile({ path: assetPath, value: content }));
+  return result.value;
 }
 
 async function renderTemplate({
@@ -211,7 +203,17 @@ module.exports = new Transformer({
   },
 
   async transform({ asset, config, resolve, options }) {
-    let { content, frontmatter } = await mdToHtml(asset, config);
+    let code = await asset.getCode();
+    if (!matter.test(code)) {
+      return [asset];
+    }
+
+    // Passing options to disable internal cache
+    let { data: frontmatter, content } = matter(code, {});
+    let hasTemplate = config.data.layout != null || frontmatter?.layout != null;
+    if (asset.type === "md") {
+      content = await mdToHtml(asset.filePath, content, config, hasTemplate);
+    }
     frontmatter = {
       ...config.data,
       ...config.pluginData,
@@ -223,7 +225,7 @@ module.exports = new Transformer({
 
     asset.meta.frontmatter = frontmatter ?? {};
 
-    if (frontmatter?.layout != null) {
+    if (hasTemplate) {
       let layoutPath = await resolve(asset.filePath, frontmatter?.layout);
       asset.invalidateOnFileChange(layoutPath);
       let layout = await options.inputFS.readFile(layoutPath, "utf8");

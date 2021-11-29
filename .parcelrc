@@ -1,7 +1,7 @@
 {
   "extends": "@parcel/config-default",
   "transformers": {
-    "*.md": ["parcel-transformer-md"]
+    "*.{html,md}": ["parcel-transformer-md", "..."]
   },
   "optimizers": {
     "*.html": ["parcel-optimizer-ssg", "..."]
