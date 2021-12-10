@@ -1,7 +1,6 @@
 ## TODO
 
-- `title: <img src="icon.svg"> Foo` doesn't work because its only inserted in the optimizer
-- parse `{% ssg %}` properly, not with a regex
+- parse and replace `{% ssg %}` properly, not with a regex
 
 ecosystem problems:
 
@@ -17,27 +16,19 @@ ecosystem problems:
 
 So adding a page or changing frontmatter that is used in the second template doesn't update the nav bar.
 
-### Two stages
+A loadConfig method that is passed the bundlegraph would invalidate all bundles on every change. Though it could be cached per worker, it would need to run on every change (even if the list doesn't change). But very few changes would actually cause this
 
-1. markdown + template -> HTML in transformer
-2. to use global information (e.g. list of pages), wrap like this
+### Blocker: A page that lists the contents of all pages
 
-```
-        {% raw %}<!--ssg
-          {%- for page in pages -%}
-          <li>
-            <a href="{{ page.url }}">{{ page.data.title }}</a>
-          </li>
-          {%- endfor -%}
-        ssg-->{% endraw %}
-```
+= generating an RSS feed
 
-which just gets passed through the markdown and html transformer. The optimizer then removes the comment and evaluates the template inside.
+A optimizer doesn't have access to other packager's outputs.
 
-This is some very ugly syntax.
+### Blocker: `title: <img src="icon.svg"> Foo`
 
-But the distinction of local vs global template does make sense. The local one can add arbitrary dependencies to other files, while the global one
-has access to the page list.
+Adding that title in the optimizer when generating the hashmap doesn't work because the dependency is never collected.
+
+But furthermore, even if this were added as a dependency and replaced with `title: <img src="238239ae83f"> Foo`, reading this information from a different bundle and inserting it into "this" bundle (from the optimizer's perspective) would mean that a bundle contains a dependency hash reference to a depenedency that is not part of the bundle according to the bundle graph. I assume this breaks caching at the very least, if it does work at all right now.
 
 ### Relative dependencies
 
@@ -45,14 +36,19 @@ The two stage approach solves the problem that two bundles (markdown, template) 
 
 The downside is that the template is inlined into the markdown, so relative URLs cannot be used in the template. This isn't ideal but not really a dealbreaker.
 
-One solution would be to mark all HTML elements that come from the markdown file, and then in the final HTML (after instantiating the template with the content)
-rewrite all `<img src>`/`<link href>`/... (this needs to be the same list as in the HTML transformer) specifiers to point to the correct file (and removing the node marking again).
-The marking could work via a `data-parcel-element-content` attribute.
+All HTML elements coming from the Markdown content are marked with a `data-parcel-element-content` attribute.
 
-If the template uses something from the frontmatter that references a template, the user would have to take care of re-rewriting the specifier. But the most
-common case of specifying styles and scripts in the template would work correctly and without any special syntax.
+Then after instantiating the template, all elements without `data-parcel-element-content` are re-resolved to be relative to `asset.filePath` instead.
 
-## Templates
+This currently only works for `href` and `src`. In theory, it should reuse the detection visitor from the HTML transformer to e.g. handle `srcset`.
+
+## Reference
+
+Possible config files: `.remark[.js]`, `.rehype[.js]`, `.nunjucksrc.js`
+
+Eleventy-style data files are `_data.json` (all data files in parent directories are merged into `asset.meta.frontmatter`)
+
+### Templates
 
 Available properties in the local template:
 
@@ -67,3 +63,35 @@ Available properties in the global template (in `{% raw %}<!-- ssg ... ssg-->{% 
 - ...everything specified in frontmatter
 - `page.url`: absolute bundle url
 - `collections.*`: list of generated pages `Array<{ url: string, data: mixed }>` (`data` is the frontmatter)
+
+### Two stages
+
+1. markdown + template -> HTML in transformer
+2. to use global information (e.g. list of pages), wrap like this
+
+```
+        {% ssg %}
+          {%- for page in pages -%}
+          <li>
+            <a href="{{ page.url }}">{{ page.data.title }}</a>
+          </li>
+          {%- endfor -%}
+        {% endssg %}
+```
+
+or verbosely
+
+```
+        {% raw %}<!--ssg
+          {%- for page in pages -%}
+          <li>
+            <a href="{{ page.url }}">{{ page.data.title }}</a>
+          </li>
+          {%- endfor -%}
+        ssg-->{% endraw %}
+```
+
+which just gets passed through the markdown and html transformer. The optimizer then removes the comment and evaluates the template inside.
+
+But the distinction of local vs global template does make sense. The local one can add arbitrary dependencies to other files, while the global one
+has access to the page list.
