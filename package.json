@@ -11,9 +11,12 @@
     "postinstall": "patch-package"
   },
   "devDependencies": {
-    "@parcel/config-default": "^2.0.1",
-    "@parcel/transformer-sass": "^2.0.1",
-    "parcel": "^2.0.1",
-    "patch-package": "^6.4.7"
+    "@parcel/config-default": "^2.7.0",
+    "@parcel/transformer-sass": "^2.7.0",
+    "parcel": "^2.7.0",
+    "patch-package": "^6.5.0"
+  },
+  "alias": {
+    "preact/jsx-dev-runtime": "preact/jsx-runtime"
   }
 }
