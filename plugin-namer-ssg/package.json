@@ -2,9 +2,9 @@
     "name": "parcel-namer-ssg",
     "version": "0.0.0",
     "engines": {
-        "parcel": "^2.0.0"
+        "parcel": "2.0.0-nightly.1188+c4a898c0f"
     },
     "dependencies": {
-        "@parcel/plugin": "^2.0.0"
+        "@parcel/plugin": "2.0.0-nightly.1190"
     }
 }

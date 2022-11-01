@@ -12,12 +12,6 @@ ecosystem problems:
 
 ## Problems
 
-### Packagers/Optimizers don't invalidate when bundlegraph changes
-
-So adding a page or changing frontmatter that is used in the second template doesn't update the nav bar.
-
-A loadConfig method that is passed the bundlegraph would invalidate all bundles on every change. Though it could be cached per worker, it would need to run on every change (even if the list doesn't change). But very few changes would actually cause this
-
 ### Blocker: A page that lists the contents of all pages
 
 = generating an RSS feed

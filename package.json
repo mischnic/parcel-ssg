@@ -11,9 +11,9 @@
     "postinstall": "patch-package"
   },
   "devDependencies": {
-    "@parcel/config-default": "^2.7.0",
-    "@parcel/transformer-sass": "^2.7.0",
-    "parcel": "^2.7.0",
+    "@parcel/config-default": "2.0.0-nightly.1190",
+    "@parcel/transformer-sass": "2.0.0-nightly.1190",
+    "parcel": "2.0.0-nightly.1188",
     "patch-package": "^6.5.0"
   },
   "alias": {
