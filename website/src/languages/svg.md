@@ -130,7 +130,7 @@ Parcel supports external references via the `href` and `xlink:href` attributes o
 External resources referenced via the `url()` function in presentation attributes such as `fill`, `stroke`, `clip-path`, and many others are also supported.
 
 ```xml
-<circle 
+<circle
   cx="50" cy="40" r="35"
   fill="url(external.svg#gradient)" />
 ```
@@ -185,11 +185,11 @@ CSS files referenced via `@import`, and JavaScript referenced via `import` will 
 
 ## Inline `style` attribute
 
-The [`style`](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/style) attribute can be used on any SVG element to define CSS styles. Parcel will process the inline CSS, and insert the result back into the `style` attribute. This includes following referenced URLs, as well as applying [PostCSS](/languages/css/#postcss) plugins like autoprefixer.
+The [`style`](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/style) attribute can be used on any SVG element to define CSS styles. Parcel will process the inline CSS, and insert the result back into the `style` attribute. This includes following referenced URLs, as well as transforming modern CSS for your target browsers.
 
 ```xml
-<circle 
-  cx="50" cy="40" r="35" 
+<circle
+  cx="50" cy="40" r="35"
   style="fill: url(external.svg#gradient)" />
 ```
 

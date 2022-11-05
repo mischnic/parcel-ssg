@@ -24,7 +24,7 @@ export default new Resolver({
       };
     }
 
-    // Let the next resolver in the pipeline handle 
+    // Let the next resolver in the pipeline handle
     // this dependency.
     return null;
   }

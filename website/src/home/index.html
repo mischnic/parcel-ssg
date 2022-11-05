@@ -67,7 +67,7 @@ permalink: index.html
           <div class="lg:mr-12">
             <div class="flex flex-row items-center">
               <h2 class="text-4xl md:text-5xl xl:text-6xl font-extrabold text-white my-5 lg:my-10 leading-tight">
-                The zero configuration build tool for 
+                The zero configuration build tool for
                 <ul id="languageMarquee" class="inline-block align-top relative z-0 whitespace-nowrap">
                   <li><span class="text-green-400">the web</span>.</li>
                   <li><span class="text-cyan-400">JavaScript</span>.</li>
@@ -109,7 +109,7 @@ permalink: index.html
                 #languageMarquee li:first-child {
                   transform: translateY(0);
                   opacity: 1;
-                  animation: 
+                  animation:
                     var(--animation-duration) fade-up-first 2650ms ease-in-out,
                     var(--animation-duration) fade-up calc(2650ms + var(--animation-duration)) ease-in-out infinite;
                 }
@@ -117,7 +117,7 @@ permalink: index.html
                 #languageMarquee li:last-child {
                   position: static;
                 }
-                
+
                 @keyframes fade-up {
                   0% {
                     opacity: 0;
@@ -221,7 +221,7 @@ permalink: index.html
               let file = filenames[Math.floor(Math.random() * filenames.length)];
               let time = Math.floor(Math.random() * 600) + 45;
               let spins = Math.floor(time / 80);
-              
+
               for (let i = 0; i < spins; i++) {
                 heroStatus.textContent = `${spinners[i % spinners.length]} Building ${file}...`;
                 await sleep(80);
@@ -288,6 +288,7 @@ permalink: index.html
       <include src="optimization.html"></include>
       <include src="targets.html"></include>
       <include src="scalable.html"></include>
+      <include src="open-source.html"></include>
     </main>
     <footer class="max-w-screen-lg mx-auto px-6 md:px-8 mt-32 dark:text-gray-300">
       <div class="flex flex-wrap mb-10 gap-x-20 gap-y-10 justify-start px-safe">

@@ -21,7 +21,7 @@ export default new Transformer({
     let source = await asset.getCode();
     let sourceMap = await asset.getMap();
 
-    // Run it through some compiler, and set the results 
+    // Run it through some compiler, and set the results
     // on the asset.
     let {code, map} = compile(source, sourceMap);
     asset.setCode(code);
@@ -99,7 +99,7 @@ export default new Transformer({
   async transform({asset}) {
     let code = await asset.getCode();
     let deps = code.matchAll(/import "(.*?)"/g);
-    
+
     for (let dep of deps) {
       asset.addDependency({
         specifier: dep,
@@ -135,8 +135,8 @@ export default new Transformer({
   async transform({asset}) {
     let code = await asset.getCode();
     let result = code.replace(/import "(.*?)"/g, (m, dep) => {
-      // Replace the original specifier with a dependency id 
-      // as a placeholder. This will be replaced later with 
+      // Replace the original specifier with a dependency id
+      // as a placeholder. This will be replaced later with
       // the final bundle URL.
       let depId = asset.addURLDependency(dep);
       return `import "${depId}"`;
@@ -162,7 +162,7 @@ import semver from 'semver';
 
 export default new Transformer({
   async canReuseAST({ast}) {
-    return ast.type === 'my-compiler' 
+    return ast.type === 'my-compiler'
       && semver.satisfies(ast.version, '^1.0.0');
   },
   async parse({asset}) {

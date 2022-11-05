@@ -113,7 +113,7 @@ In addition, classic scripts do not support synchronous imports or exports via e
 
 Parcel matches browser behavior for classic scripts and modules. If you wish to use imports or exports within your code, you’ll need to use `<script type="module">` to reference your JavaScript from an HTML file. For workers, use the `{type: 'module'}` option (see below). If this is missing, you'll see a diagnostic like the one below.
 
-![Screenshot of an error message showing "Browser scripts cannot have imports or exports. Add the type='module' attribute to the script tag."](~/src/blog/rc0/script-module-error.png)
+![Screenshot of an error message showing "Browser scripts cannot have imports or exports. Add the type='module' attribute to the script tag."](~/src//blog/rc0/script-module-error.png)
 
 ## `import.meta`
 

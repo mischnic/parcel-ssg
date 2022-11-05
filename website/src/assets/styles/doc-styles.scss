@@ -1,31 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import "highlight.css";
+@import "mixins.scss";
+@import "highlight.scss";
 @import "search.scss";
-
-@mixin transition-background-color {
-  .loaded & {
-    transition: background 0.2s ease-in-out;
-  }
-}
-
-@mixin transition-color {
-  .loaded & {
-    transition: color 0.2s ease-in-out;
-  }
-}
-
-@mixin transition-filter {
-  transition: filter 0.2s ease-in-out;
-}
-
-@mixin transition-colors {
-  .loaded & {
-    transition: background 0.2s ease-in-out, color 0.2s ease-in-out,
-      border-color 0.2s ease-in-out, text-decoration-color 0.2s ease-in-out;
-  }
-}
 
 html {
   scroll-padding-top: 80px;
@@ -79,7 +57,7 @@ body {
 
   & > div {
     padding: 0.5rem;
-    @apply bg-white bg-opacity-80 dark:bg-black dark:bg-opacity-70 rounded-r-md; 
+    @apply bg-white bg-opacity-80 dark:bg-black dark:bg-opacity-70 rounded-r-md;
     @include transition-background-color;
   }
 
@@ -129,7 +107,7 @@ body {
     }
 
     em {
-      @apply text-sky-900 dark:text-sky-100 block whitespace-nowrap overflow-hidden overflow-ellipsis;
+      @apply text-sky-900 dark:text-sky-100 block whitespace-nowrap overflow-hidden text-ellipsis;
       @include transition-colors;
     }
 
@@ -149,6 +127,16 @@ body {
 
     pre {
       @apply border-gray-200 dark:border-gray-800 my-2;
+    }
+  }
+
+  &.warning,
+  &.error {
+    .well {
+      @apply bg-transparent border-none ;
+      .assets {
+        @apply bg-opacity-10 rounded-md;
+      }
     }
   }
 
@@ -302,7 +290,7 @@ body {
     .hamburger-button {
       @apply w-6 h-6 mr-4 flex-shrink-0 lg:hidden;
     }
-    
+
     .logo {
       @apply hidden xs:flex sm:mr-16;
       align-items: center;
@@ -458,7 +446,8 @@ body {
   @apply py-8 xl:pr-60 lg:pl-64;
 
   .blog &,
-  &.docs-home {
+  &.docs-home,
+  &.plugin-search {
     @apply pr-0;
   }
 
@@ -481,7 +470,7 @@ body {
     pointer-events: none;
   }
 
-  &:not(.docs-home) > article a {
+  &:not(.docs-home, .plugin-search) > article a:not(.npm) {
     @apply text-blue-700 hover:text-blue-500 dark:text-blue-400 dark:hover:text-blue-300 focus:outline-none focus:underline focus:text-blue-500 dark:focus:text-blue-300;
     @include transition-color;
   }
@@ -514,6 +503,10 @@ body {
     @apply max-w-5xl;
   }
 
+  &.plugin-search > article {
+    @apply max-w-4xl;
+  }
+
   h1,
   h2,
   h3,
@@ -540,9 +533,13 @@ body {
     @apply sm:text-5xl lg:text-6xl;
   }
 
+  &.plugin-search h1 {
+    @apply sm:text-4xl lg:text-5xl;
+  }
+
   h2,
   h2 + .header-anchor {
-    @apply text-2xl;  
+    @apply text-2xl;
   }
 
   h2 + .header-anchor {
@@ -624,6 +621,12 @@ body {
     p, ul, ol, table {
       @apply my-4;
     }
+
+    ul, ol {
+      ul, ol {
+        @apply my-1;
+      }
+    }
   }
 
   :not(pre) > code {
@@ -632,13 +635,13 @@ body {
   }
 
   p > code,
-  p a code,
+  a code,
   li > code,
   td code {
     @apply text-base sm:text-sm;
   }
 
-  p a code {
+  a code {
     @apply text-blue-700 hover:text-blue-500 dark:text-blue-300 dark:hover:text-blue-200 transition-colors;
     text-decoration: underline;
   }
@@ -680,7 +683,7 @@ body {
     margin: 0 0 0 2em;
   }
 
-  img, video {
+  img:not(.inline), video {
     max-width: 100%;
     border-radius: 6px;
   }
@@ -736,6 +739,7 @@ body {
       page-break-inside: avoid;
     }
 
+    /*
     @page :left {
       margin: 15mm 20mm 15mm 10mm;
     }
@@ -743,6 +747,7 @@ body {
     @page :right {
       margin: 15mm 10mm 15mm 20mm;
     }
+    */
 
     p,
     h2,

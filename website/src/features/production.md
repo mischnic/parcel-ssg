@@ -23,7 +23,7 @@ Parcel includes minifiers for JavaScript, CSS, HTML, and SVG out of the box. Min
 
 By default, minification is enabled when using the `parcel build` command. You can use the `--no-optimize` CLI flag to disable minification and other optimizations if needed.
 
-Parcel uses [terser](https://github.com/fabiosantoscode/terser) to minify JavaScript, [cssnano](http://cssnano.co/) for CSS, [htmlnano](https://github.com/posthtml/htmlnano) for HTML, and [svgo](https://github.com/svg/svgo) for SVG. If needed, you can configure these tools using a `.terserrc`, `.cssnanorc`, `.htmlnanorc`, or `svgo.config.json` config file. See the docs for [JavaScript](/languages/javascript/), [CSS](/languages/css/), [HTML](/languages/html), and [SVG](/languages/svg/) for more details.
+Parcel uses [terser](https://github.com/fabiosantoscode/terser) to minify JavaScript, [@parcel/css](https://github.com/parcel-bundler/parcel-css) for CSS, [htmlnano](https://github.com/posthtml/htmlnano) for HTML, and [svgo](https://github.com/svg/svgo) for SVG. If needed, you can configure these tools using a `.terserrc`, `.htmlnanorc`, or `svgo.config.json` config file. See the docs for [JavaScript](/languages/javascript/), [CSS](/languages/css/), [HTML](/languages/html), and [SVG](/languages/svg/) for more details.
 
 ### Tree shaking
 
@@ -59,7 +59,7 @@ Parcel supports resizing, converting, and optimizing images. You can use query p
 </picture>
 ```
 
-Resizing and converting images occurs both in development and production mode, so you can test with the correct image dimentions and formats as well. See the [Image transformer](/recipes/image/) docs for more details.
+Resizing and converting images occurs both in development and production mode, so you can test with the correct image dimensions and formats as well. See the [Image transformer](/recipes/image/) docs for more details.
 
 Parcel also includes lossless image optimization for JPEGs and PNGs by default in production mode, which reduces the size of images without affecting their quality. This does not require any query parameters or configuration to use. However, since the optimization is lossless, the size reduction possible may be less than if you use the `quality` query param, or use a modern format such as WebP or AVIF.
 

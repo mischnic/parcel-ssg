@@ -121,10 +121,14 @@ async function renderTemplate({
     }
   );
   config?.(env);
-  return env.renderString(layout, {
-    ...frontmatter,
-    content,
-  });
+  return env.renderString(
+    layout,
+    {
+      ...frontmatter,
+      content,
+    },
+    { path: layoutPath }
+  );
 }
 
 async function loadParentConfigs({ config, options }) {

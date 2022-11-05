@@ -1,32 +1,61 @@
 {
-  "name": "website",
-  "private": true,
+  "name": "parcel-website",
   "version": "0.0.0",
+  "private": true,
+  "license": "MIT",
+  "workspaces": [
+    "packages/*"
+  ],
+  "browserslist": [
+    "last 2 Safari versions",
+    "last 2 Chrome versions",
+    "last 2 Firefox versions"
+  ],
   "scripts": {
     "start": "parcel 'src/**/*.md' src/home/index.html",
-    "build": "parcel build 'src/**/*.md' src/home/index.html"
+    "build": "rm -rf dist; parcel build 'src/**/*.md' src/home/index.html --public-url $(node public-url.js)",
+    "lint": "prettier --write 'generate-api-docs/*.js' 'src/**/*.{js,json,md,scss}'",
+    "generate-api-docs": "node generate-api-docs/ ../ ./api",
+    "generate-api-docs:watch": "nodemon -w ../parcel -w generate-api-docs -x yarn generate-api-docs"
   },
   "dependencies": {
-    "@alpinejs/intersect": "^3.4.2",
-    "alpinejs": "^3.4.2",
+    "@alpinejs/intersect": "^3.10.5",
+    "alpinejs": "^3.10.5",
     "focus-visible": "^5.2.0",
-    "nullthrows": "^1.1.1",
-    "remark-gfm": "^3.0.1"
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-use": "^17.3.1"
   },
   "devDependencies": {
+    "@babel/generator": "^7.20.1",
+    "@babel/parser": "^7.20.1",
+    "@babel/traverse": "^7.20.1",
     "@mapbox/rehype-prism": "^0.8.0",
-    "autoprefixer": "^10.4.0",
+    "@parcel/transformer-sass": "2.0.0-nightly.1190",
     "hastscript": "^6.0.0",
+    "marked": "^2.0.7",
+    "nullthrows": "^1.1.1",
+    "parcel": "2.0.0-nightly.1188",
     "postcss": "^8.3.6",
-    "postcss-focus-visible": "^5.0.0",
     "posthtml-include": "^1.7.0",
     "posthtml-prism": "^1.0.4",
-    "posthtml-render": "^3.0.0",
+    "prettier": "2.7.1",
+    "process": "^0.11.10",
     "rehype-components": "marekweb/rehype-components",
     "rehype-slug": "^5.0.0",
     "remark-directive": "^2.0.1",
-    "sharp": "^0.29.1",
-    "tailwindcss": "^2.2.15",
-    "tailwindcss-safe-area": "^0.2.1"
+    "remark-gfm": "^3.0.1",
+    "sass": "^1.55.0",
+    "sharp": "^0.31.1",
+    "tailwindcss": "^3.2.1",
+    "tailwindcss-safe-area": "^0.2.2"
+  },
+  "resolutions": {
+    "gulp-sass": "5.0.0"
+  },
+  "@parcel/transformer-css": {
+    "pseudoClasses": {
+      "focusVisible": "focus-visible"
+    }
   }
 }

@@ -99,25 +99,25 @@ export default new Transformer({
 
     let map = null;
     if (compilationResult.map) {
-      // If the compilationResult returned a map we convert 
+      // If the compilationResult returned a map we convert
       // it to a Parcel SourceMap instance.
       map = new SourceMap(options.projectRoot);
 
       // The compiler returned a full, encoded sourcemap with vlq mappings.
-      // Some compilers might have the possibility of returning 
+      // Some compilers might have the possibility of returning
       // indexedMappings which might improve performance (like Babel does).
       // In general, every  compiler is able to return rawMappings, so
       // it's always a safe bet to use this.
       map.addVLQMap(compilationResult.map);
 
-      // We get the original source map from the asset to extend our mappings 
+      // We get the original source map from the asset to extend our mappings
       // on top of it. This ensures we are mapping to the original source
       // instead of the previous transformation.
       let originalMap = await asset.getMap();
       if (originalMap) {
-        // The `extends` function uses the provided map to remap the original 
-        // source positions of the map it is called on. In this case, the 
-        // original source positions of `map` get remapped to the positions 
+        // The `extends` function uses the provided map to remap the original
+        // source positions of the map it is called on. In this case, the
+        // original source positions of `map` get remapped to the positions
         // in `originalMap`.
         map.extends(originalMap);
       }
@@ -150,8 +150,8 @@ export default new Transformer({
       originalMap: originalMap.toVLQ(),
     });
 
-    // In this case the compiler is responsible for mapping to the original 
-    // positions provided in the originalMap, so we can just convert it to 
+    // In this case the compiler is responsible for mapping to the original
+    // positions provided in the originalMap, so we can just convert it to
     // a Parcel SourceMap and return it.
     let map = new SourceMap(options.projectRoot);
     if (compilationResult.map) {
@@ -269,10 +269,10 @@ If you encounter incorrect mappings and want to debug these, we have built tools
 To enable it, use the `--reporter` option, or add it to your `.parcelrc`.
 
 ```bash
-parcel build src/index.js --reporter @parcel/reporter-sourcemap-visualizer
+parcel build src/index.js --reporter @parcel/reporter-sourcemap-visualiser
 ```
 
-After the reporter has created the `sourcemap-info.json` file, you can upload it to the [sourcemap visualizer](https://sourcemap-visualiser.now.sh/).
+After the reporter has created the `sourcemap-info.json` file, you can upload it to the [sourcemap visualiser](https://sourcemap-visualiser.now.sh/).
 
 ## API
 

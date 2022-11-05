@@ -39,7 +39,7 @@ This example shows how a company might distribute a shared Parcel configuration 
   "compressors": {
     "*.{js,html,css}": [
       "...",
-      "@parcel/compressor-gzip", 
+      "@parcel/compressor-gzip",
       "@parcel/compressor-brotli"
     ]
   }

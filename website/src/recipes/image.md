@@ -24,7 +24,7 @@ The query parameters you can use are:
 
 ### Image formats
 
-The following image formats are supported, both as input and as output via the `as` query parameter: 
+The following image formats are supported, both as input and as output via the `as` query parameter:
 
 - `jpeg` / `jpg` - [JPEG](https://en.wikipedia.org/wiki/JPEG) is a very widely supported lossy image format. It's often used for photos, and offers reasonably good compression, but does not support transparency or lossless compression.
 - `png` - [Portable Network Graphics](https://en.wikipedia.org/wiki/Portable_Network_Graphics) (PNG) is a lossless image format. PNGs are typically much larger than JPEGs or other lossy image formats, but support transparency and offer much higher quality for fine details.

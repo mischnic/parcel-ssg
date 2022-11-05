@@ -157,7 +157,7 @@ To use CSS modules, create a file with the `.module.css` extension, and import i
 <sample-file name="Button.js">
 
 ```jsx/0,4
-import * as classes './Button.module.css';
+import * as classes from './Button.module.css';
 
 export function Button({ children }) {
   return (
@@ -258,7 +258,7 @@ To use it, first, install the necessary dependencies:
 yarn add tailwindcss postcss autoprefixer --dev
 ```
 
-Next, create the config files needed for PostCSS and Tailwind. This example will use Tailwind’s [JIT mode](https://tailwindcss.com/docs/just-in-time-mode) to speed up builds by only compiling the classes you use. Make sure you modify the glob passed to the `purge` option so it matches all of the source files where you'll use Tailwind classes.
+Next, create the config files needed for PostCSS and Tailwind. This example will use Tailwind’s [JIT mode](https://tailwindcss.com/docs/just-in-time-mode) to speed up builds by only compiling the classes you use. Make sure you modify the glob passed to the `content` option so it matches all of the source files where you'll use Tailwind classes.
 
 <sample>
 <sample-file name=".postcssrc">
@@ -266,8 +266,7 @@ Next, create the config files needed for PostCSS and Tailwind. This example will
 ```json
 {
   "plugins": {
-    "tailwindcss": {},
-    "autoprefixer": {}
+    "tailwindcss": {}
   }
 }
 ```
@@ -277,8 +276,7 @@ Next, create the config files needed for PostCSS and Tailwind. This example will
 
 ```javascript
 module.exports = {
-  mode: "jit",
-  purge: ["./src/*.{html,js}"],
+  content: ["./src/*.{html,js}"],
   theme: {
     extend: {},
   },
@@ -290,7 +288,7 @@ module.exports = {
 </sample-file>
 </sample>
 
-Finally, you can reference Tailwind classes from any files that match the `purge` glob listed in `tailwind.config.js`.
+Finally, you can reference Tailwind classes from any files that match the `content` glob listed in `tailwind.config.js`.
 
 <sample>
 <sample-file name="Button.js">
@@ -396,7 +394,7 @@ export function Home() {
 
   return (
     <main>
-      <h1>Home<h1>
+      <h1>Home</h1>
       <button onClick={() => setShowProfile(true)}>
         Show Profile
       </button>

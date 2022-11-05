@@ -7,7 +7,6 @@ eleventyNavigation:
   order: 5
 ---
 
-
 For the most part, Parcel 2 works quite similarly to Parcel 1, but there are a few things you’ll need to change when upgrading.
 
 ## Getting started
@@ -23,7 +22,7 @@ The first thing to note when upgrading from Parcel 1 to Parcel 2 is that the npm
 
 ```json/2
 {
-  "dependencies": {
+  "devDependencies": {
     "parcel-bundler": "^1.12.5"
   }
 }
@@ -34,7 +33,7 @@ The first thing to note when upgrading from Parcel 1 to Parcel 2 is that the npm
 
 ```json/2
 {
-  "dependencies": {
+  "devDependencies": {
     "parcel": "^2.0.0"
   }
 }
@@ -70,7 +69,6 @@ The default location of the Parcel cache has also changed from `.cache` to `.par
 
 </sample-file>
 </migration>
-
 
 ## Code Changes
 
@@ -110,12 +108,10 @@ Parcel 2 matches browser behavior: classic `<script>` tags do not support import
 
 <error>
 
-**Note**: Adding the `type="module"` attribute also affects the loading behavior of scripts. Classic scripts are "render blocking", meaning the rest of the HTML document is not parsed until script execution is complete. Module scripts are not render blocking, and execution is deferred until the HTML is fully parsed. Parcel inserts the `defer` attribute automatially to match this behavior in older browsers and in development mode. This means features like `document.write` do not work in module scripts. If you are relying on these features, either migrate to modern APIs or continue using a classic script for that part of your app. See the docs on [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules#other_differences_between_modules_and_standard_scripts) to learn more about the differences between modules and classic scripts.
-
+**Note**: Adding the `type="module"` attribute also affects the loading behavior of scripts. Classic scripts are "render blocking", meaning the rest of the HTML document is not parsed until script execution is complete. Module scripts are not render blocking, and execution is deferred until the HTML is fully parsed. Parcel inserts the `defer` attribute automatically to match this behavior in older browsers and in development mode. This means features like `document.write` do not work in module scripts. If you are relying on these features, either migrate to modern APIs or continue using a classic script for that part of your app. See the docs on [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules#other_differences_between_modules_and_standard_scripts) to learn more about the differences between modules and classic scripts.
 </error>
 
 See [Classic scripts](/languages/javascript/#classic-scripts) for more details about classic scripts vs module scripts.
-
 
 ### Importing non-code assets from JavaScript
 
@@ -275,7 +271,7 @@ When import GraphQL files (`.gql`), imports are still resolved/inlined (using `g
 import fetchDataQuery from "./fetchData.gql"; // fetchDataQuery is the parsed AST
 
 const DataComponent = () => {
-  const { data } = useQuery(test, {
+  const { data } = useQuery(fetchDataQuery, {
     fetchPolicy: "cache-and-network",
   });
 

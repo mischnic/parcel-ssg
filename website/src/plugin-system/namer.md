@@ -85,8 +85,8 @@ export default new Namer({
   );
 
     if (
-      isEntry && 
-      bundle.id === mainBundle.id && 
+      isEntry &&
+      bundle.id === mainBundle.id &&
       bundle.target?.distEntry
     ) {
       return bundle.target.distEntry;

@@ -1,3 +1,2 @@
-# Ignore everything (folders and files) on root only
-/*
-!/dist
+_site
+generate-api-docs
