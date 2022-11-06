@@ -6,7 +6,7 @@ const escText = (text) => {
     .replace(/"/g, "&quot;");
 };
 
-function collectTocPlugin({ data }) {
+function collectTocPlugin({ localData }) {
   const visit = import("unist-util-visit");
   const _toString = import("hast-util-to-string");
 
@@ -62,18 +62,18 @@ function collectTocPlugin({ data }) {
       })(headings);
       toc += "</nav>";
 
-      data.toc = toc;
+      localData.toc = toc;
     } else {
-      data.toc = null;
+      localData.toc = null;
     }
   };
 }
 
-module.exports = (data) => ({
+module.exports = ({ localData }) => ({
   static: true,
   plugins: [
     "rehype-slug",
-    [collectTocPlugin, { data }],
+    [collectTocPlugin, { localData }],
     [
       "rehype-autolink-headings",
       {

@@ -161,6 +161,7 @@ module.exports = (new Transformer({
     let nunjucksConfig = await config.getConfig([".nunjucksrc.js"]);
 
     let pluginData = {};
+    let pluginLocalData = {};
     let remark = await config.getConfig([".remarkrc", ".remarkrc.js"]);
     let rehype = await config.getConfig([".rehyperc", ".rehyperc.js"]);
     let remarkResult = { plugins: [] };
@@ -175,7 +176,7 @@ module.exports = (new Transformer({
       if (cfg?.contents) {
         let content =
           typeof cfg.contents === "function"
-            ? cfg.contents(pluginData)
+            ? cfg.contents({ data: pluginData, localData: pluginLocalData })
             : cfg.contents;
         for (let plugin of content.plugins ?? []) {
           let [name, opts] = Array.isArray(plugin) ? plugin : [plugin, {}];
@@ -201,6 +202,7 @@ module.exports = (new Transformer({
     }
     return {
       pluginData,
+      pluginLocalData,
       data,
       nunjucks: nunjucksConfig?.contents,
       remark: remarkResult,
@@ -230,6 +232,11 @@ module.exports = (new Transformer({
     };
 
     asset.meta.frontmatter = frontmatter ?? {};
+
+    frontmatter = {
+      ...config.pluginLocalData,
+      ...frontmatter,
+    };
 
     if (hasTemplate) {
       let layoutPath = await resolve(asset.filePath, frontmatter?.layout);
