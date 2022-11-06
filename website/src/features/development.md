@@ -61,7 +61,7 @@ When using the dev server, only a single target can be built at once. By default
 
 If you need to test in a older browser, you can provide the `--target` CLI option to choose which of your targets to build. For example, to build the "legacy" target defined in your package.json, use `--target legacy`. If you don't have any explicit targets defined, and only have a `browserslist` in your package.json, you can use the implicit default target with `--target default`. This will result in your source code being transpiled just as it would be in production.
 
-See the [Targets](/features/targets/) documentation for more information.
+See the [Targets](/features/targets.md) documentation for more information.
 
 ## Lazy mode
 

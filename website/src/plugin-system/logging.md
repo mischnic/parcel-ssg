@@ -10,7 +10,7 @@ Parcel includes support for rich diagnostics that are used to describe errors an
 
 ## Diagnostics
 
-A [`Diagnostic`](/plugin-system/logging/#Diagnostic) is a JavaScript object with a set of properties that are required to create a useful log message. This can be anything from a verbose message to a warning or error. Diagnostics can include a message, information about the file being processed, a code frame, error information, hints on how to potentially resolve the issue, and a link to documentation to learn more.
+A [`Diagnostic`](/plugin-system/logging.md#Diagnostic) is a JavaScript object with a set of properties that are required to create a useful log message. This can be anything from a verbose message to a warning or error. Diagnostics can include a message, information about the file being processed, a code frame, error information, hints on how to potentially resolve the issue, and a link to documentation to learn more.
 
 The `ThrowableDiagnostic` class in the `@parcel/diagnostic` package extends the JavaScript `Error` object with support for diagnostics. When throwing an error within your plugin, use a `ThrowableDiagnostic` object to attach a diagnostic with context about the error. Parcel will automatically attach your plugin name as the origin of the diagnostic.
 
@@ -58,7 +58,7 @@ throw new ThrowableDiagnostic({
 
 ### Code frames
 
-A [`Diagnostic`](/plugin-system/logging/#Diagnostic) can have one or more code frames attached. A code frame includes a file path along with one or more code highlights, which give context about where in a file an error occurred. Code highlights are defined by the line and column position within the file, and may also have a message to be displayed at that position.
+A [`Diagnostic`](/plugin-system/logging.md#Diagnostic) can have one or more code frames attached. A code frame includes a file path along with one or more code highlights, which give context about where in a file an error occurred. Code highlights are defined by the line and column position within the file, and may also have a message to be displayed at that position.
 
 Code frames should also include the source code for the file the error occurred in. If omitted, Parcel will read the file from the file system. However, in many cases the input source code may have come from another plugin that ran before, so the code will have been modified in some way. Including the code in the code frame avoids this issue.
 
@@ -105,9 +105,9 @@ throw new ThrowableDiagnostic({
 
 Parcel's logger can be used to log messages in plugins. Every function of a plugin is passed a [`Logger`](#PluginLogger) instance as a parameter. This instance has all the information Parcel needs to identify your plugin as the origin of the message.
 
-The logger accepts [diagnostics](#diagnostics), which are JavaScript objects with a standardized set of properties that describe the log message, its origin, and context such as a code frame. [Reporter](/plugin-system/reporter/) plugins use this information to log your message while having complete freedom over how this data is formatted and displayed.
+The logger accepts [diagnostics](#diagnostics), which are JavaScript objects with a standardized set of properties that describe the log message, its origin, and context such as a code frame. [Reporter](/plugin-system/reporter.md) plugins use this information to log your message while having complete freedom over how this data is formatted and displayed.
 
-A [`Logger`](#PluginLogger) has a function for each log level, including `verbose`, `info`, `log`, `warn` and `error`. These log levels specify the severity of log messages, which is useful for formatting and filtering. For example, the [`--log-level`](/features/cli/#parameters) CLI option can be used to choose which messages you want to see. Each logging function also has a single parameter, which can either be a single [`Diagnostic`](#Diagnostic) object or an array of diagnostics, depending on how many messages you want to log.
+A [`Logger`](#PluginLogger) has a function for each log level, including `verbose`, `info`, `log`, `warn` and `error`. These log levels specify the severity of log messages, which is useful for formatting and filtering. For example, the [`--log-level`](/features/cli.md#parameters) CLI option can be used to choose which messages you want to see. Each logging function also has a single parameter, which can either be a single [`Diagnostic`](#Diagnostic) object or an array of diagnostics, depending on how many messages you want to log.
 
 <note>
 
@@ -160,9 +160,9 @@ export default new Transformer({
 
 ## Automatically collected logs and errors
 
-Parcel automatically collects any logs created with `console.log` and other `console` methods. Whenever `console.log` is called, Parcel catches this, converts it to a [`Diagnostic`](#Diagnostic) object, and sends it to [Reporter](/plugin-system/reporter/) plugins just like it does with messages sent to the `logger`. However, this is not recommended since Parcel does not have as much information as when calling the `logger` directly.
+Parcel automatically collects any logs created with `console.log` and other `console` methods. Whenever `console.log` is called, Parcel catches this, converts it to a [`Diagnostic`](#Diagnostic) object, and sends it to [Reporter](/plugin-system/reporter.md) plugins just like it does with messages sent to the `logger`. However, this is not recommended since Parcel does not have as much information as when calling the `logger` directly.
 
-Parcel also handles any errors that are thrown within plugins. These are converted into a [`Diagnostic`](#Diagnostic), and information about about the plugin is added to it. Errors that are thrown are sent to [Reporter](/plugin-system/reporter/) plugins, and the build is halted.
+Parcel also handles any errors that are thrown within plugins. These are converted into a [`Diagnostic`](#Diagnostic), and information about about the plugin is added to it. Errors that are thrown are sent to [Reporter](/plugin-system/reporter.md) plugins, and the build is halted.
 
 ### API
 

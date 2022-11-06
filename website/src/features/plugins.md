@@ -132,7 +132,7 @@ Since `@parcel/transformer-svg` is included in the default config, the above exa
 
 In addition to glob-based pipelines, Parcel supports **named pipelines**, which enable you to import a the same file in multiple ways. Named pipelines are defined in `.parcelrc` just like normal pipelines, but include a URL scheme at the start of the glob.
 
-For example, by default, importing an image normally returns a URL to an external file, but you could use the `data-url:` named pipeline defined in the default Parcel config to inline it as a data URL instead. See [Bundle inlining](/features/bundle-inlining/) for details.
+For example, by default, importing an image normally returns a URL to an external file, but you could use the `data-url:` named pipeline defined in the default Parcel config to inline it as a data URL instead. See [Bundle inlining](/features/bundle-inlining.md) for details.
 
 <sample>
 <sample-file name="src/example.css">
@@ -178,9 +178,9 @@ Parcel supports many different kinds of plugins which perform a specific task as
 
 ### Transformers
 
-<a href="/plugin-browser/?type=%22transformer%22&page=0&filter=%22%22&includeOfficial=false" class="npm text-sm text-gray-800 bg-red-50 hover:bg-red-100 transition group rounded px-2 py-1"><img src="~/src/assets/npm.svg" class="h-3 inline pr-2 cursor-pointer">Find Transformer plugins</a>
+<a href="/plugin-browser/?type=%22transformer%22&page=0&filter=%22%22&includeOfficial=false" class="npm text-sm text-gray-800 bg-red-50 hover:bg-red-100 transition group rounded px-2 py-1"><img src="/assets/npm.svg" class="h-3 inline pr-2 cursor-pointer">Find Transformer plugins</a>
 
-[Transformer](/plugin-system/transformer/) plugins transform a single asset to compile it, discover dependencies, or convert it to a different format. They are configured using a [glob map](#glob-maps) in `.parcelrc`. Multiple transformers may run in series over the same asset using [pipelines](#pipelines), and [named pipelines](#named-pipelines) are supported to allow compiling the same file in multiple different ways within the same project. The `"..."` syntax can be used to extend the default transformers for a file.
+[Transformer](/plugin-system/transformer.md) plugins transform a single asset to compile it, discover dependencies, or convert it to a different format. They are configured using a [glob map](#glob-maps) in `.parcelrc`. Multiple transformers may run in series over the same asset using [pipelines](#pipelines), and [named pipelines](#named-pipelines) are supported to allow compiling the same file in multiple different ways within the same project. The `"..."` syntax can be used to extend the default transformers for a file.
 
 <sample>
 <sample-file name=".parcelrc">
@@ -222,9 +222,9 @@ Once a transformer changes the asset type so that it no longer matches the curre
 
 ### Resolvers
 
-<a href="/plugin-browser/?type=%22resolver%22&page=0&filter=%22%22&includeOfficial=false" class="npm text-sm text-gray-800 bg-red-50 hover:bg-red-100 transition group rounded px-2 py-1"><img src="~/src/assets/npm.svg" class="h-3 inline pr-2 cursor-pointer">Find Resolver plugins</a>
+<a href="/plugin-browser/?type=%22resolver%22&page=0&filter=%22%22&includeOfficial=false" class="npm text-sm text-gray-800 bg-red-50 hover:bg-red-100 transition group rounded px-2 py-1"><img src="/assets/npm.svg" class="h-3 inline pr-2 cursor-pointer">Find Resolver plugins</a>
 
-[Resolver](/plugin-system/resolver/) plugins are responsible for turning a dependency specifier into a full file path that will be processed by transformers. See [Dependency resolution](/features/dependency-resolution/) for details on how this works. Resolvers are configured using an array of plugin names in `.parcelrc`. Resolution proceeds through the list of plugins until one of them returns a result.
+[Resolver](/plugin-system/resolver.md) plugins are responsible for turning a dependency specifier into a full file path that will be processed by transformers. See [Dependency resolution](/features/dependency-resolution.md) for details on how this works. Resolvers are configured using an array of plugin names in `.parcelrc`. Resolution proceeds through the list of plugins until one of them returns a result.
 
 The `"..."` syntax can be used to extend the default resolvers. This allows you to override the resolution for certain dependencies, but fall back to the default for others. Generally, you'll want to add your custom resolvers before running the default ones.
 
@@ -245,9 +245,9 @@ If `"..."` is omitted, your resolver must be able to handle all dependencies or 
 
 ### Bundler (experimental)
 
-<a href="/plugin-browser/?type=%22bundler%22&page=0&filter=%22%22&includeOfficial=false" class="npm text-sm text-gray-800 bg-red-50 hover:bg-red-100 transition group rounded px-2 py-1"><img src="~/src/assets/npm.svg" class="h-3 inline pr-2 cursor-pointer">Find Bundler plugins</a>
+<a href="/plugin-browser/?type=%22bundler%22&page=0&filter=%22%22&includeOfficial=false" class="npm text-sm text-gray-800 bg-red-50 hover:bg-red-100 transition group rounded px-2 py-1"><img src="/assets/npm.svg" class="h-3 inline pr-2 cursor-pointer">Find Bundler plugins</a>
 
-A [Bundler](/plugin-system/bundler/) plugin is responsible for grouping assets together into bundles. The bundler can be configured by specifying a plugin name in `.parcelrc`.
+A [Bundler](/plugin-system/bundler.md) plugin is responsible for grouping assets together into bundles. The bundler can be configured by specifying a plugin name in `.parcelrc`.
 
 <sample>
 <sample-file name=".parcelrc">
@@ -270,9 +270,9 @@ A [Bundler](/plugin-system/bundler/) plugin is responsible for grouping assets t
 
 ### Runtimes (experimental)
 
-<a href="/plugin-browser/?type=%22runtime%22&page=0&filter=%22%22&includeOfficial=false" class="npm text-sm text-gray-800 bg-red-50 hover:bg-red-100 transition group rounded px-2 py-1"><img src="~/src/assets/npm.svg" class="h-3 inline pr-2 cursor-pointer">Find Runtime plugins</a>
+<a href="/plugin-browser/?type=%22runtime%22&page=0&filter=%22%22&includeOfficial=false" class="npm text-sm text-gray-800 bg-red-50 hover:bg-red-100 transition group rounded px-2 py-1"><img src="/assets/npm.svg" class="h-3 inline pr-2 cursor-pointer">Find Runtime plugins</a>
 
-[Runtime](/plugin-system/runtime/) plugins allow you to inject assets into bundles. They can be configured using an array of plugin names in `.parcelrc`. All runtime plugins in this list are run over each bundle. The `"..."` syntax can be used to extend the default runtimes.
+[Runtime](/plugin-system/runtime.md) plugins allow you to inject assets into bundles. They can be configured using an array of plugin names in `.parcelrc`. All runtime plugins in this list are run over each bundle. The `"..."` syntax can be used to extend the default runtimes.
 
 <sample>
 <sample-file name=".parcelrc">
@@ -297,9 +297,9 @@ If `"..."` is omitted, the default runtimes will not be run. This will probably 
 
 ### Namers
 
-<a href="/plugin-browser/?type=%22namer%22&page=0&filter=%22%22&includeOfficial=false" class="npm text-sm text-gray-800 bg-red-50 hover:bg-red-100 transition group rounded px-2 py-1"><img src="~/src/assets/npm.svg" class="h-3 inline pr-2 cursor-pointer">Find Namer plugins</a>
+<a href="/plugin-browser/?type=%22namer%22&page=0&filter=%22%22&includeOfficial=false" class="npm text-sm text-gray-800 bg-red-50 hover:bg-red-100 transition group rounded px-2 py-1"><img src="/assets/npm.svg" class="h-3 inline pr-2 cursor-pointer">Find Namer plugins</a>
 
-[Namer](/plugin-system/namer/) plugins determine the output filename for a bundle. They are configured using an array of plugin names in `.parcelrc`. Naming proceeds through the list of namers until one of them returns a result.
+[Namer](/plugin-system/namer.md) plugins determine the output filename for a bundle. They are configured using an array of plugin names in `.parcelrc`. Naming proceeds through the list of namers until one of them returns a result.
 
 The `"..."` syntax can be used to extend the default namers. This allows you to override naming of certain bundles, but fall back to the default for others. Generally, you'll want to add your custom namers before running the default ones.
 
@@ -320,9 +320,9 @@ If `"..."` is omitted, your namer must be able to handle naming all bundles or t
 
 ### Packagers
 
-<a href="/plugin-browser/?type=%22packager%22&page=0&filter=%22%22&includeOfficial=false" class="npm text-sm text-gray-800 bg-red-50 hover:bg-red-100 transition group rounded px-2 py-1"><img src="~/src/assets/npm.svg" class="h-3 inline pr-2 cursor-pointer">Find Packager plugins</a>
+<a href="/plugin-browser/?type=%22packager%22&page=0&filter=%22%22&includeOfficial=false" class="npm text-sm text-gray-800 bg-red-50 hover:bg-red-100 transition group rounded px-2 py-1"><img src="/assets/npm.svg" class="h-3 inline pr-2 cursor-pointer">Find Packager plugins</a>
 
-[Packager](/plugin-system/packager/) plugins are responsible for combining all of the assets in a bundle together into an output file. They are configured using a [glob map](#glob-maps) in `.parcelrc`. Globs are matched against the output filename of a bundle. A single packager plugin may be configured to run per bundle.
+[Packager](/plugin-system/packager.md) plugins are responsible for combining all of the assets in a bundle together into an output file. They are configured using a [glob map](#glob-maps) in `.parcelrc`. Globs are matched against the output filename of a bundle. A single packager plugin may be configured to run per bundle.
 
 <sample>
 <sample-file name=".parcelrc">
@@ -341,9 +341,9 @@ If `"..."` is omitted, your namer must be able to handle naming all bundles or t
 
 ### Optimizers
 
-<a href="/plugin-browser/?type=%22optimizer%22&page=0&filter=%22%22&includeOfficial=false" class="npm text-sm text-gray-800 bg-red-50 hover:bg-red-100 transition group rounded px-2 py-1"><img src="~/src/assets/npm.svg" class="h-3 inline pr-2 cursor-pointer">Find Optimizer plugins</a>
+<a href="/plugin-browser/?type=%22optimizer%22&page=0&filter=%22%22&includeOfficial=false" class="npm text-sm text-gray-800 bg-red-50 hover:bg-red-100 transition group rounded px-2 py-1"><img src="/assets/npm.svg" class="h-3 inline pr-2 cursor-pointer">Find Optimizer plugins</a>
 
-[Optimizer](/plugin-system/optimizer/) plugins are similar to transformers but they accept a bundle instead of a single asset. They are configured using a [glob map](#glob-maps) in `.parcelrc`. Multiple optimizers may run in series over the same bundle using [pipelines](#pipelines), and [named pipelines](#named-pipelines) are supported to allow compiling the same bundle in multiple different ways within the same project. The `"..."` syntax can be used to extend the default optimizers for a bundle.
+[Optimizer](/plugin-system/optimizer.md) plugins are similar to transformers but they accept a bundle instead of a single asset. They are configured using a [glob map](#glob-maps) in `.parcelrc`. Multiple optimizers may run in series over the same bundle using [pipelines](#pipelines), and [named pipelines](#named-pipelines) are supported to allow compiling the same bundle in multiple different ways within the same project. The `"..."` syntax can be used to extend the default optimizers for a bundle.
 
 <sample>
 <sample-file name=".parcelrc">
@@ -362,9 +362,9 @@ If `"..."` is omitted, your namer must be able to handle naming all bundles or t
 
 ### Compressors
 
-<a href="/plugin-browser/?type=%22compressor%22&page=0&filter=%22%22&includeOfficial=false" class="npm text-sm text-gray-800 bg-red-50 hover:bg-red-100 transition group rounded px-2 py-1"><img src="~/src/assets/npm.svg" class="h-3 inline pr-2 cursor-pointer">Find Compressor plugins</a>
+<a href="/plugin-browser/?type=%22compressor%22&page=0&filter=%22%22&includeOfficial=false" class="npm text-sm text-gray-800 bg-red-50 hover:bg-red-100 transition group rounded px-2 py-1"><img src="/assets/npm.svg" class="h-3 inline pr-2 cursor-pointer">Find Compressor plugins</a>
 
-[Compressor](/plugin-system/compressor/) plugins are used when writing a final bundle to disk and may compress or encode it in some way (e.g. Gzip). They are configured using a [glob map](#glob-maps) in `.parcelrc`. Multiple compressors may run over the same bundle using [pipelines](#pipelines). Each compressor plugin produces an additional file to be written in parallel, for example `bundle.js`, `bundle.js.gz` and `bundle.js.br`. The `"..."` syntax can be used to extend the default compressors for a bundle.
+[Compressor](/plugin-system/compressor.md) plugins are used when writing a final bundle to disk and may compress or encode it in some way (e.g. Gzip). They are configured using a [glob map](#glob-maps) in `.parcelrc`. Multiple compressors may run over the same bundle using [pipelines](#pipelines). Each compressor plugin produces an additional file to be written in parallel, for example `bundle.js`, `bundle.js.gz` and `bundle.js.br`. The `"..."` syntax can be used to extend the default compressors for a bundle.
 
 <sample>
 <sample-file name=".parcelrc">
@@ -387,9 +387,9 @@ If `"..."` is omitted, your namer must be able to handle naming all bundles or t
 
 ### Reporters
 
-<a href="/plugin-browser/?type=%22reporter%22&page=0&filter=%22%22&includeOfficial=false" class="npm text-sm text-gray-800 bg-red-50 hover:bg-red-100 transition group rounded px-2 py-1"><img src="~/src/assets/npm.svg" class="h-3 inline pr-2 cursor-pointer">Find Reporter plugins</a>
+<a href="/plugin-browser/?type=%22reporter%22&page=0&filter=%22%22&includeOfficial=false" class="npm text-sm text-gray-800 bg-red-50 hover:bg-red-100 transition group rounded px-2 py-1"><img src="/assets/npm.svg" class="h-3 inline pr-2 cursor-pointer">Find Reporter plugins</a>
 
-[Reporter](/plugin-system/reporter/) plugins receive events from Parcel as they happen throughout the build process. For example, reporters may write status information to stdout, run a dev server, or generate a bundle analysis report at the end of a build. Reporters are configured using an array of package names in `.parcelrc`. All reporters in this list are run for each build event. The `"..."` syntax can be used to extend the default reporters.
+[Reporter](/plugin-system/reporter.md) plugins receive events from Parcel as they happen throughout the build process. For example, reporters may write status information to stdout, run a dev server, or generate a bundle analysis report at the end of a build. Reporters are configured using an array of package names in `.parcelrc`. All reporters in this list are run for each build event. The `"..."` syntax can be used to extend the default reporters.
 
 <sample>
 <sample-file name=".parcelrc">
@@ -404,7 +404,7 @@ If `"..."` is omitted, your namer must be able to handle naming all bundles or t
 </sample-file>
 </sample>
 
-Reporters that you use infrequently may also be specified on the [CLI](/features/cli/) using the `--reporter` option, or via the [API](/features/parcel-api/) using the `additionalReporters` option. Reporters specified in `.parcelrc` always run.
+Reporters that you use infrequently may also be specified on the [CLI](/features/cli.md) using the `--reporter` option, or via the [API](/features/parcel-api.md) using the `additionalReporters` option. Reporters specified in `.parcelrc` always run.
 
 ### Local plugins
 

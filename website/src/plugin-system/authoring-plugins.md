@@ -55,7 +55,7 @@ Many plugins will need to load configuration of some kind from the user’s proj
 
 </warning>
 
-Config loading is done in the `loadConfig` method, which is supported by most plugin types. It receives a [`Config`](/plugin-system/transformer/#Config) object, which includes utility methods for loading config files, as well as methods for telling Parcel about files and dependencies the config file relies on that should invalidate the result. The result returned from the `loadConfig` function is passed into the other plugin functions.
+Config loading is done in the `loadConfig` method, which is supported by most plugin types. It receives a [`Config`](/plugin-system/transformer.md#Config) object, which includes utility methods for loading config files, as well as methods for telling Parcel about files and dependencies the config file relies on that should invalidate the result. The result returned from the `loadConfig` function is passed into the other plugin functions.
 
 ```javascript
 import {Transformer} from '@parcel/plugin';
@@ -160,7 +160,7 @@ export default new Transformer({
 });
 ```
 
-See the [`Config`](/plugin-system/transformer/#Config) object API docs for more details on all of the available methods and properties.
+See the [`Config`](/plugin-system/transformer.md#Config) object API docs for more details on all of the available methods and properties.
 
 ## Naming
 
@@ -214,7 +214,7 @@ resolve them. If someone made a better version of your plugin, please consider
 giving the better package name over, have them make a major version bump, and
 redirect people to the new tool.
 
-See [Local plugins](/features/plugins/#local-plugins) for recommendations on using
+See [Local plugins](/features/plugins.md#local-plugins) for recommendations on using
 plugins in your project without publishing them.
 
 ## Versioning

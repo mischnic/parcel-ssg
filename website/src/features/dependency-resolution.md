@@ -127,7 +127,7 @@ Tilde specifiers start with `~`, and resolve relative to the nearest package roo
 <sample-file name="/path/to/project/packages/frontend/src/client/index.js">
 
 ```javascript
-import '~/src/utils.js';
+import '/utils.js';
 ```
 
 </sample-file>
@@ -145,7 +145,7 @@ Dependency specifiers may also include query parameters, which specify transform
 }
 ```
 
-See the [Image transformer](/recipes/image/) docs for more details on images. You can also use query parameters in custom [Transformer](/plugin-system/transformer/) plugins.
+See the [Image transformer](/recipes/image.md) docs for more details on images. You can also use query parameters in custom [Transformer](/plugin-system/transformer.md) plugins.
 
 <note>
 
@@ -155,7 +155,7 @@ See the [Image transformer](/recipes/image/) docs for more details on images. Yo
 
 ### URL schemes
 
-Dependency specifiers may use URL schemes to target [Named pipelines](/features/plugins/#named-pipelines). These allow you to specify a different pipeline to compile a file with than the default one. For example, the `bundle-text:` scheme can be used to inline a compiled bundle as text. See [Bundle inlining](/features/bundle-inlining/) for more details.
+Dependency specifiers may use URL schemes to target [Named pipelines](/features/plugins.md#named-pipelines). These allow you to specify a different pipeline to compile a file with than the default one. For example, the `bundle-text:` scheme can be used to inline a compiled bundle as text. See [Bundle inlining](/features/bundle-inlining.md) for more details.
 
 There are a few reserved URL schemes that may not be used for named pipelines, and have builtin behavior.
 
@@ -247,7 +247,7 @@ is equivalent to:
 When resolving a package directory, the `package.json` file is consulted to determine the package entry. Parcel checks the following fields (in order):
 
 - `source` – If the module is behind a symlink (e.g. in a monorepo, or via `npm link`), then Parcel uses the `source` field to compile the module from source. The `source` field can also be used as an alias mapping if a package has multiple entry points – see [Aliases](#aliases) below for details.
-- `browser` – A browser-specific version of a package. If building for a [browser environment](/features/targets/#environments), the browser field overrides other fields. The `browser` field can also be used as an alias mapping if a package has multiple entry points – see [Aliases](#aliases) below for details.
+- `browser` – A browser-specific version of a package. If building for a [browser environment](/features/targets.md#environments), the browser field overrides other fields. The `browser` field can also be used as an alias mapping if a package has multiple entry points – see [Aliases](#aliases) below for details.
 - `module` – An ES module version of the package.
 - `main` – A CommonJS version of the package.
 

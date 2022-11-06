@@ -38,7 +38,7 @@ One example where this could be useful is inlining small images inside a CSS fil
 
 ## Under the hood
 
-`bundle-text:` and `data-url:` are implemented in the default Parcel config using [Named pipelines](/features/plugins/#named-pipelines). The `@parcel/transformer-inline-string` [Transformer](/plugin-system/transformer/) plugin marks the compiled asset as inline, which tells Parcel not to write the bundle to disk and instead inline it into the parent bundle. To implement data URLs, the `@parcel/optimizer-data-url` [Optimizer](/plugin-system/optimizer/) plugin is used to convert the compiled bundle to a data url.
+`bundle-text:` and `data-url:` are implemented in the default Parcel config using [Named pipelines](/features/plugins.md#named-pipelines). The `@parcel/transformer-inline-string` [Transformer](/plugin-system/transformer.md) plugin marks the compiled asset as inline, which tells Parcel not to write the bundle to disk and instead inline it into the parent bundle. To implement data URLs, the `@parcel/optimizer-data-url` [Optimizer](/plugin-system/optimizer.md) plugin is used to convert the compiled bundle to a data url.
 
 In the Parcel config, it looks like the following. The `"..."` in each pipeline tells Parcel to run the normal transformers that match the file first, and then run `@parcel/transformer-inline-string`.
 
@@ -60,7 +60,7 @@ In the Parcel config, it looks like the following. The `"..."` in each pipeline 
 </sample-file>
 </sample>
 
-You can create your own named pipelines to customize inlining however you’d like, reusing the above plugins or creating custom ones. See [Parcel configuration](/features/plugins/) for more details.
+You can create your own named pipelines to customize inlining however you’d like, reusing the above plugins or creating custom ones. See [Parcel configuration](/features/plugins.md) for more details.
 
 Another Parcel plugin that might be useful is `@parcel/transformer-inline`. Like `@parcel/transformer-inline-string`, it marks assets as inline, but the result is not encoded as a string. This means if the inline bundle contains code, it will be *executed* in the parent bundle rather than returning a string to the user. This could be useful if you have a custom plugin that wraps the bundle somehow and needs to decode it at runtime.
 
@@ -82,7 +82,7 @@ export default new Optimizer({
 
 Now you could define a named pipeline using your new plugin, and import compiled files as array buffers.
 
-See the [Plugin system](/plugin-system/overview/) docs for more details on writing custom plugins, and the [Parcel Configuration](/features/plugins/) docs for more information about named pipelines.
+See the [Plugin system](/plugin-system/overview.md) docs for more details on writing custom plugins, and the [Parcel Configuration](/features/plugins.md) docs for more information about named pipelines.
 
 ## Inlining as a blob URL
 
@@ -108,7 +108,7 @@ You may want to inline the contents of a bundle as a [blob URL](https://develope
 
 ## Inlining without transforming
 
-In JavaScript, it’s possible to inline the contents of a file without running it through Parcel transformers first. This can be done using the `fs` Node module, which Parcel statically analyzes. It can be inlined as a string in a number of different encodings, or as a [Buffer](https://nodejs.org/api/buffer.html). See the [Node emulation](/features/node-emulation/) docs for more details.
+In JavaScript, it’s possible to inline the contents of a file without running it through Parcel transformers first. This can be done using the `fs` Node module, which Parcel statically analyzes. It can be inlined as a string in a number of different encodings, or as a [Buffer](https://nodejs.org/api/buffer.html). See the [Node emulation](/features/node-emulation.md) docs for more details.
 
 ```javascript
 import fs from 'fs';
@@ -120,4 +120,4 @@ In the above example, the `sourceCode` variable would be the contents of `foo.js
 
 ## Integration with other tools
 
-Since bundle inlining is a Parcel-specific feature, you’ll need to configure other tools such as TypeScript or Flow to support it. See the [Configuring other tools](/features/dependency-resolution/#configuring-other-tools) section in the dependency resolution docs for details on how to do this.
+Since bundle inlining is a Parcel-specific feature, you’ll need to configure other tools such as TypeScript or Flow to support it. See the [Configuring other tools](/features/dependency-resolution.md#configuring-other-tools) section in the dependency resolution docs for details on how to do this.

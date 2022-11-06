@@ -3,7 +3,7 @@ layout: ~/template/layout.njk
 title: GraphQL
 eleventyNavigation:
   key: languages-graphql
-  title: <img src="~/src/assets/lang-icons/graphql.svg" alt=""/> GraphQL
+  title: <img src="/assets/lang-icons/graphql.svg" alt=""/> GraphQL
   order: 13
 ---
 

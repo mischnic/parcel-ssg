@@ -1,4 +1,4 @@
-@import "~/src/assets/styles/search.scss";
+@import "/assets/styles/search.scss";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

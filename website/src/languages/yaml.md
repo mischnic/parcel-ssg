@@ -3,7 +3,7 @@ layout: ~/template/layout.njk
 title: YAML
 eleventyNavigation:
   key: languages-yaml
-  title: <img src="~/src/assets/lang-icons/yaml.svg" class="dark-invert" alt=""/> YAML
+  title: <img src="/assets/lang-icons/yaml.svg" class="dark-invert" alt=""/> YAML
   order: 13
 ---
 

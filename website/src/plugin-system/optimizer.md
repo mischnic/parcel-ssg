@@ -82,7 +82,7 @@ Source maps help developers when debugging compiled and bundled code in the brow
 
 Parcel uses the `@parcel/source-map` library for source map manipulation. See [Source Maps](/plugin-system/source-maps/) for more details on how to use it. You may need to convert the source map you pass to and from other tools.
 
-The `getSourceMapReference` function passed to Optimizer plugins can be used to insert a URL to the source map within the bundle contents. Parcel takes care of generating inline source maps when appropriate (e.g. following [`sourceMap`](/features/targets/#sourcemap) options in Target config).
+The `getSourceMapReference` function passed to Optimizer plugins can be used to insert a URL to the source map within the bundle contents. Parcel takes care of generating inline source maps when appropriate (e.g. following [`sourceMap`](/features/targets.md#sourcemap) options in Target config).
 
 ```javascript
 import {Optimizer} from '@parcel/plugin';

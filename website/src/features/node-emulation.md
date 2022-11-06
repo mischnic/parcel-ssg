@@ -54,7 +54,7 @@ The `.env.local` file is also supported for local overrides of environment varia
 
 ## Polyfilling & Excluding Builtin Node Modules
 
-When targetting the browser and your code, or more likely a dependency, imports builtin Node modules such as `crypto`, `fs` or `process`, Parcel will automatically use one of the following polyfills. If no polyfill is available, then an empty module will be used instead. You can also use [aliases](/features/dependency-resolution/#aliases) to override these.
+When targetting the browser and your code, or more likely a dependency, imports builtin Node modules such as `crypto`, `fs` or `process`, Parcel will automatically use one of the following polyfills. If no polyfill is available, then an empty module will be used instead. You can also use [aliases](/features/dependency-resolution.md#aliases) to override these.
 
 | native module | npm replacement            | native module  | npm replacement      |
 | ------------- | -------------------------- | -------------- | -------------------- |

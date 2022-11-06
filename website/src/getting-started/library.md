@@ -24,7 +24,7 @@ npm install --save-dev parcel
 
 ## Project setup
 
-Now that Parcel is installed, let’s setup a `package.json` file for our library. We'll use the `source` field to reference our source files, and create a `main` [target](/features/targets/) as the output file of our build. This will be consumed by other tools that use our library (e.g. bundlers or Node.js).
+Now that Parcel is installed, let’s setup a `package.json` file for our library. We'll use the `source` field to reference our source files, and create a `main` [target](/features/targets.md) as the output file of our build. This will be consumed by other tools that use our library (e.g. bundlers or Node.js).
 
 <sample>
 <sample-file name="package.json">
@@ -145,4 +145,4 @@ Now Parcel will output a `dist/types.d.ts` file containing type definitions for 
 
 ## Next steps
 
-Now that you’ve set up your project, you're ready to learn about some more advanced features of Parcel. Check out the documentation about [Targets](/features/targets/), and see the Recipes and Languages sections for more in-depth guides using popular web frameworks and tools.
+Now that you’ve set up your project, you're ready to learn about some more advanced features of Parcel. Check out the documentation about [Targets](/features/targets.md), and see the Recipes and Languages sections for more in-depth guides using popular web frameworks and tools.

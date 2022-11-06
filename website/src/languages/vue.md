@@ -3,7 +3,7 @@ layout: ~/template/layout.njk
 title: Vue
 eleventyNavigation:
   key: languages-vue
-  title: <img src="~/src/assets/lang-icons/vue.svg" alt=""/> Vue
+  title: <img src="/assets/lang-icons/vue.svg" alt=""/> Vue
   order: 9
 ---
 
@@ -61,7 +61,7 @@ app.mount("#app");
 
 ## HMR
 
-Parcel uses the official Vue SFC compiler, which supports HMR out of the box so you'll have a fast, reactive development experience. See [Hot reloading](/features/development/#hot-reloading) for more details about HMR in Parcel.
+Parcel uses the official Vue SFC compiler, which supports HMR out of the box so you'll have a fast, reactive development experience. See [Hot reloading](/features/development.md#hot-reloading) for more details about HMR in Parcel.
 
 ## Vue 3 Features
 
@@ -106,11 +106,11 @@ Since Parcel uses Vue 3, you can use all Vue 3 features, such as the [Compositio
 
 ## Language Support
 
-Parcel supports [JavaScript](/languages/javascript/), [TypeScript](/languages/typescript/), and [CoffeeScript](/languages/coffeescript/) as scripting languages in Vue.
+Parcel supports [JavaScript](/languages/javascript.md), [TypeScript](/languages/typescript.md), and [CoffeeScript](/languages/coffeescript.md) as scripting languages in Vue.
 
 Almost any templating language (all those supported by [consolidate](https://www.npmjs.com/package/consolidate)) can be used.
 
-For styling, [Less](/languages/less), [Sass](/languages/sass), and [Stylus](/languages/stylus) are supported. In addition, [CSS Modules](/languages/css/#css-modules) and [scoped style](https://vue-loader.vuejs.org/guide/scoped-css.html) can be used with the `module` and `scoped` modifiers.
+For styling, [Less](/languages/less), [Sass](/languages/sass), and [Stylus](/languages/stylus) are supported. In addition, [CSS Modules](/languages/css.md#css-modules) and [scoped style](https://vue-loader.vuejs.org/guide/scoped-css.html) can be used with the `module` and `scoped` modifiers.
 
 <sample>
 <sample-file name="App.vue">

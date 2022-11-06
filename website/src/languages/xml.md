@@ -3,7 +3,7 @@ layout: ~/template/layout.njk
 title: XML
 eleventyNavigation:
   key: languages-xml
-  title: <img src="~/src/assets/lang-icons/xml.svg" class="dark-invert" alt=""/> XML
+  title: <img src="/assets/lang-icons/xml.svg" class="dark-invert" alt=""/> XML
   order: 17
 ---
 
@@ -11,7 +11,7 @@ Parcel supports transforming [RSS](https://en.wikipedia.org/wiki/RSS) and [Atom]
 
 ## Dependencies
 
-Parcel transforms URL references within RSS and Atom feeds to match the final name and [public URL](/features/targets/#publicurl), including [content hashes](/features/production/#content-hashing) where appropriate.
+Parcel transforms URL references within RSS and Atom feeds to match the final name and [public URL](/features/targets.md#publicurl), including [content hashes](/features/production.md#content-hashing) where appropriate.
 
 In RSS this includes:
 
@@ -28,7 +28,7 @@ In Atom this includes:
 
 ## Embedded HTML
 
-Embedded HTML and XHTML content inside RSS and Atom feeds is also transformed as described in [HTML](/languages/html/). All URL references within embedded HTML will also be transformed, and the referenced files will be processed with the relevant Parcel pipelines.
+Embedded HTML and XHTML content inside RSS and Atom feeds is also transformed as described in [HTML](/languages/html.md). All URL references within embedded HTML will also be transformed, and the referenced files will be processed with the relevant Parcel pipelines.
 
 ## HTML references
 

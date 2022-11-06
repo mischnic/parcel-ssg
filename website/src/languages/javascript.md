@@ -3,7 +3,7 @@ layout: ~/template/layout.njk
 title: JavaScript
 eleventyNavigation:
   key: languages-js
-  title: <img src="~/src/assets/lang-icons/javascript.svg" alt=""/> JavaScript
+  title: <img src="/assets/lang-icons/javascript.svg" alt=""/> JavaScript
   order: 0
 ---
 
@@ -13,7 +13,7 @@ Parcel includes first-class support for JavaScript, including ES modules and Com
 
 Modules allow you to break up your code into different files, and share functionality between them by importing and exporting values. This can help you structure your code into independent parts, with well-defined interfaces for communicating between them.
 
-Parcel includes support for both ES modules and CommonJS syntax. Module specifiers are resolved as described in [Dependency resolution](/features/dependency-resolution/).
+Parcel includes support for both ES modules and CommonJS syntax. Module specifiers are resolved as described in [Dependency resolution](/features/dependency-resolution.md).
 
 ### ES modules
 
@@ -75,7 +75,7 @@ exports.multiply = function(a, b) {
 </sample-file>
 </sample>
 
-In addition to `require` and `exports`, Parcel also supports `module.exports`, as well as the `__dirname` and `__filename` module globals, and `process.env` for access to environment variables. See the [Node emulation](/features/node-emulation/) docs for more details.
+In addition to `require` and `exports`, Parcel also supports `module.exports`, as well as the `__dirname` and `__filename` module globals, and `process.env` for access to environment variables. See the [Node emulation](/features/node-emulation.md) docs for more details.
 
 To learn more about CommonJS, see the [Node.js docs](https://nodejs.org/dist/latest-v16.x/docs/api/modules.html).
 
@@ -91,7 +91,7 @@ import('./pages/about').then(function(page) {
 });
 ```
 
-See the [code splitting](/features/code-splitting/) docs for more details on how to use dynamic imports.
+See the [code splitting](/features/code-splitting.md) docs for more details on how to use dynamic imports.
 
 ### Classic scripts
 
@@ -109,11 +109,11 @@ $('.banner').show();
 </script>
 ```
 
-In addition, classic scripts do not support synchronous imports or exports via either ES modules or CommonJS, and [Node emulation](/features/node-emulation/) is disabled. However, dynamic `import()` *is* supported to load a module from within a classic script.
+In addition, classic scripts do not support synchronous imports or exports via either ES modules or CommonJS, and [Node emulation](/features/node-emulation.md) is disabled. However, dynamic `import()` *is* supported to load a module from within a classic script.
 
 Parcel matches browser behavior for classic scripts and modules. If you wish to use imports or exports within your code, you’ll need to use `<script type="module">` to reference your JavaScript from an HTML file. For workers, use the `{type: 'module'}` option (see below). If this is missing, you'll see a diagnostic like the one below.
 
-![Screenshot of an error message showing "Browser scripts cannot have imports or exports. Add the type='module' attribute to the script tag."](~/src//blog/rc0/script-module-error.png)
+![Screenshot of an error message showing "Browser scripts cannot have imports or exports. Add the type='module' attribute to the script tag."](//blog/rc0/script-module-error.png)
 
 ## `import.meta`
 
@@ -139,7 +139,7 @@ img.src = new URL('hero.jpg', import.meta.url);
 document.body.appendChild(img);
 ```
 
-Parcel will process any files referenced by a URL dependency as it does any other dependency. For example, images will be processed by the image transformer, and you can use [query parameters](/features/dependency-resolution/#query-parameters) to specify options to resize and convert them. If no transformers are configured for a particular file type, then the file will be copied into the dist directory unmodified. The resulting file names will also include a [content hash](/features/production/#content-hashing) for long term cacheability in the browser.
+Parcel will process any files referenced by a URL dependency as it does any other dependency. For example, images will be processed by the image transformer, and you can use [query parameters](/features/dependency-resolution.md#query-parameters) to specify options to resize and convert them. If no transformers are configured for a particular file type, then the file will be copied into the dist directory unmodified. The resulting file names will also include a [content hash](/features/production.md#content-hashing) for long term cacheability in the browser.
 
 ## Workers
 
@@ -149,7 +149,7 @@ Parcel has built in support for web workers, service workers, and worklets, whic
 
 Web workers are the most general type of worker. They allow you to run arbitrary CPU-heavy work in a background thread to avoid blocking the user interface. Workers are created using the [`Worker`](https://developer.mozilla.org/en-US/docs/Web/API/Worker/Worker) constructor, and referencing another JavaScript file using the `URL` constructor as described above.
 
-To use ES module or CommonJS syntax in a worker, use the `type: 'module'` option as described in [Classic scripts](#classic-scripts) above. Parcel will compile your worker to a non-module worker if necessary, depending on your [targets](/features/targets/) and current browser support.
+To use ES module or CommonJS syntax in a worker, use the `type: 'module'` option as described in [Classic scripts](#classic-scripts) above. Parcel will compile your worker to a non-module worker if necessary, depending on your [targets](/features/targets.md) and current browser support.
 
 ```javascript
 new Worker(
@@ -166,7 +166,7 @@ To learn more about web workers, see the docs on [MDN](https://developer.mozilla
 
 Service workers run in the background and provide features like offline caching, background sync, and push notifications. They are created using the [`navigator.serviceWorker.register`](https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerContainer/register) function, and using the `URL` constructor to reference another JavaScript file.
 
-To use ES module or CommonJS syntax in a service worker, use the `type: 'module'` option as described in [Classic scripts](#classic-scripts) above. Parcel will compile your service worker to a non-module worker if necessary, depending on your [targets](/features/targets/) and current browser support.
+To use ES module or CommonJS syntax in a service worker, use the `type: 'module'` option as described in [Classic scripts](#classic-scripts) above. Parcel will compile your service worker to a non-module worker if necessary, depending on your [targets](/features/targets.md) and current browser support.
 
 ```javascript
 navigator.serviceWorker.register(
@@ -301,7 +301,7 @@ Parcel currently uses Babel to strip flow types. If you have a custom Babel conf
 
 ### TypeScript
 
-See [TypeScript](/languages/typescript/).
+See [TypeScript](/languages/typescript.md).
 
 ### Browser compatibility
 
@@ -319,7 +319,7 @@ By default Parcel does not perform any transpilation of JavaScript syntax for ol
 </sample-file>
 </sample>
 
-See the [Targets](/features/targets/) docs for more details on how to configure this, as well as Parcel's support for automatic [differential bundling](/features/targets/#differential-bundling).
+See the [Targets](/features/targets.md) docs for more details on how to configure this, as well as Parcel's support for automatic [differential bundling](/features/targets.md#differential-bundling).
 
 By default, Parcel supports all standard JavaScript features, as well as proposals that have shipped in one or more browsers. You can also enable support for future proposals using a `tsconfig.json` or `jsconfig.json` file. Currently, the only supported proposal is [decorators](https://github.com/tc39/proposal-decorators), which you may be using through TypeScript.
 
@@ -375,7 +375,7 @@ If you have custom Babel presets or plugins beyond the ones listed above, you ca
 
 Since Parcel uses Babel to transpile Flow, you'll need to keep `@babel/preset-flow` in your Babel config along with any custom plugins. Otherwise, your Babel config overrides Parcel's defaults. Other Babel presets listed above can be removed.
 
-`@babel/preset-env` and `@babel/plugin-transform-runtime` are not aware of Parcel's [Targets](/features/targets/), which means [differential bundling](/features/targets/#differential-bundling) will not work properly. This will likely result in unnecessary transpilation and larger bundle sizes. In addition, `@babel/preset-env` transpiles ES modules by default, which can cause issues with [scope hoisting](/features/scope-hoisting/).
+`@babel/preset-env` and `@babel/plugin-transform-runtime` are not aware of Parcel's [Targets](/features/targets.md), which means [differential bundling](/features/targets.md#differential-bundling) will not work properly. This will likely result in unnecessary transpilation and larger bundle sizes. In addition, `@babel/preset-env` transpiles ES modules by default, which can cause issues with [scope hoisting](/features/scope-hoisting.md).
 
 `@babel/preset-env` and `@babel/plugin-transform-runtime` are not necessary, since transpilation for your browser targets is handled automatically by Parcel. However, if you need them for some reason, you can use Parcel's wrappers which are aware of Parcel's targets instead.
 
@@ -420,7 +420,7 @@ This will allow other tools to continue using your Babel config, but disable Bab
 
 ## Production
 
-In production mode, Parcel includes optimizations to reduce the file size of your code. See [Production](/features/production/) for more details about how this works.
+In production mode, Parcel includes optimizations to reduce the file size of your code. See [Production](/features/production.md) for more details about how this works.
 
 ### Minification
 
@@ -432,4 +432,4 @@ In production builds, Parcel statically analyzes the imports and exports of each
 
 Parcel also concatenates modules into a single scope when possible, rather than wrapping each module in a separate function. This is called “scope hoisting”. This helps make minification more effective, and also improves runtime performance by making references between modules static rather than dynamic object lookups.
 
-See the [Scope hoisting](/features/scope-hoisting/) docs for tips to make tree shaking more effective.
+See the [Scope hoisting](/features/scope-hoisting.md) docs for tips to make tree shaking more effective.

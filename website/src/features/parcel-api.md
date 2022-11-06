@@ -17,11 +17,11 @@ The Parcel API can be used through the `@parcel/core` package. You'll also need 
 yarn add @parcel/core @parcel/config-default
 ```
 
-Next, import this package into your program and call the `Parcel` constructor. It accepts an [`InitialParcelOptions`](/plugin-system/api/#InitialParcelOptions) object, which contains all of the options used by the Parcel CLI and a few more.
+Next, import this package into your program and call the `Parcel` constructor. It accepts an [`InitialParcelOptions`](/plugin-system/api.md#InitialParcelOptions) object, which contains all of the options used by the Parcel CLI and a few more.
 
 There are two required parameters:
 
-- `entries` – A string or an array of strings describing the entry points to build. See [Entries](/features/targets/#entries).
+- `entries` – A string or an array of strings describing the entry points to build. See [Entries](/features/targets.md#entries).
 - `config` or `defaultConfig` – A file path or package specifier for a Parcel config to use. If `config` is set, the provided config is always used and the project `.parcelrc` is ignored. If `defaultConfig` is set, the project's `.parcelrc` takes precedence, and `defaultConfig` is used as a fallback. If a relative path or package specifier is given, it is resolved relative to the project root.
 
 <sample>
@@ -41,9 +41,9 @@ let bundler = new Parcel({
 
 ### Targets
 
-By default, Parcel does a development build, but this can be changed by setting the `mode` option to `production`, which enable scope hoisting, minification, etc. See [Production](/features/production/).
+By default, Parcel does a development build, but this can be changed by setting the `mode` option to `production`, which enable scope hoisting, minification, etc. See [Production](/features/production.md).
 
-You can also use the `defaultTargetOptions` to set values for [Targets](/features/targets/) if they aren't configured in the project. For example, to override the default browser targets, use the `engines` option.
+You can also use the `defaultTargetOptions` to set values for [Targets](/features/targets.md) if they aren't configured in the project. For example, to override the default browser targets, use the `engines` option.
 
 <sample>
 <sample-file name="build.mjs">
@@ -84,7 +84,7 @@ let bundler = new Parcel({
 </sample-file>
 </sample>
 
-Alternatively, `targets` may be set to an object, which will override any targets defined in the project. See [Targets](/features/targets/) for more details on the available options.
+Alternatively, `targets` may be set to an object, which will override any targets defined in the project. See [Targets](/features/targets.md) for more details on the available options.
 
 <sample>
 <sample-file name="build.mjs">
@@ -165,7 +165,7 @@ let bundler = new Parcel({
 
 ## Building
 
-Once you’ve constructed a `Parcel` instance, you can use it to build a project or watch for changes. To build once, use the `run` API. This returns a Promise, which will be resolved with a [`BuildSuccessEvent`](/plugin-system/reporter/#BuildSuccessEvent) containing the [`BundleGraph`](/plugin-system/bundler/#BundleGraph) and some other information if the build was successful, or reject with an error if it failed. Build errors have one or more [`Diagnostic`](/plugin-system/logging/#Diagnostic) objects attached to them with the details of what went wrong.
+Once you’ve constructed a `Parcel` instance, you can use it to build a project or watch for changes. To build once, use the `run` API. This returns a Promise, which will be resolved with a [`BuildSuccessEvent`](/plugin-system/reporter.md#BuildSuccessEvent) containing the [`BundleGraph`](/plugin-system/bundler.md#BundleGraph) and some other information if the build was successful, or reject with an error if it failed. Build errors have one or more [`Diagnostic`](/plugin-system/logging.md#Diagnostic) objects attached to them with the details of what went wrong.
 
 <sample>
 <sample-file name="build.mjs">
@@ -192,7 +192,7 @@ try {
 
 ## Watching
 
-To watch a project for changes and be notified of each rebuild, use the `watch` API. Pass a callback to be called whenever a build succeeds or fails. The callback receives an error parameter and an event object. The error parameter is only used for fatal errors during watching. Normal build failures are represented by a [`BuildFailureEvent`](/plugin-system/reporter/#BuildFailureEvent), which includes a list of [`Diagnostic`](/plugin-system/logging/#Diagnostic) objects.
+To watch a project for changes and be notified of each rebuild, use the `watch` API. Pass a callback to be called whenever a build succeeds or fails. The callback receives an error parameter and an event object. The error parameter is only used for fatal errors during watching. Normal build failures are represented by a [`BuildFailureEvent`](/plugin-system/reporter.md#BuildFailureEvent), which includes a list of [`Diagnostic`](/plugin-system/logging.md#Diagnostic) objects.
 
 `watch` also returns a subscription object, and you should call the `unsubscribe` method when you’d like to stop watching.
 

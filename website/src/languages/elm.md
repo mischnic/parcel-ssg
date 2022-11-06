@@ -3,7 +3,7 @@ layout: ~/template/layout.njk
 title: Elm
 eleventyNavigation:
   key: languages-elm
-  title: <img src="~/src/assets/lang-icons/elm.svg" alt=""/> Elm
+  title: <img src="/assets/lang-icons/elm.svg" alt=""/> Elm
   order: 10
 ---
 

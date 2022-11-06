@@ -27,7 +27,7 @@ export default new Reporter({
 
 <warning>
 
-**Note**: Do not use `console.log` in Reporter plugins. Parcel overrides `console` methods and routes messages to Reporter plugins. This can create an infinite loop in your Reporter. If you intend to write to stdout/stderr, use `process.stdout`/`process.stderr` instead. If another reporter will handle log events, use the provided `logger`. See [Logging](/plugin-system/logging/) for more details.
+**Note**: Do not use `console.log` in Reporter plugins. Parcel overrides `console` methods and routes messages to Reporter plugins. This can create an infinite loop in your Reporter. If you intend to write to stdout/stderr, use `process.stdout`/`process.stderr` instead. If another reporter will handle log events, use the provided `logger`. See [Logging](/plugin-system/logging.md) for more details.
 
 </warning>
 
@@ -97,7 +97,7 @@ export default new Reporter({
 
 ## Build failure
 
-The `buildFailure` event is emitted when a build is completes with errors. It includes a list of [`Diagnostic`](/plugin-system/logging/#Diagnostic) objects describing the errors. See [Diagnostics](/plugin-system/logging/#diagnostics) for details.
+The `buildFailure` event is emitted when a build is completes with errors. It includes a list of [`Diagnostic`](/plugin-system/logging.md#Diagnostic) objects describing the errors. See [Diagnostics](/plugin-system/logging.md#diagnostics) for details.
 
 ```javascript
 import {Reporter} from '@parcel/plugin';
@@ -113,7 +113,7 @@ export default new Reporter({
 
 ## Logging
 
-All logging in Parcel is routed through Reporter plugins. The `level` property indicates the type of each `log` event. The `info`, `warn`, `error`, and `verbose` log levels include a [`Diagnostic`](/plugin-system/logging/#Diagnostic) object, which provides detail about the context of the log. Other log levels include only a `message` property.
+All logging in Parcel is routed through Reporter plugins. The `level` property indicates the type of each `log` event. The `info`, `warn`, `error`, and `verbose` log levels include a [`Diagnostic`](/plugin-system/logging.md#Diagnostic) object, which provides detail about the context of the log. Other log levels include only a `message` property.
 
 ```javascript
 import {Reporter} from '@parcel/plugin';

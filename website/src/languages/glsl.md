@@ -3,7 +3,7 @@ layout: ~/template/layout.njk
 title: GLSL
 eleventyNavigation:
   key: languages-glsl
-  title: <img src="~/src/assets/lang-icons/openGL.svg" alt=""/> GLSL
+  title: <img src="/assets/lang-icons/openGL.svg" alt=""/> GLSL
   order: 14
 ---
 

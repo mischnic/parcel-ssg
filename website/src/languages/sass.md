@@ -3,13 +3,13 @@ layout: ~/template/layout.njk
 title: Sass
 eleventyNavigation:
   key: languages-sass
-  title: <img src="~/src/assets/lang-icons/sass.svg" alt=""/> Sass
+  title: <img src="/assets/lang-icons/sass.svg" alt=""/> Sass
   order: 6
 ---
 
 Parcel supports [Sass](https://sass-lang.com/) files automatically using the `@parcel/transformer-sass` plugin. When a `.sass` or `.scss` file is detected, it will be installed into your project automatically.
 
-Compiled Sass files are also processed the same way as [CSS](/languages/css/), which means it is compiled for your browser targets, and any [PostCSS](/languages/css/#postcss) plugins are also applied. [CSS modules](/languages/css/#css-modules) can also be used by naming your file with the `.module.scss` extension.
+Compiled Sass files are also processed the same way as [CSS](/languages/css.md), which means it is compiled for your browser targets, and any [PostCSS](/languages/css.md#postcss) plugins are also applied. [CSS modules](/languages/css.md#css-modules) can also be used by naming your file with the `.module.scss` extension.
 
 ## Example usage
 

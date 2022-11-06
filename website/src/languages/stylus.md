@@ -3,13 +3,13 @@ layout: ~/template/layout.njk
 title: Stylus
 eleventyNavigation:
   key: languages-stylus
-  title: <img src="~/src/assets/lang-icons/stylus.svg" class="dark-invert" alt=""/> Stylus
+  title: <img src="/assets/lang-icons/stylus.svg" class="dark-invert" alt=""/> Stylus
   order: 7
 ---
 
 Parcel supports [Stylus](https://stylus-lang.com/) files automatically using the `@parcel/transformer-stylus` plugin. When a `.styl` file is detected, it will be installed into your project automatically.
 
-Compiled Stylus files are also processed the same way as [CSS](/languages/css/), which means it is compiled for your browser targets, and any [PostCSS](/languages/css/#postcss) plugins are also applied. [CSS modules](/languages/css/#css-modules) can also be used by naming your file with the `.module.styl` extension.
+Compiled Stylus files are also processed the same way as [CSS](/languages/css.md), which means it is compiled for your browser targets, and any [PostCSS](/languages/css.md#postcss) plugins are also applied. [CSS modules](/languages/css.md#css-modules) can also be used by naming your file with the `.module.styl` extension.
 
 ## Example usage
 

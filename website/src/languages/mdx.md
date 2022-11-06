@@ -3,7 +3,7 @@ layout: ~/template/layout.njk
 title: MDX
 eleventyNavigation:
   key: languages-mdx
-  title: <img src="~/src/assets/lang-icons/mdx.svg" alt=""/> MDX
+  title: <img src="/assets/lang-icons/mdx.svg" alt=""/> MDX
   order: 16
 ---
 

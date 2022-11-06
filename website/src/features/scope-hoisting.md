@@ -8,11 +8,11 @@ eleventyNavigation:
   order: 7
 ---
 
-Historically, JavaScript bundlers have worked by wrapping each module in a function, which is called when the module is imported. This ensures that each module has a separate isolated scope and side effects run at the expected time, and enables development features like [hot module replacement](/features/development/#hot-reloading). However, all of these separate functions have a cost, both in terms of download size and [runtime performance](https://nolanlawson.com/2016/08/15/the-cost-of-small-modules/).
+Historically, JavaScript bundlers have worked by wrapping each module in a function, which is called when the module is imported. This ensures that each module has a separate isolated scope and side effects run at the expected time, and enables development features like [hot module replacement](/features/development.md#hot-reloading). However, all of these separate functions have a cost, both in terms of download size and [runtime performance](https://nolanlawson.com/2016/08/15/the-cost-of-small-modules/).
 
 In production builds, Parcel concatenates modules into a single scope when possible, rather than wrapping each module in a separate function. This is called **“scope hoisting”.** This helps make minification more effective, and also improves runtime performance by making references between modules static rather than dynamic object lookups.
 
-Parcel also statically analyzes the imports and exports of each module, and removes everything that isn't used. This is called **"tree shaking"** or **"dead code elimination".** Tree shaking is supported for both static and [dynamic import](/features/code-splitting/#tree-shaking), [CommonJS](/languages/javascript/#commonjs) and [ES modules](/languages/javascript/#es-modules), and even across languages with [CSS modules](/languages/css/#tree-shaking).
+Parcel also statically analyzes the imports and exports of each module, and removes everything that isn't used. This is called **"tree shaking"** or **"dead code elimination".** Tree shaking is supported for both static and [dynamic import](/features/code-splitting.md#tree-shaking), [CommonJS](/languages/javascript.md#commonjs) and [ES modules](/languages/javascript.md#es-modules), and even across languages with [CSS modules](/languages/css.md#tree-shaking).
 
 ## How scope hoisting works
 

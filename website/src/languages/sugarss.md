@@ -3,13 +3,13 @@ layout: ~/template/layout.njk
 title: SugarSS
 eleventyNavigation:
   key: languages-sugarss
-  title: <img src="~/src/assets/lang-icons/sugarss.svg" alt=""/> SugarSS
+  title: <img src="/assets/lang-icons/sugarss.svg" alt=""/> SugarSS
   order: 9
 ---
 
 [SugarSS](https://github.com/postcss/sugarss) is an indent-based CSS syntax for [PostCSS](https://github.com/postcss/postcss). Parcel supports SugarSS automatically using the `@parcel/transformer-sugarss` plugin. When a `.sss` file is detected, it will be installed into your project automatically.
 
-Compiled SugarSS files are also processed the same way as [CSS](/languages/css/), which means it is compiled for your browser targets, and any [PostCSS](/languages/css/#postcss) plugins are also applied. [CSS modules](/languages/css/#css-modules) can also be used by naming your file with the `.module.sss` extension.
+Compiled SugarSS files are also processed the same way as [CSS](/languages/css.md), which means it is compiled for your browser targets, and any [PostCSS](/languages/css.md#postcss) plugins are also applied. [CSS modules](/languages/css.md#css-modules) can also be used by naming your file with the `.module.sss` extension.
 
 
 ## Example usage

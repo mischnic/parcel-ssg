@@ -6,11 +6,11 @@ eleventyNavigation:
   order: 4
 ---
 
-Resolver plugins are responsible for turning a dependency specifier into a full file path that will be processed by transformers. Resolvers run in a pipeline until one of them returns a result. See [Dependency resolution](/features/dependency-resolution/) for details on how the default resolver works.
+Resolver plugins are responsible for turning a dependency specifier into a full file path that will be processed by transformers. Resolvers run in a pipeline until one of them returns a result. See [Dependency resolution](/features/dependency-resolution.md) for details on how the default resolver works.
 
 ## Example
 
-This example overrides the resolution of `special-module`, and otherwise returns `null` to allow the next resolver in the pipeline to handle the dependency. See [Resolvers](/features/plugins/#resolvers) in the Parcel configuration docs for details on how this works.
+This example overrides the resolution of `special-module`, and otherwise returns `null` to allow the next resolver in the pipeline to handle the dependency. See [Resolvers](/features/plugins.md#resolvers) in the Parcel configuration docs for details on how this works.
 
 ```javascript
 import {Resolver} from '@parcel/plugin';
@@ -55,7 +55,7 @@ export default new Resolver({
 
 ## Dependency metadata
 
-In addition to the `specifier`, Resolver plugins also receive a full [`Dependency`](/plugin-system/transformer/#Dependency) object, which includes additional metadata about the dependency. The `specifierType` property indicates how the `specifier` should be interpreted (e.g. ESM, CommonJS, URL, etc.). The `resolveFrom` property specifies the file path where the dependency should be resolved from (e.g. if the specifier is a relative path).
+In addition to the `specifier`, Resolver plugins also receive a full [`Dependency`](/plugin-system/transformer.md#Dependency) object, which includes additional metadata about the dependency. The `specifierType` property indicates how the `specifier` should be interpreted (e.g. ESM, CommonJS, URL, etc.). The `resolveFrom` property specifies the file path where the dependency should be resolved from (e.g. if the specifier is a relative path).
 
 This example resolves relative URLs and paths depending on the `specifierType`.
 
@@ -99,7 +99,7 @@ export default new Resolver({
 
 The results of Resolver plugins are cached by Parcel automatically. If you read any files from the file system during resolution, you’ll need to tell Parcel about them so it can watch them and invalidate the resolution when they change.
 
-The `invalidateOnFileChange` property should be set to an array of all files that were successfully read during resolution. The `invalidateOnFileCreate` property should be set to an array of [`FileCreateInvalidation`](/plugin-system/api/#FileCreateInvalidation) objects describing files that should invalidate the resolution if they were created.
+The `invalidateOnFileChange` property should be set to an array of all files that were successfully read during resolution. The `invalidateOnFileCreate` property should be set to an array of [`FileCreateInvalidation`](/plugin-system/api.md#FileCreateInvalidation) objects describing files that should invalidate the resolution if they were created.
 
 ```javascript/12,16
 import {Resolver} from '@parcel/plugin';
@@ -160,11 +160,11 @@ export default new Resolver({
 });
 ```
 
-See [Diagnostics](/plugin-system/logging/#diagnostics) for more detail.
+See [Diagnostics](/plugin-system/logging.md#diagnostics) for more detail.
 
 ## Side effects
 
-Resolvers may also return a `sideEffects` property which indicates whether the asset may have side effects when executed. This usually corresponds to the same property in `package.json`, and is used for [scope hoisting](/features/scope-hoisting/).
+Resolvers may also return a `sideEffects` property which indicates whether the asset may have side effects when executed. This usually corresponds to the same property in `package.json`, and is used for [scope hoisting](/features/scope-hoisting.md).
 
 ## Relevant API
 

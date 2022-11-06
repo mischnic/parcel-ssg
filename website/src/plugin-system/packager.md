@@ -10,7 +10,7 @@ Packager plugins are responsible for combining all of the assets in a bundle tog
 
 ## Example
 
-This example shows a Packager that concatenates all of the assets in a bundle together. The `traverseAsset` method of a [`Bundle`](/plugin-system/bundler/#Bundle) object traverses all assets within the bundle in depth-first order. The `getCode` method is called on each [`Asset`](/plugin-system/transformer/#BaseAsset) to retrieve its contents.
+This example shows a Packager that concatenates all of the assets in a bundle together. The `traverseAsset` method of a [`Bundle`](/plugin-system/bundler.md#Bundle) object traverses all assets within the bundle in depth-first order. The `getCode` method is called on each [`Asset`](/plugin-system/transformer.md#BaseAsset) to retrieve its contents.
 
 ```javascript
 import {Packager} from '@parcel/plugin';
@@ -46,7 +46,7 @@ Source maps help developers when debugging compiled and bundled code in the brow
 
 Parcel uses the `@parcel/source-map` library for source map manipulation. See [Source Maps](/plugin-system/source-maps/) for more details on how to use it.
 
-The `getSourceMapReference` function passed to Packager plugins can be used to insert a URL to the source map within the bundle contents. Parcel takes care of generating inline source maps when appropriate (e.g. following [`sourceMap`](/features/targets/#sourcemap) options in Target config).
+The `getSourceMapReference` function passed to Packager plugins can be used to insert a URL to the source map within the bundle contents. Parcel takes care of generating inline source maps when appropriate (e.g. following [`sourceMap`](/features/targets.md#sourcemap) options in Target config).
 
 ```javascript
 import {Packager} from '@parcel/plugin';
@@ -82,7 +82,7 @@ export default new Packager({
 
 ## URL references
 
-Transformer plugins may leave references to dependency IDs in the compiled code (see [URL dependencies](/plugin-system/transformer/#url-dependencies) in the Transformer docs). Packagers should replace these references with the URL of the generated bundle. This can be done using the `replaceURLReferences` function in `@parcel/utils`.
+Transformer plugins may leave references to dependency IDs in the compiled code (see [URL dependencies](/plugin-system/transformer.md#url-dependencies) in the Transformer docs). Packagers should replace these references with the URL of the generated bundle. This can be done using the `replaceURLReferences` function in `@parcel/utils`.
 
 ```javascript
 import {Packager} from '@parcel/plugin';
@@ -106,11 +106,11 @@ export default new Packager({
 
 ## Bundle inlining
 
-Parcel supports inlining the contents of one bundle within another. For example, the compiled contents of a CSS bundle could be inlined as a string within a JavaScript bundle. See [Bundle inlining](/features/bundle-inlining/) for details.
+Parcel supports inlining the contents of one bundle within another. For example, the compiled contents of a CSS bundle could be inlined as a string within a JavaScript bundle. See [Bundle inlining](/features/bundle-inlining.md) for details.
 
 Bundle inlining is implemented in Packager plugins. A `getInlineBundleContents` function is passed to Packagers, which can be called to retrieve the contents of an inline bundle.
 
-Transformer plugins may leave references to dependency IDs in the compiled code (see [URL dependencies](/plugin-system/transformer/#url-dependencies) in the Transformer docs). If these end up referring to an inline bundle, they should be replaced with that bundle's contents. This can be done using the `replaceInlineReferences` function in `@parcel/utils`.
+Transformer plugins may leave references to dependency IDs in the compiled code (see [URL dependencies](/plugin-system/transformer.md#url-dependencies) in the Transformer docs). If these end up referring to an inline bundle, they should be replaced with that bundle's contents. This can be done using the `replaceInlineReferences` function in `@parcel/utils`.
 
 ```javascript
 import {Packager} from '@parcel/plugin';

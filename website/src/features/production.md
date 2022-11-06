@@ -23,7 +23,7 @@ Parcel includes minifiers for JavaScript, CSS, HTML, and SVG out of the box. Min
 
 By default, minification is enabled when using the `parcel build` command. You can use the `--no-optimize` CLI flag to disable minification and other optimizations if needed.
 
-Parcel uses [terser](https://github.com/fabiosantoscode/terser) to minify JavaScript, [@parcel/css](https://github.com/parcel-bundler/parcel-css) for CSS, [htmlnano](https://github.com/posthtml/htmlnano) for HTML, and [svgo](https://github.com/svg/svgo) for SVG. If needed, you can configure these tools using a `.terserrc`, `.htmlnanorc`, or `svgo.config.json` config file. See the docs for [JavaScript](/languages/javascript/), [CSS](/languages/css/), [HTML](/languages/html), and [SVG](/languages/svg/) for more details.
+Parcel uses [terser](https://github.com/fabiosantoscode/terser) to minify JavaScript, [@parcel/css](https://github.com/parcel-bundler/parcel-css) for CSS, [htmlnano](https://github.com/posthtml/htmlnano) for HTML, and [svgo](https://github.com/svg/svgo) for SVG. If needed, you can configure these tools using a `.terserrc`, `.htmlnanorc`, or `svgo.config.json` config file. See the docs for [JavaScript](/languages/javascript.md), [CSS](/languages/css.md), [HTML](/languages/html), and [SVG](/languages/svg.md) for more details.
 
 ### Tree shaking
 
@@ -31,7 +31,7 @@ In production builds, Parcel statically analyzes the imports and exports of each
 
 Parcel also concatenates modules into a single scope when possible, rather than wrapping each module in a separate function. This is called “scope hoisting”. This helps make minification more effective, and also improves runtime performance by making references between modules static rather than dynamic object lookups.
 
-See the [Scope hoisting](/features/scope-hoisting/) docs for tips to make tree shaking more effective.
+See the [Scope hoisting](/features/scope-hoisting.md) docs for tips to make tree shaking more effective.
 
 ### Development branch removal
 
@@ -45,7 +45,7 @@ if (process.env.NODE_ENV !== 'production') {
 }
 ```
 
-See the [Node emulation docs](/features/node-emulation/) for more details on environment variable inlining.
+See the [Node emulation docs](/features/node-emulation.md) for more details on environment variable inlining.
 
 ### Image optimization
 
@@ -59,13 +59,13 @@ Parcel supports resizing, converting, and optimizing images. You can use query p
 </picture>
 ```
 
-Resizing and converting images occurs both in development and production mode, so you can test with the correct image dimensions and formats as well. See the [Image transformer](/recipes/image/) docs for more details.
+Resizing and converting images occurs both in development and production mode, so you can test with the correct image dimensions and formats as well. See the [Image transformer](/recipes/image.md) docs for more details.
 
 Parcel also includes lossless image optimization for JPEGs and PNGs by default in production mode, which reduces the size of images without affecting their quality. This does not require any query parameters or configuration to use. However, since the optimization is lossless, the size reduction possible may be less than if you use the `quality` query param, or use a modern format such as WebP or AVIF.
 
 ### Differential bundling
 
-Parcel automatically produces a `<script type="module">` with modern JavaScript syntax, as well as a fallback `<script nomodule>` for older browsers when necessary. This reduces bundle sizes for a majority of users by avoiding transpilation of features like classes, async/await, and more. See [Differential bundling](/features/targets/#differential-bundling) in the Targets documentation for more details.
+Parcel automatically produces a `<script type="module">` with modern JavaScript syntax, as well as a fallback `<script nomodule>` for older browsers when necessary. This reduces bundle sizes for a majority of users by avoiding transpilation of features like classes, async/await, and more. See [Differential bundling](/features/targets.md#differential-bundling) in the Targets documentation for more details.
 
 ### Compression
 
@@ -124,7 +124,7 @@ Parcel automatically includes content hashes in the names of all output files, w
 
 By default, all bundles include a content hash except entries and certain dependency types that require names to be stable. For example, service workers require a stable file name to work properly, and `<a>` tags in HTML reference user readable URLs.
 
-You can also disable content hashing using the `--no-content-hash` CLI flag. Note that the name will still include a hash, but it will not change on each build. You can customize bundle naming completely using [Namer](/plugin-system/namer/) plugins.
+You can also disable content hashing using the `--no-content-hash` CLI flag. Note that the name will still include a hash, but it will not change on each build. You can customize bundle naming completely using [Namer](/plugin-system/namer.md) plugins.
 
 ### Cascading invalidation
 
@@ -136,7 +136,7 @@ In production builds, Parcel automatically optimizes the bundle graph in your ap
 
 For example, if multiple pages in your app depend on `react` and `lodash`, they might be moved into a separate bundle rather than duplicated in each page. This way, when a user navigates from one page to another, they only need to download the additional code for that page rather than re-downloading those libraries which are already cached.
 
-See the [Code splitting](/features/code-splitting/) docs for more details on how to configure this.
+See the [Code splitting](/features/code-splitting.md) docs for more details on how to configure this.
 
 ## Analyzing bundle sizes
 
@@ -158,7 +158,7 @@ This generates a folder `parcel-bundle-reports` in your project root with an HTM
 
 <div style="border: 1px solid black">
 
-![A screenshot of the bundle analyzer output](~/src/assets/bundle-analyzer.png)
+![A screenshot of the bundle analyzer output](/assets/bundle-analyzer.png)
 
 </div>
 
@@ -176,6 +176,6 @@ Now upload the files in the `dist` directory to the [Bundle Buddy website](https
 
 <div style="border: 1px solid black">
 
-![A screenshot of the Bundle Buddy website with a loaded project](~/src/assets/bundle-buddy.png)
+![A screenshot of the Bundle Buddy website with a loaded project](/assets/bundle-buddy.png)
 
 </div>

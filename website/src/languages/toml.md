@@ -3,7 +3,7 @@ layout: ~/template/layout.njk
 title: TOML
 eleventyNavigation:
   key: languages-toml
-  title: <img src="~/src/assets/lang-icons/toml.svg" alt=""/> TOML
+  title: <img src="/assets/lang-icons/toml.svg" alt=""/> TOML
   order: 12
 ---
 

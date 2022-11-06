@@ -3,7 +3,7 @@ layout: ~/template/layout.njk
 title: Image
 eleventyNavigation:
   key: recipes-image
-  title: <img src="~/src/assets/lang-icons/image.svg" alt=""/> Image
+  title: <img src="/assets/lang-icons/image.svg" alt=""/> Image
   order: 2
 ---
 
@@ -39,7 +39,7 @@ For more guidance on choosing the right image formats, see the guide on [web.dev
 
 ### JavaScript
 
-To reference an image from JavaScript, use the `URL` constructor. For more details, see [URL dependencies](/languages/javascript/#url-dependencies) in the JavaScript docs.
+To reference an image from JavaScript, use the `URL` constructor. For more details, see [URL dependencies](/languages/javascript.md#url-dependencies) in the JavaScript docs.
 
 <sample>
 <sample-file name="main.js">
@@ -56,7 +56,7 @@ const imageUrl = new URL(
 
 ### HTML
 
-To reference an image from HTML, use the `<img>` or `<picture>` element. The same image can be referenced multiple times with different query parameters to create multiple versions in different formats or sizes. See the [HTML docs](/languages/html/#images) for more details.
+To reference an image from HTML, use the `<img>` or `<picture>` element. The same image can be referenced multiple times with different query parameters to create multiple versions in different formats or sizes. See the [HTML docs](/languages/html.md#images) for more details.
 
 <sample>
 <sample-file name="index.html">

@@ -8,21 +8,21 @@ tags: ["docs-home"]
 <p>Learn how to start a new project, or migrate an existing project to Parcel 2.</p>
 
 <div class="grid sm:grid-cols-3 gap-3 max-w-5xl">
-  <a href="/getting-started/webapp/" class="card bg-gradient-to-r from-blue-200 to-purple-200 dark:from-blue-800 dark:to-purple-800 dark:text-white p-5 rounded-xl transform hover:scale-105 transition">
+  <a href="/getting-started/webapp.md" class="card bg-gradient-to-r from-blue-200 to-purple-200 dark:from-blue-800 dark:to-purple-800 dark:text-white p-5 rounded-xl transform hover:scale-105 transition">
     <svg aria-hidden="true" class="h-6 w-6 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
     </svg>
     <div class="font-bold text-lg mt-4 mb-2">Building a webapp with Parcel</div>
     <div>Learn how to set up a new web application from scratch with Parcel.</div>
   </a>
-  <a href="/getting-started/library/" class="card bg-gradient-to-r from-purple-200 to-pink-200 dark:from-purple-800 dark:to-pink-800 dark:text-white p-5 rounded-xl transform hover:scale-105 transition">
+  <a href="/getting-started/library.md" class="card bg-gradient-to-r from-purple-200 to-pink-200 dark:from-purple-800 dark:to-pink-800 dark:text-white p-5 rounded-xl transform hover:scale-105 transition">
     <svg aria-hidden="true" class="h-6 w-6 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z" />
     </svg>
     <div class="font-bold text-lg mt-4 mb-2">Building a library with Parcel</div>
     <div>Learn how to set up a Parcel to build a JavaScript library.</div>
   </a>
-  <a href="/getting-started/migration/" class="card bg-gradient-to-r from-pink-200 to-orange-200 dark:from-pink-800 dark:to-orange-800 dark:text-white p-5 rounded-xl transform hover:scale-105 transition">
+  <a href="/getting-started/migration.md" class="card bg-gradient-to-r from-pink-200 to-orange-200 dark:from-pink-800 dark:to-orange-800 dark:text-white p-5 rounded-xl transform hover:scale-105 transition">
     <svg aria-hidden="true" class="h-6 w-6 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
       <path d="M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z" />
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 01-1 1H9m4-1V8a1 1 0 011-1h2.586a1 1 0 01.707.293l3.414 3.414a1 1 0 01.293.707V16a1 1 0 01-1 1h-1m-6-1a1 1 0 001 1h1M5 17a2 2 0 104 0m-4 0a2 2 0 114 0m6 0a2 2 0 104 0m-4 0a2 2 0 114 0" />
@@ -36,7 +36,7 @@ tags: ["docs-home"]
 <p>Learn about Parcel's core features.</p>
 
 <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-3 max-w-5xl">
-  <a href="/features/development/" class="card bg-gradient-to-r from-fuchsia-200 to-purple-200 dark:from-fuchsia-800 dark:to-purple-800 p-5 rounded-xl dark:text-white">
+  <a href="/features/development.md" class="card bg-gradient-to-r from-fuchsia-200 to-purple-200 dark:from-fuchsia-800 dark:to-purple-800 p-5 rounded-xl dark:text-white">
     <div class="flex items-start gap-2 mb-2">
       <svg aria-hidden="true" class="h-6 w-6 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
@@ -45,7 +45,7 @@ tags: ["docs-home"]
     </div>
     <div>Learn about Parcel's dev server, hot reloading, lazy mode, caching, and more.</div>
   </a>
-  <a href="/features/code-splitting/" class="card bg-gradient-to-r from-purple-200 to-violet-200 dark:from-purple-800 dark:to-violet-800 p-5 rounded-xl dark:text-white">
+  <a href="/features/code-splitting.md" class="card bg-gradient-to-r from-purple-200 to-violet-200 dark:from-purple-800 dark:to-violet-800 p-5 rounded-xl dark:text-white">
     <div class="flex items-start gap-2 mb-2">
       <svg aria-hidden="true" class="h-6 w-6 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.121 14.121L19 19m-7-7l7-7m-7 7l-2.879 2.879M12 12L9.121 9.121m0 5.758a3 3 0 10-4.243 4.243 3 3 0 004.243-4.243zm0-5.758a3 3 0 10-4.243-4.243 3 3 0 004.243 4.243z" />
@@ -54,7 +54,7 @@ tags: ["docs-home"]
     </div>
     <div>How to use dynamic imports and Parcel's automatic shared bundles.</div>
   </a>
-  <a href="/features/dependency-resolution/" class="card bg-gradient-to-r from-fuchsia-200 to-purple-200 dark:from-fuchsia-800 dark:to-purple-800 md:from-violet-200 md:to-indigo-200 md:dark:from-violet-800 md:dark:to-indigo-800 p-5 rounded-xl dark:text-white">
+  <a href="/features/dependency-resolution.md" class="card bg-gradient-to-r from-fuchsia-200 to-purple-200 dark:from-fuchsia-800 dark:to-purple-800 md:from-violet-200 md:to-indigo-200 md:dark:from-violet-800 md:dark:to-indigo-800 p-5 rounded-xl dark:text-white">
     <div class="flex items-start gap-2 mb-2">
       <svg aria-hidden="true" class="h-6 w-6 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16l2.879-2.879m0 0a3 3 0 104.243-4.242 3 3 0 00-4.243 4.242zM21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -63,7 +63,7 @@ tags: ["docs-home"]
     </div>
     <div>How dependencies are resolved, url schemes, aliases, and more.</div>
   </a>
-  <a href="/features/bundle-inlining/" class="card bg-gradient-to-r from-purple-200 to-violet-200 dark:from-purple-800 dark:to-violet-800 md:from-indigo-200 md:to-blue-200 md:dark:from-indigo-800 md:dark:to-blue-800 p-5 rounded-xl dark:text-white">
+  <a href="/features/bundle-inlining.md" class="card bg-gradient-to-r from-purple-200 to-violet-200 dark:from-purple-800 dark:to-violet-800 md:from-indigo-200 md:to-blue-200 md:dark:from-indigo-800 md:dark:to-blue-800 p-5 rounded-xl dark:text-white">
     <div class="flex items-start gap-2 mb-2">
       <svg aria-hidden="true" class="h-6 w-6 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
@@ -72,7 +72,7 @@ tags: ["docs-home"]
     </div>
     <div>How to inline the compiled contents of one bundle inside another.</div>
   </a>
-  <a href="/features/targets/" class="card bg-gradient-to-r from-fuchsia-200 to-purple-200 dark:from-fuchsia-800 dark:to-purple-800 p-5 rounded-xl dark:text-white">
+  <a href="/features/targets.md" class="card bg-gradient-to-r from-fuchsia-200 to-purple-200 dark:from-fuchsia-800 dark:to-purple-800 p-5 rounded-xl dark:text-white">
     <div class="flex items-start gap-2 mb-2">
       <svg aria-hidden="true" class="h-6 w-6 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
@@ -81,7 +81,7 @@ tags: ["docs-home"]
     </div>
     <div>How to compile your source code for multiple targets.</div>
   </a>
-  <a href="/features/production/" class="card bg-gradient-to-r from-purple-200 to-violet-200 dark:from-purple-800 dark:to-violet-800 p-5 rounded-xl dark:text-white">
+  <a href="/features/production.md" class="card bg-gradient-to-r from-purple-200 to-violet-200 dark:from-purple-800 dark:to-violet-800 p-5 rounded-xl dark:text-white">
     <div class="flex items-start gap-2 mb-2">
       <svg aria-hidden="true" class="h-6 w-6 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
@@ -90,7 +90,7 @@ tags: ["docs-home"]
     </div>
     <div>Minification, tree shaking, compression, content hashing, and more.</div>
   </a>
-  <a href="/features/scope-hoisting/" class="card bg-gradient-to-r from-fuchsia-200 to-purple-200 dark:from-fuchsia-800 dark:to-purple-800 md:from-violet-200 md:to-indigo-200 md:dark:from-violet-800 md:dark:to-indigo-800 p-5 rounded-xl dark:text-white">
+  <a href="/features/scope-hoisting.md" class="card bg-gradient-to-r from-fuchsia-200 to-purple-200 dark:from-fuchsia-800 dark:to-purple-800 md:from-violet-200 md:to-indigo-200 md:dark:from-violet-800 md:dark:to-indigo-800 p-5 rounded-xl dark:text-white">
     <div class="flex items-start gap-2 mb-2">
       <svg aria-hidden="true" class="h-6 w-6 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
@@ -99,7 +99,7 @@ tags: ["docs-home"]
     </div>
     <div>Dig into the details of how Parcel's tree shaking implementation works.</div>
   </a>
-  <a href="/features/node-emulation/" class="card bg-gradient-to-r from-purple-200 to-violet-200 dark:from-purple-800 dark:to-violet-800 md:from-indigo-200 md:to-blue-200 md:dark:from-indigo-800 md:dark:to-blue-800 p-5 rounded-xl dark:text-white">
+  <a href="/features/node-emulation.md" class="card bg-gradient-to-r from-purple-200 to-violet-200 dark:from-purple-800 dark:to-violet-800 md:from-indigo-200 md:to-blue-200 md:dark:from-indigo-800 md:dark:to-blue-800 p-5 rounded-xl dark:text-white">
     <div class="flex items-start gap-2 mb-2">
       <svg aria-hidden="true" class="h-6 w-6 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01" />
@@ -108,7 +108,7 @@ tags: ["docs-home"]
     </div>
     <div>Using Node.js features like environment variables and builtin module polyfills.</div>
   </a>
-  <a href="/features/cli/" class="card bg-gradient-to-r from-fuchsia-200 to-purple-200 dark:from-fuchsia-800 dark:to-purple-800 p-5 rounded-xl dark:text-white">
+  <a href="/features/cli.md" class="card bg-gradient-to-r from-fuchsia-200 to-purple-200 dark:from-fuchsia-800 dark:to-purple-800 p-5 rounded-xl dark:text-white">
     <div class="flex items-start gap-2 mb-2">
       <svg aria-hidden="true" class="h-6 w-6 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
@@ -117,7 +117,7 @@ tags: ["docs-home"]
     </div>
     <div>A reference for all of the options available in the Parcel CLI.</div>
   </a>
-  <a href="/features/parcel-api/" class="card bg-gradient-to-r from-purple-200 to-violet-200 dark:from-purple-800 dark:to-violet-800 p-5 rounded-xl dark:text-white">
+  <a href="/features/parcel-api.md" class="card bg-gradient-to-r from-purple-200 to-violet-200 dark:from-purple-800 dark:to-violet-800 p-5 rounded-xl dark:text-white">
     <div class="flex items-start gap-2 mb-2">
       <svg aria-hidden="true" class="h-6 w-6 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
@@ -126,7 +126,7 @@ tags: ["docs-home"]
     </div>
     <div>Run Parcel builds programmatically to integrate into any build.</div>
   </a>
-  <a href="/features/plugins/" class="card bg-gradient-to-r from-fuchsia-200 to-purple-200 dark:from-fuchsia-800 dark:to-purple-800 md:from-violet-200 md:to-indigo-200 md:dark:from-violet-800 md:dark:to-indigo-800 p-5 rounded-xl dark:text-white">
+  <a href="/features/plugins.md" class="card bg-gradient-to-r from-fuchsia-200 to-purple-200 dark:from-fuchsia-800 dark:to-purple-800 md:from-violet-200 md:to-indigo-200 md:dark:from-violet-800 md:dark:to-indigo-800 p-5 rounded-xl dark:text-white">
     <div class="flex items-start gap-2 mb-2">
       <svg aria-hidden="true" class="h-6 w-6 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
@@ -140,42 +140,42 @@ tags: ["docs-home"]
 <h2>Languages and Frameworks</h2>
 <p>Learn how to use the most common languages and frameworks with Parcel. See the side navigation for even more.</p>
 <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-3 max-w-5xl">
-  <a href="/languages/html/" class="card bg-gradient-to-br from-purple-200 to-indigo-200 dark:from-purple-800 dark:to-indigo-800 p-5 rounded-xl dark:text-white">
+  <a href="/languages/html.md" class="card bg-gradient-to-br from-purple-200 to-indigo-200 dark:from-purple-800 dark:to-indigo-800 p-5 rounded-xl dark:text-white">
     <div class="flex items-start gap-2 mb-2">
-      <img src="~/src/assets/lang-icons/html5.svg" alt="" class="w-6" />
+      <img src="/assets/lang-icons/html5.svg" alt="" class="w-6" />
       <div class="font-bold text-lg">HTML</div>
     </div>
     <div>The entry of most Parcel apps. From here, you can reference scripts, styles, images, and more.</div>
   </a>
-  <a href="/languages/javascript/" class="card bg-gradient-to-br from-purple-200 to-indigo-200 dark:from-purple-800 dark:to-indigo-800 p-5 rounded-xl dark:text-white">
+  <a href="/languages/javascript.md" class="card bg-gradient-to-br from-purple-200 to-indigo-200 dark:from-purple-800 dark:to-indigo-800 p-5 rounded-xl dark:text-white">
     <div class="flex items-start gap-2 mb-2">
-      <img src="~/src/assets/lang-icons/javascript.svg" alt="" class="w-6" />
+      <img src="/assets/lang-icons/javascript.svg" alt="" class="w-6" />
       <div class="font-bold text-lg">JavaScript</div>
     </div>
     <div>Using ES modules and CommonJS, setting up transpilation, JSX, workers, and more.</div>
   </a>
-  <a href="/languages/css/" class="card bg-gradient-to-br from-purple-200 to-indigo-200 dark:from-purple-800 dark:to-indigo-800 p-5 rounded-xl dark:text-white">
+  <a href="/languages/css.md" class="card bg-gradient-to-br from-purple-200 to-indigo-200 dark:from-purple-800 dark:to-indigo-800 p-5 rounded-xl dark:text-white">
     <div class="flex items-start gap-2 mb-2">
-      <img src="~/src/assets/lang-icons/css.svg" alt="" class="w-6" />
+      <img src="/assets/lang-icons/css.svg" alt="" class="w-6" />
       <div class="font-bold text-lg">CSS</div>
     </div>
     <div>Using CSS with Parcel, including dependencies, CSS modules, PostCSS, and more.</div>
   </a>
-  <a href="/languages/svg/" class="card bg-gradient-to-br from-purple-200 to-indigo-200 dark:from-purple-800 dark:to-indigo-800 p-5 rounded-xl dark:text-white">
+  <a href="/languages/svg.md" class="card bg-gradient-to-br from-purple-200 to-indigo-200 dark:from-purple-800 dark:to-indigo-800 p-5 rounded-xl dark:text-white">
     <div class="flex items-start gap-2 mb-2">
-      <img src="~/src/assets/lang-icons/svg.svg" alt="" class="w-6" />
+      <img src="/assets/lang-icons/svg.svg" alt="" class="w-6" />
       <div class="font-bold text-lg">SVG</div>
     </div>
     <div>Referencing SVG from HTML, CSS, JavaScript, and JSX, including scripts and styles, and more.</div>
   </a>
-  <a href="/languages/typescript/" class="card bg-gradient-to-br from-purple-200 to-indigo-200 dark:from-purple-800 dark:to-indigo-800 p-5 rounded-xl dark:text-white">
+  <a href="/languages/typescript.md" class="card bg-gradient-to-br from-purple-200 to-indigo-200 dark:from-purple-800 dark:to-indigo-800 p-5 rounded-xl dark:text-white">
     <div class="flex items-start gap-2 mb-2">
-      <img src="~/src/assets/lang-icons/typescript.svg" alt="" class="w-6" />
+      <img src="/assets/lang-icons/typescript.svg" alt="" class="w-6" />
       <div class="font-bold text-lg">TypeScript</div>
     </div>
     <div>Using TypeScript with Parcel, including transpilation and generating typings.</div>
   </a>
-  <a href="/recipes/image/" class="card bg-gradient-to-br from-purple-200 to-indigo-200 dark:from-purple-800 dark:to-indigo-800 p-5 rounded-xl dark:text-white">
+  <a href="/recipes/image.md" class="card bg-gradient-to-br from-purple-200 to-indigo-200 dark:from-purple-800 dark:to-indigo-800 p-5 rounded-xl dark:text-white">
     <div class="flex items-start gap-2 mb-2">
       <svg aria-hidden="true" class="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
         <path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd" />
@@ -184,16 +184,16 @@ tags: ["docs-home"]
     </div>
     <div>Resizing, converting, and optimizing images.</div>
   </a>
-  <a href="/recipes/react/" class="card bg-gradient-to-br from-purple-200 to-indigo-200 dark:from-purple-800 dark:to-indigo-800 p-5 rounded-xl dark:text-white">
+  <a href="/recipes/react.md" class="card bg-gradient-to-br from-purple-200 to-indigo-200 dark:from-purple-800 dark:to-indigo-800 p-5 rounded-xl dark:text-white">
     <div class="flex items-start gap-2 mb-2">
-      <img src="~/src/assets/lang-icons/react.svg" alt="" class="w-6" />
+      <img src="/assets/lang-icons/react.svg" alt="" class="w-6" />
       <div class="font-bold text-lg">React</div>
     </div>
     <div>Using React with Parcel, including Fast Refresh, styling, images, code splitting, and more.</div>
   </a>
-  <a href="/languages/vue/" class="card bg-gradient-to-br from-purple-200 to-indigo-200 dark:from-purple-800 dark:to-indigo-800 p-5 rounded-xl dark:text-white">
+  <a href="/languages/vue.md" class="card bg-gradient-to-br from-purple-200 to-indigo-200 dark:from-purple-800 dark:to-indigo-800 p-5 rounded-xl dark:text-white">
     <div class="flex items-start gap-2 mb-2">
-      <img src="~/src/assets/lang-icons/vue.svg" alt="" class="w-6" />
+      <img src="/assets/lang-icons/vue.svg" alt="" class="w-6" />
       <div class="font-bold text-lg">Vue</div>
     </div>
     <div>Using Vue 3 SFCs with Parcel.</div>
@@ -205,7 +205,7 @@ tags: ["docs-home"]
 
 <h3>Concepts</h3>
 <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-3 max-w-5xl">
-  <a href="/plugin-system/overview/" class="card bg-gradient-to-br sm:bg-gradient-to-r from-indigo-200 to-purple-200 dark:from-indigo-800 dark:to-purple-800 p-5 rounded-xl dark:text-white">
+  <a href="/plugin-system/overview.md" class="card bg-gradient-to-br sm:bg-gradient-to-r from-indigo-200 to-purple-200 dark:from-indigo-800 dark:to-purple-800 p-5 rounded-xl dark:text-white">
     <svg aria-hidden="true" class="h-6 w-6 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z" />
     </svg>
@@ -219,7 +219,7 @@ tags: ["docs-home"]
     <div class="font-bold text-lg mt-4 mb-2">Authoring Plugins</div>
     <div>An introduction to Parcel's Plugin APIs, and a guide to publishing a plugin package.</div>
   </a>
-  <a href="/plugin-system/logging/" class="card bg-gradient-to-br sm:bg-gradient-to-r from-pink-200 to-rose-200 dark:from-pink-800 dark:to-rose-800 sm:from-indigo-200 sm:to-purple-200 sm:dark:from-indigo-800 sm:dark:to-purple-800 md:from-pink-200 md:to-rose-200 md:dark:from-pink-800 md:dark:to-rose-800 p-5 rounded-xl dark:text-white">
+  <a href="/plugin-system/logging.md" class="card bg-gradient-to-br sm:bg-gradient-to-r from-pink-200 to-rose-200 dark:from-pink-800 dark:to-rose-800 sm:from-indigo-200 sm:to-purple-200 sm:dark:from-indigo-800 sm:dark:to-purple-800 md:from-pink-200 md:to-rose-200 md:dark:from-pink-800 md:dark:to-rose-800 p-5 rounded-xl dark:text-white">
     <svg aria-hidden="true" class="h-6 w-6 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
     </svg>
@@ -237,7 +237,7 @@ tags: ["docs-home"]
 
 <h3>Plugin Types</h3>
 <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-3 max-w-5xl">
-  <a href="/plugin-system/transformer/" class="card bg-gradient-to-r from-purple-200 to-indigo-200 dark:from-purple-800 dark:to-indigo-800 p-5 rounded-xl dark:text-white">
+  <a href="/plugin-system/transformer.md" class="card bg-gradient-to-r from-purple-200 to-indigo-200 dark:from-purple-800 dark:to-indigo-800 p-5 rounded-xl dark:text-white">
     <div class="flex items-start gap-2 mb-2">
       <svg aria-hidden="true" class="h-6 w-6 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
@@ -246,7 +246,7 @@ tags: ["docs-home"]
     </div>
     <div>Compile individual source files and extract dependencies.</div>
   </a>
-  <a href="/plugin-system/resolver/" class="card bg-gradient-to-r from-indigo-200 to-blue-200 dark:from-indigo-800 dark:to-blue-800 p-5 rounded-xl dark:text-white">
+  <a href="/plugin-system/resolver.md" class="card bg-gradient-to-r from-indigo-200 to-blue-200 dark:from-indigo-800 dark:to-blue-800 p-5 rounded-xl dark:text-white">
     <div class="flex items-start gap-2 mb-2">
       <svg aria-hidden="true" class="h-6 w-6 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16l2.879-2.879m0 0a3 3 0 104.243-4.242 3 3 0 00-4.243 4.242zM21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -255,7 +255,7 @@ tags: ["docs-home"]
     </div>
     <div>Resolve a dependency to a file path or virtual module.</div>
   </a>
-  <a href="/plugin-system/namer/" class="card bg-gradient-to-r from-purple-200 to-indigo-200 dark:from-purple-800 dark:to-indigo-800 md:from-blue-200 md:to-sky-200 md:dark:from-blue-800 md:dark:to-sky-800 p-5 rounded-xl dark:text-white">
+  <a href="/plugin-system/namer.md" class="card bg-gradient-to-r from-purple-200 to-indigo-200 dark:from-purple-800 dark:to-indigo-800 md:from-blue-200 md:to-sky-200 md:dark:from-blue-800 md:dark:to-sky-800 p-5 rounded-xl dark:text-white">
     <div class="flex items-start gap-2 mb-2">
       <svg aria-hidden="true" class="h-6 w-6 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
@@ -264,7 +264,7 @@ tags: ["docs-home"]
     </div>
     <div>Determine the name of an output file.</div>
   </a>
-  <a href="/plugin-system/packager/" class="card bg-gradient-to-r from-indigo-200 to-blue-200 dark:from-indigo-800 dark:to-blue-800 md:from-sky-200 md:to-sky-200 md:dark:from-sky-800 md:dark:to-sky-800 p-5 rounded-xl dark:text-white">
+  <a href="/plugin-system/packager.md" class="card bg-gradient-to-r from-indigo-200 to-blue-200 dark:from-indigo-800 dark:to-blue-800 md:from-sky-200 md:to-sky-200 md:dark:from-sky-800 md:dark:to-sky-800 p-5 rounded-xl dark:text-white">
     <div class="flex items-start gap-2 mb-2">
       <svg aria-hidden="true" class="h-6 w-6 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
@@ -273,7 +273,7 @@ tags: ["docs-home"]
     </div>
     <div>Combine multiple assets together into a single output file.</div>
   </a>
-  <a href="/plugin-system/optimizer/" class="card bg-gradient-to-r from-purple-200 to-indigo-200 dark:from-purple-800 dark:to-indigo-800  p-5 rounded-xl dark:text-white">
+  <a href="/plugin-system/optimizer.md" class="card bg-gradient-to-r from-purple-200 to-indigo-200 dark:from-purple-800 dark:to-indigo-800  p-5 rounded-xl dark:text-white">
     <div class="flex items-start gap-2 mb-2">
       <svg aria-hidden="true" class="h-6 w-6 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
@@ -282,7 +282,7 @@ tags: ["docs-home"]
     </div>
     <div>Minify, optimize, and transform output files.</div>
   </a>
-  <a href="/plugin-system/compressor/" class="card bg-gradient-to-r from-indigo-200 to-blue-200 dark:from-indigo-800 dark:to-blue-800 p-5 rounded-xl dark:text-white">
+  <a href="/plugin-system/compressor.md" class="card bg-gradient-to-r from-indigo-200 to-blue-200 dark:from-indigo-800 dark:to-blue-800 p-5 rounded-xl dark:text-white">
     <div class="flex items-start gap-2 mb-2">
       <svg aria-hidden="true" class="h-6 w-6 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
@@ -291,7 +291,7 @@ tags: ["docs-home"]
     </div>
     <div>Compress and encode output files in multiple formats.</div>
   </a>
-  <a href="/plugin-system/reporter/" class="card bg-gradient-to-r from-purple-200 to-indigo-200 dark:from-purple-800 dark:to-indigo-800 md:from-blue-200 md:to-sky-200 md:dark:from-blue-800 md:dark:to-sky-800 p-5 rounded-xl dark:text-white">
+  <a href="/plugin-system/reporter.md" class="card bg-gradient-to-r from-purple-200 to-indigo-200 dark:from-purple-800 dark:to-indigo-800 md:from-blue-200 md:to-sky-200 md:dark:from-blue-800 md:dark:to-sky-800 p-5 rounded-xl dark:text-white">
     <div class="flex items-start gap-2 mb-2">
       <svg aria-hidden="true" class="h-6 w-6 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
@@ -300,7 +300,7 @@ tags: ["docs-home"]
     </div>
     <div>Receive events on build progress and completion.</div>
   </a>
-  <a href="/plugin-system/configuration/" class="card bg-gradient-to-r from-indigo-200 to-blue-200 dark:from-indigo-800 dark:to-blue-800 md:from-sky-200 md:to-sky-200 md:dark:from-sky-800 md:dark:to-sky-800 p-5 rounded-xl dark:text-white">
+  <a href="/plugin-system/configuration.md" class="card bg-gradient-to-r from-indigo-200 to-blue-200 dark:from-indigo-800 dark:to-blue-800 md:from-sky-200 md:to-sky-200 md:dark:from-sky-800 md:dark:to-sky-800 p-5 rounded-xl dark:text-white">
     <div class="flex items-start gap-2 mb-2">
       <svg aria-hidden="true" class="h-6 w-6 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />

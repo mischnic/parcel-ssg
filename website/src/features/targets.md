@@ -217,7 +217,7 @@ To make Parcel ignore one of these fields, specify `false` in the `targets` fiel
 }
 ```
 
-See [Building a library with Parcel](/getting-started/library/) for an intro to building libraries with Parcel.
+See [Building a library with Parcel](/getting-started/library.md) for an intro to building libraries with Parcel.
 
 ## Target options
 

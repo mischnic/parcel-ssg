@@ -3,13 +3,13 @@ layout: ~/template/layout.njk
 title: Pug
 eleventyNavigation:
   key: languages-pug
-  title: <img src="~/src/assets/lang-icons/pug.svg" alt=""/> Pug
+  title: <img src="/assets/lang-icons/pug.svg" alt=""/> Pug
   order: 15
 ---
 
 [Pug](https://pugjs.org) is a templating language that compiles to HTML. Parcel supports Pug automatically using the `@parcel/transformer-pug` plugin. When a `.pug` file is detected, it will be installed into your project automatically.
 
-Pug is compiled to HTML and processed as described in the [HTML docs](/languages/html/).
+Pug is compiled to HTML and processed as described in the [HTML docs](/languages/html.md).
 
 ## Example usage
 
@@ -32,7 +32,7 @@ Pug may be used as an entry to Parcel just like HTML:
 parcel index.pug
 ```
 
-Pug may also be referenced anywhere a URL is allowed, e.g. in an HTML file, or from a JS file. To inline the compiled HTML into a JavaScript file, use the `bundle-text:` scheme. See [Bundle inlining](/features/bundle-inlining/) for details.
+Pug may also be referenced anywhere a URL is allowed, e.g. in an HTML file, or from a JS file. To inline the compiled HTML into a JavaScript file, use the `bundle-text:` scheme. See [Bundle inlining](/features/bundle-inlining.md) for details.
 
 ```js
 import html from 'bundle-text:./index.pug';

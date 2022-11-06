@@ -3,7 +3,7 @@ layout: ~/template/layout.njk
 title: CoffeeScript
 eleventyNavigation:
   key: languages-coffee
-  title: <img src="~/src/assets/lang-icons/coffeescript.svg" class="dark-invert" alt=""/> CoffeeScript
+  title: <img src="/assets/lang-icons/coffeescript.svg" class="dark-invert" alt=""/> CoffeeScript
   order: 5
 ---
 
@@ -11,7 +11,7 @@ eleventyNavigation:
 
 Parcel supports CoffeeScript automatically using the `@parcel/transformer-coffeescript` plugin. When a `.coffee` file is detected, it will be installed into your project automatically.
 
-CoffeeScript is compiled to JavaScript and processed as described in the [JavaScript docs](/languages/javascript/).
+CoffeeScript is compiled to JavaScript and processed as described in the [JavaScript docs](/languages/javascript.md).
 
 ## Example usage
 
@@ -34,7 +34,7 @@ console.log 'Hello world!'
 
 ### URL dependencies
 
-In JavaScript files, [URL dependencies](/languages/javascript/#url-dependencies) can be created using the `URL` constructor combined with `import.meta.url`. This can be used to reference URLs such as images, [workers](/languages/javascript/#workers), [service workers](/languages/javascript/#service-workers), and more.
+In JavaScript files, [URL dependencies](/languages/javascript.md#url-dependencies) can be created using the `URL` constructor combined with `import.meta.url`. This can be used to reference URLs such as images, [workers](/languages/javascript.md#workers), [service workers](/languages/javascript.md#service-workers), and more.
 
 CoffeeScript does not currently support `import.meta`. Instead, you can use the CommonJS `__filename` variable with the `file:` prefix to convert it to a URL. For example, here's how you could create a worker in CoffeeScript:
 

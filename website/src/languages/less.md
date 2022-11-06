@@ -3,13 +3,13 @@ layout: ~/template/layout.njk
 title: Less
 eleventyNavigation:
   key: languages-less
-  title: <img src="~/src/assets/lang-icons/less.svg" class="dark-invert" alt=""/> Less
+  title: <img src="/assets/lang-icons/less.svg" class="dark-invert" alt=""/> Less
   order: 8
 ---
 
 Parcel supports [Less](https://lesscss.org/) files automatically using the `@parcel/transformer-less` plugin. When a `.less` file is detected, it will be installed into your project automatically.
 
-Compiled Less files are also processed the same way as [CSS](/languages/css/), which means it is compiled for your browser targets, and any [PostCSS](/languages/css/#postcss) plugins are also applied. [CSS modules](/languages/css/#css-modules) can also be used by naming your file with the `.module.less` extension.
+Compiled Less files are also processed the same way as [CSS](/languages/css.md), which means it is compiled for your browser targets, and any [PostCSS](/languages/css.md#postcss) plugins are also applied. [CSS modules](/languages/css.md#css-modules) can also be used by naming your file with the `.module.less` extension.
 
 ## Example usage
 

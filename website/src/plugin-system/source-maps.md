@@ -77,7 +77,7 @@ sourcemap.addSourceMap(map, lineOffset);
 
 ## Transformations/Manipulations
 
-If your plugin does any code manipulations, you should ensure that it creates correct mappings to the original source code to guarantee that we still end up creating an accurate source map at the end of the bundling process. You are expected to return a `SourceMap` instance at the end of a transform in a [Transformer](/plugin-system/transformer/) plugin.
+If your plugin does any code manipulations, you should ensure that it creates correct mappings to the original source code to guarantee that we still end up creating an accurate source map at the end of the bundling process. You are expected to return a `SourceMap` instance at the end of a transform in a [Transformer](/plugin-system/transformer.md) plugin.
 
 We also provide the source map from the previous transform to ensure you map to the original source code and not just the output of the previous transform. If a compiler doesn't have a way to pass in an input source map, you can use the `extends` method of a `SourceMap` to map the original mappings to the compiled ones.
 

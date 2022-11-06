@@ -45,7 +45,7 @@ Loading configuration from the user’s project should be done in the `loadConfi
 
 ## Changing the asset type
 
-Transformers may transform an asset from one format to another, for example from TypeScript to JavaScript. To do this, set the asset's `type` property to the new file type (e.g. `js`). The asset will then be processed by the pipeline matching the new type. See [Transformers](/features/plugins/#transformers) in the Parcel configuration docs for details.
+Transformers may transform an asset from one format to another, for example from TypeScript to JavaScript. To do this, set the asset's `type` property to the new file type (e.g. `js`). The asset will then be processed by the pipeline matching the new type. See [Transformers](/features/plugins.md#transformers) in the Parcel configuration docs for details.
 
 ```javascript/7
 import {Transformer} from '@parcel/plugin';
@@ -65,7 +65,7 @@ export default new Transformer({
 
 ## The environment
 
-Assets are associated with an [`Environment`](/plugin-system/api/#Environment), which describes the how the asset should be compiled. The same asset may be processed multiple times with different environments, for example, when building for modern and legacy targets. If possible, Transformer plugins should take the environment into account when compiling code to ensure that the result works in and is optimized for the target. See [Targets](/features/targets/) for details.
+Assets are associated with an [`Environment`](/plugin-system/api.md#Environment), which describes the how the asset should be compiled. The same asset may be processed multiple times with different environments, for example, when building for modern and legacy targets. If possible, Transformer plugins should take the environment into account when compiling code to ensure that the result works in and is optimized for the target. See [Targets](/features/targets.md) for details.
 
 ```javascript/6-8
 import {Transformer} from '@parcel/plugin';
@@ -84,13 +84,13 @@ export default new Transformer({
 });
 ```
 
-See the [`Environment`](/plugin-system/api/#Environment) API docs for details on the available properties.
+See the [`Environment`](/plugin-system/api.md#Environment) API docs for details on the available properties.
 
 ## Adding dependencies
 
 In addition to transforming the contents of an asset, Transformer plugins are also responsible for discovering dependencies in the code so that they may also be processed by Parcel. Some transformers don’t need to worry about this, because another transformer will run afterward and do it (e.g. the default JavaScript transformer). If you’re adding support for a new language that doesn’t compile to one of the existing languages supported by Parcel, or otherwise introduces dependencies outside the compiled code, you’ll need to add them to the asset.
 
-Dependencies can be added to an asset using the `addDependency` method, passing a [`DependencyOptions`](#DependencyOptions) object. There are two required parameters: `specifier`, which is a string describing the location of the dependency, and `specifierType`, which describes how the specifier should be interpreted. See [Dependency resolution](/features/dependency-resolution/) for details.
+Dependencies can be added to an asset using the `addDependency` method, passing a [`DependencyOptions`](#DependencyOptions) object. There are two required parameters: `specifier`, which is a string describing the location of the dependency, and `specifierType`, which describes how the specifier should be interpreted. See [Dependency resolution](/features/dependency-resolution.md) for details.
 
 ```javascript/8-11
 import {Transformer} from '@parcel/plugin';
@@ -114,9 +114,9 @@ export default new Transformer({
 
 ### Influencing bundling
 
-The way a dependency is specified can influence how it is bundled. By default, dependencies are bundled together into the same output file. The `priority` property of a dependency can specify that it should be loaded lazily or in parallel with the asset that depends on it. For example, dynamic `import()` in JavaScript loads dependencies with the `lazy` priority. See [Code splitting](/features/code-splitting/).
+The way a dependency is specified can influence how it is bundled. By default, dependencies are bundled together into the same output file. The `priority` property of a dependency can specify that it should be loaded lazily or in parallel with the asset that depends on it. For example, dynamic `import()` in JavaScript loads dependencies with the `lazy` priority. See [Code splitting](/features/code-splitting.md).
 
-The `bundleBehavior` property further controls how a dependency is bundled. For example, dependencies may be separated into a new bundle but inlined into the parent by setting `bundleBehavior` to `inline`. See [Bundle inlining](/features/bundle-inlining/).
+The `bundleBehavior` property further controls how a dependency is bundled. For example, dependencies may be separated into a new bundle but inlined into the parent by setting `bundleBehavior` to `inline`. See [Bundle inlining](/features/bundle-inlining.md).
 
 See [`DependencyOptions`](#DependencyOptions) for more details on each of the available options.
 
@@ -153,7 +153,7 @@ export default new Transformer({
 If multiple Transformer plugins run in series over an asset, it would be wasteful to parse, transform, and code generate for each one if they could reuse the same parsed AST. Parcel facilitates AST sharing by splitting the `transform` function into several parts:
 
 - `canReuseAST` – If an AST is available from a previous Transformer plugin, it will be passed to this method on the next Transformer if available. It should inspect the `type` and `version` of the AST to determine if it can reuse it. If it returns `true`, then the `parse` method is not called and the AST is reused. If it returns `false`, then the previous Transformer's `generate` function is called, and the next Transformer's `parse` function is called with the results.
-- `parse` – If an AST is not available, or `canReuseAST` returned false, then the Transformer's `parse` function is called. It should return an [`AST`](/plugin-system/api/#AST) object describing the type, version, and contents of the AST.
+- `parse` – If an AST is not available, or `canReuseAST` returned false, then the Transformer's `parse` function is called. It should return an [`AST`](/plugin-system/api.md#AST) object describing the type, version, and contents of the AST.
 - `generate` – If the next Transformer cannot reuse the AST, or this is the last Transformer in a pipeline, `generate` will be called with the AST object. A result object containing generated content and a source map should be returned.
 
 ```javascript
@@ -245,7 +245,7 @@ export default new Transformer({
 
 ## Query parameters
 
-An asset may be referenced by a dependency with [query parameters](/features/dependency-resolution/#query-parameters). These specify options for the transformer to use when compiling or transforming the asset. For example, the Parcel [image transformer](/recipes/image/) uses query parameters to allow users to specify the width, height, and format to convert images to. The same asset may be compiled multiple times with different query parameters.
+An asset may be referenced by a dependency with [query parameters](/features/dependency-resolution.md#query-parameters). These specify options for the transformer to use when compiling or transforming the asset. For example, the Parcel [image transformer](/recipes/image.md) uses query parameters to allow users to specify the width, height, and format to convert images to. The same asset may be compiled multiple times with different query parameters.
 
 ```javascript/8-9
 import {Transformer} from '@parcel/plugin';

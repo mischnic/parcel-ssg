@@ -3,7 +3,7 @@ layout: ~/template/layout.njk
 title: JSON
 eleventyNavigation:
   key: languages-json
-  title: <img src="~/src/assets/lang-icons/json.svg" class="dark-invert" alt=""/> JSON
+  title: <img src="/assets/lang-icons/json.svg" class="dark-invert" alt=""/> JSON
   order: 11
 ---
 
