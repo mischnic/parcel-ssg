@@ -1,5 +1,6 @@
 [ignore]
 .*/node_modules/resolve/test/.*
+<PROJECT_ROOT>/website/.*
 
 [include]
 

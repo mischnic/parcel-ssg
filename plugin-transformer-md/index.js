@@ -1,3 +1,4 @@
+// @flow strict-local
 "use strict";
 const { Transformer } = require("@parcel/plugin");
 const nunjucks = require("nunjucks");
@@ -150,7 +151,7 @@ async function loadParentConfigs({ config, options }) {
   return merged;
 }
 
-module.exports = new Transformer({
+module.exports = (new Transformer({
   async loadConfig({ config, options }) {
     let data = await loadParentConfigs({
       config,
@@ -189,6 +190,7 @@ module.exports = new Transformer({
               cfg.filePath,
               { saveDev: true }
             );
+            // $FlowFixMe[unsupported-syntax]
             mod = (await import(resolved.resolved)).default;
           } else {
             mod = name;
@@ -256,4 +258,4 @@ module.exports = new Transformer({
     asset.type = "html";
     return [asset];
   },
-});
+}) /*: Transformer */);

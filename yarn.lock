@@ -1984,6 +1984,11 @@ find-yarn-workspace-root@^2.0.0:
   dependencies:
     micromatch "^4.0.2"
 
+flow-bin@0.184.0:
+  version "0.184.0"
+  resolved "https://registry.yarnpkg.com/flow-bin/-/flow-bin-0.184.0.tgz#0256b3c302ce465b60d0f0296273840d38d3f9e6"
+  integrity sha512-HiHuxhO06dqhV7YabluSswm3ZgxVi2L+aArcuIJMON/CRzqkGQrRjIVNbKllMs95rFk6aeuFR3FdVCCUa0SbGw==
+
 focus-visible@^5.2.0:
   version "5.2.0"
   resolved "https://registry.yarnpkg.com/focus-visible/-/focus-visible-5.2.0.tgz#3a9e41fccf587bd25dcc2ef045508284f0a4d6b3"
@@ -4239,7 +4244,7 @@ prepend-http@^2.0.0:
   resolved "https://registry.yarnpkg.com/prepend-http/-/prepend-http-2.0.0.tgz#e92434bfa5ea8c19f41cdfd401d741a3c819d897"
   integrity sha1-6SQ0v6XqjBn0HN/UAddBo8gZ2Jc=
 
-prettier@2.7.1:
+prettier@2.7.1, prettier@^2.7.1:
   version "2.7.1"
   resolved "https://registry.yarnpkg.com/prettier/-/prettier-2.7.1.tgz#e235806850d057f97bb08368a4f7d899f7760c64"
   integrity sha512-ujppO+MkdPqoVINuDFDRLClm7D78qbDt0/NR+wp5FqEZOoTNAjPHWj17QRhu7geIHJfcNhRk1XVQmF8Bp3ye+g==

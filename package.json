@@ -15,8 +15,10 @@
     "@mischnic/parcel-resolver-root": "^0.4.2",
     "@parcel/config-default": "2.0.0-nightly.1200",
     "@parcel/transformer-sass": "2.0.0-nightly.1200",
+    "flow-bin": "0.184.0",
     "parcel": "2.0.0-nightly.1198",
-    "patch-package": "^6.5.0"
+    "patch-package": "^6.5.0",
+    "prettier": "^2.7.1"
   },
   "alias": {
     "preact/jsx-dev-runtime": "preact/jsx-runtime"

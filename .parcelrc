@@ -1,4 +1,10 @@
 {
   extends: "parcel-config-ssg",
   resolvers: ["@mischnic/parcel-resolver-root", "..."],
+  transformers: {
+    "*.{js,mjs,jsm,jsx,es6,cjs,ts,tsx}": [
+      "@parcel/transformer-js",
+      "@parcel/transformer-react-refresh-wrap",
+    ],
+  },
 }
