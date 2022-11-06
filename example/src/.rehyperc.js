@@ -89,7 +89,7 @@ module.exports = ({ localData }) => ({
         },
       },
     ],
-    "rehype-highlight",
+    "rehype-prism-highlight",
     "rehype-katex",
   ],
 });

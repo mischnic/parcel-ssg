@@ -127,6 +127,6 @@ module.exports = (data) => ({
         },
       },
     ],
-    "@mapbox/rehype-prism",
+    "rehype-prism-highlight",
   ],
 });

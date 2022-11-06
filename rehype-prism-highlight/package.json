@@ -1,0 +1,11 @@
+{
+    "name": "rehype-prism-highlight",
+    "version": "0.0.0",
+    "dependencies": {
+        "@mapbox/rehype-prism": "^0.8.0",
+        "@suin/refractor-group-by-lines": "^1.0.0",
+        "hastscript": "^6.0.0",
+        "refractor": "^3.3.1",
+        "unist-util-visit": "^4.1.1"
+    }
+}

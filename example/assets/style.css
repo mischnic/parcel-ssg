@@ -1,5 +1,5 @@
-@import url(npm:katex/dist/katex.min.css);
-@import url(npm:highlight.js/styles/github.css);
+/* @import url(npm:katex/dist/katex.min.css); */
+@import url(npm:prismjs/themes/prism.css);
 
 body {
   font-family: sans-serif;

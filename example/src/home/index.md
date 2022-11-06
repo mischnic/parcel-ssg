@@ -19,10 +19,12 @@ if you chose xxx, you should also use yyy somewhere…
 
 ### Highlighting
 
-```js
-function f() {
-  console.log(null);
-}
+```html/0,2-3
+<html lang="en">
+<body>
+  <h1>Hello, World!</h1>
+</body>
+</html>
 ```
 
 #### `<script>`

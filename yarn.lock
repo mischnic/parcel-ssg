@@ -851,6 +851,18 @@
   resolved "https://registry.yarnpkg.com/@sindresorhus/is/-/is-0.14.0.tgz#9fb3a3cf3132328151f353de4632e01e52102bea"
   integrity sha512-9NET910DNaIPngYnLLPeg+Ogzqsi9uM4mSboU5y6p8S5DzMTVEsJZrawi+BoDNUVBa2DhJqQYUFvMDfgU062LQ==
 
+"@suin/refractor-flatten@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@suin/refractor-flatten/-/refractor-flatten-1.0.0.tgz#17341ea563f58ffd34e55410e3e30c100d6a94cb"
+  integrity sha512-cliowxHoxwM6mM2uXHJvAH8qsqPb85vwrKmmbL9Tenq60lxaFDrJG0IZ3+tC1wxC6DkbtL83d3VDO/8/mD3dBQ==
+
+"@suin/refractor-group-by-lines@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@suin/refractor-group-by-lines/-/refractor-group-by-lines-1.0.0.tgz#687151e0b65118eaf1f0e31cb7af236cebba57cc"
+  integrity sha512-YZqpCR6C9JQDLODlNMtRKDrUk8uKr4n/Mck9+acG5F1lkVB72wxKYW3HreOFshbmt+EuhBiVN8tBy2fys9pyXg==
+  dependencies:
+    "@suin/refractor-flatten" "^1.0.0"
+
 "@swc/helpers@^0.4.12":
   version "0.4.12"
   resolved "https://registry.yarnpkg.com/@swc/helpers/-/helpers-0.4.12.tgz#203243e78cff3c87c081c97ae548ab33e2503573"
@@ -2396,11 +2408,6 @@ hastscript@^7.0.0:
     hast-util-parse-selector "^3.0.0"
     property-information "^6.0.0"
     space-separated-tokens "^2.0.0"
-
-highlight.js@^11.6.0:
-  version "11.6.0"
-  resolved "https://registry.yarnpkg.com/highlight.js/-/highlight.js-11.6.0.tgz#a50e9da05763f1bb0c1322c8f4f755242cff3f5a"
-  integrity sha512-ig1eqDzJaB0pqEvlPVIpSSyMaO92bH1N2rJpLMN/nX396wTpDA4Eq0uK+7I/2XG17pFaaKE0kjV/XPeGt7Evjw==
 
 highlight.js@~11.3.0:
   version "11.3.1"
@@ -4249,10 +4256,20 @@ prettier@2.7.1, prettier@^2.7.1:
   resolved "https://registry.yarnpkg.com/prettier/-/prettier-2.7.1.tgz#e235806850d057f97bb08368a4f7d899f7760c64"
   integrity sha512-ujppO+MkdPqoVINuDFDRLClm7D78qbDt0/NR+wp5FqEZOoTNAjPHWj17QRhu7geIHJfcNhRk1XVQmF8Bp3ye+g==
 
-prismjs@^1.19.0, prismjs@~1.25.0:
+prismjs@^1.19.0, prismjs@^1.29.0:
+  version "1.29.0"
+  resolved "https://registry.yarnpkg.com/prismjs/-/prismjs-1.29.0.tgz#f113555a8fa9b57c35e637bba27509dcf802dd12"
+  integrity sha512-Kx/1w86q/epKcmte75LNrEoT+lX8pBpavuAbvJWRXar7Hz8jrtF+e3vY751p0R8H9HdArwaCTNDDzHg/ScJK1Q==
+
+prismjs@~1.25.0:
   version "1.25.0"
   resolved "https://registry.yarnpkg.com/prismjs/-/prismjs-1.25.0.tgz#6f822df1bdad965734b310b315a23315cf999756"
   integrity sha512-WCjJHl1KEWbnkQom1+SzftbtXMKQoezOCYs5rECqMN+jP+apI7ftoflyqigqzopSO3hMhTEb0mFClA8lkolgEg==
+
+prismjs@~1.27.0:
+  version "1.27.0"
+  resolved "https://registry.yarnpkg.com/prismjs/-/prismjs-1.27.0.tgz#bb6ee3138a0b438a3653dd4d6ce0cc6510a45057"
+  integrity sha512-t13BGPUlFDR7wRB5kQDG4jjl7XeuH6jbJGt11JHPL96qwsEHNX2+68tFXqc1/k+/jALsbSWJKUOT/hcYAZ5LkA==
 
 process@^0.11.10:
   version "0.11.10"
@@ -4399,6 +4416,15 @@ readme-badger@^0.3.0:
   integrity sha512-+sMOLSs1imZUISZ2Rhz7qqVd77QtpcAPbGeIraFdgJmijb04YtdlPjGNBvDChTNtLbeQ6JNGQy3pOgslWfaP3g==
   dependencies:
     balanced-match "^1.0.0"
+
+refractor@^3.3.1:
+  version "3.6.0"
+  resolved "https://registry.yarnpkg.com/refractor/-/refractor-3.6.0.tgz#ac318f5a0715ead790fcfb0c71f4dd83d977935a"
+  integrity sha512-MY9W41IOWxxk31o+YvFCNyNzdkc9M20NoZK5vq6jkv4I/uh2zkWcfudj0Q1fovjUQJrNewS9NMzeTtqPf+n5EA==
+  dependencies:
+    hastscript "^6.0.0"
+    parse-entities "^2.0.0"
+    prismjs "~1.27.0"
 
 refractor@^3.4.0:
   version "3.5.0"
@@ -5384,6 +5410,14 @@ unist-util-visit-parents@^5.0.0:
     "@types/unist" "^2.0.0"
     unist-util-is "^5.0.0"
 
+unist-util-visit-parents@^5.1.1:
+  version "5.1.1"
+  resolved "https://registry.yarnpkg.com/unist-util-visit-parents/-/unist-util-visit-parents-5.1.1.tgz#868f353e6fce6bf8fa875b251b0f4fec3be709bb"
+  integrity sha512-gks4baapT/kNRaWxuGkl5BIhoanZo7sC/cUT/JToSRNL1dYoXRFl75d++NkjYk4TAu2uv2Px+l8guMajogeuiw==
+  dependencies:
+    "@types/unist" "^2.0.0"
+    unist-util-is "^5.0.0"
+
 unist-util-visit@^2.0.2, unist-util-visit@^2.0.3:
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/unist-util-visit/-/unist-util-visit-2.0.3.tgz#c3703893146df47203bb8a9795af47d7b971208c"
@@ -5410,6 +5444,15 @@ unist-util-visit@^4.0.0:
     "@types/unist" "^2.0.0"
     unist-util-is "^5.0.0"
     unist-util-visit-parents "^5.0.0"
+
+unist-util-visit@^4.1.1:
+  version "4.1.1"
+  resolved "https://registry.yarnpkg.com/unist-util-visit/-/unist-util-visit-4.1.1.tgz#1c4842d70bd3df6cc545276f5164f933390a9aad"
+  integrity sha512-n9KN3WV9k4h1DxYR1LoajgN93wpEi/7ZplVe02IoB4gH5ctI1AaF2670BLHQYbwj+pY83gFtyeySFiyMHJklrg==
+  dependencies:
+    "@types/unist" "^2.0.0"
+    unist-util-is "^5.0.0"
+    unist-util-visit-parents "^5.1.1"
 
 universalify@^0.1.0:
   version "0.1.2"

@@ -6,6 +6,7 @@
     "plugin-namer-ssg",
     "plugin-optimizer-ssg",
     "plugin-transformer-md",
+    "rehype-prism-highlight",
     "website"
   ],
   "scripts": {
