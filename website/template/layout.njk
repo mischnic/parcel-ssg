@@ -161,7 +161,7 @@
         </header>
 
         {{ content | safe }}
-        {% if tags and not tags.includes("Blog") and not tags.includes('plugin-browser') %}
+        {% if tags and not tags.includes("Blog") and not tags.includes('docs-home') and not tags.includes('plugin-browser') %}
         <footer>
           <a href="https://github.com/parcel-bundler/website/blob/v2/{{ page.inputPath }}">
             Edit this page on GitHub
@@ -169,7 +169,7 @@
         </footer>
         {% endif %}
       </article>
-      {% if not tags or not tags.includes("Blog") %}
+      {% if not (tags and (tags.includes("Blog") or tags.includes("docs-home"))) %}
       {% if toc %}
       <aside>
         <h3>On this page</h3>
