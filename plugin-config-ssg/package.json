@@ -1,0 +1,12 @@
+{
+    "name": "parcel-config-ssg",
+    "version": "0.0.0",
+    "engines": {
+        "parcel": "2.0.0-nightly.1198+cf3a75265"
+    },
+    "dependencies": {
+        "parcel-transformer-md": "*",
+        "parcel-optimizer-ssg": "*",
+        "parcel-namer-ssg": "*"
+    }
+}
