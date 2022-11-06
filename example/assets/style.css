@@ -5,6 +5,11 @@ body {
   font-family: sans-serif;
 }
 
+nav img {
+  width: 1em;
+  height: 1em;
+}
+
 .warning {
   border: 4px orange solid;
   padding: 1em;

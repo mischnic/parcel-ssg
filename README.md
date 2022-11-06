@@ -18,7 +18,9 @@ ecosystem problems:
 
 A optimizer doesn't have access to other packager's outputs.
 
-### Blocker: `title: <img src="icon.svg"> Foo`
+### `title: <img src="icon.svg"> Foo`
+
+**Workaround**: iconsets
 
 Adding that title in the optimizer when generating the hashmap doesn't work because the dependency is never collected.
 
@@ -42,19 +44,26 @@ Possible config files: `.remark[.js]`, `.rehype[.js]`, `.nunjucksrc.js`
 
 Eleventy-style data files are `_data.json` (all data files in parent directories are merged into `asset.meta.frontmatter`)
 
+Iconsets are specified in `.iconset.json`.
+
 ### Templates
 
 Available properties in the local template:
 
 - ...everything specified in parent `_data.json` files
 - ...everything specified in frontmatter
-- ...everything generated in plugins
+- ...everything generated in plugins as `data`
+- ...everything generated in plugins as `localData`
 - `page.inputPath`: relative(project root, this)
 - `content`: the markdown file processed with remark and rehype
+- `iconset`: An object mapping icon names from the config file to the dependency specifier for this asset.
 
 Available properties in the global template (in `{% raw %}<!-- ssg ... ssg-->{% endraw %}`):
 
+- ...everything specified in parent `_data.json` files
 - ...everything specified in frontmatter
+- ...everything generated in plugins as `data`
+- `page.inputPath`: relative(project root, this)
 - `page.url`: absolute bundle url
 - `collections.*`: list of generated pages `Array<{ url: string, data: mixed }>` (`data` is the frontmatter)
 

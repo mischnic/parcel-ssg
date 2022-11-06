@@ -13,6 +13,9 @@
         {% ssg %}
           {%- for page in collections.all -%}
           <li>
+            {% if page.data.icon %}
+              <img src="{{ iconset[page.data.icon] }}" alt="">
+            {% endif %}
             <a href="{{ page.url }}">{{ page.data.title }}</a>
           </li>
           {%- endfor -%}

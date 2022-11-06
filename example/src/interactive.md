@@ -2,6 +2,7 @@
 layout: /assets/layout.njk
 title: Interactive
 order: 4
+icon: html5
 ---
 
 This is some Markdown content

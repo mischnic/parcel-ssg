@@ -1,5 +1,10 @@
 // @flow strict-local
 "use strict";
+/*::
+import type { ConfigResultWithFilePath } from "@parcel/types";
+import type { Iconset } from "../types.js";
+*/
+
 const { Transformer } = require("@parcel/plugin");
 const nunjucks = require("nunjucks");
 const path = require("path");
@@ -160,6 +165,8 @@ module.exports = (new Transformer({
     // TODO actually relative to template
     let nunjucksConfig = await config.getConfig([".nunjucksrc.js"]);
 
+    let iconset = await config.getConfig([".iconset.json"]);
+
     let pluginData = {};
     let pluginLocalData = {};
     let remark = await config.getConfig([".remarkrc", ".remarkrc.js"]);
@@ -207,6 +214,7 @@ module.exports = (new Transformer({
       nunjucks: nunjucksConfig?.contents,
       remark: remarkResult,
       rehype: rehypeResult,
+      iconset: (iconset /*: ?ConfigResultWithFilePath<Iconset> */),
     };
   },
 
@@ -214,6 +222,17 @@ module.exports = (new Transformer({
     let code = await asset.getCode();
     if (!matter.test(code)) {
       return [asset];
+    }
+
+    let iconset = null;
+    if (config.iconset) {
+      iconset = ({} /*: Iconset */);
+      let configIconset = config.iconset;
+      for (let icon in configIconset.contents) {
+        iconset[icon] = asset.addURLDependency(configIconset.contents[icon], {
+          resolveFrom: configIconset.filePath,
+        });
+      }
     }
 
     // Passing options to disable internal cache
@@ -229,6 +248,7 @@ module.exports = (new Transformer({
       page: {
         inputPath: path.posix.relative(options.projectRoot, asset.filePath),
       },
+      iconset,
     };
 
     asset.meta.frontmatter = frontmatter ?? {};

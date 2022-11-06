@@ -10,5 +10,8 @@ export type Frontmatter = {|
   page: {| inputPath: string |},
   eleventyExcludeFromCollections?: boolean,
   eleventyNavigation?: {| order?: number |},
+  iconset: ?Iconset
 |};
+
+export type Iconset = {| [string]: string |};
 */

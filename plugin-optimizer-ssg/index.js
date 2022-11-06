@@ -6,7 +6,7 @@ import type { Frontmatter } from "../types.js";
 */
 
 const { Optimizer } = require("@parcel/plugin");
-const { blobToString } = require("@parcel/utils");
+const { blobToString, replaceURLReferences } = require("@parcel/utils");
 const nunjucks = require("nunjucks");
 const nullthrows = require("nullthrows");
 const path = require("path");
@@ -72,7 +72,7 @@ module.exports = (new Optimizer({
     return collections;
   },
 
-  async optimize({ bundle, config, bundleConfig, contents }) {
+  async optimize({ bundle, bundleGraph, config, bundleConfig, contents }) {
     let entry = bundle.getMainEntry();
     if (entry?.meta.frontmatter == null) {
       return {
@@ -93,8 +93,13 @@ module.exports = (new Optimizer({
       collections: bundleConfig,
     });
 
-    return {
+    // The layout can reinsert some dependency specifiers (e.g. iconset), so re-replace them.
+    return replaceURLReferences({
+      bundle,
+      bundleGraph,
       contents: output,
-    };
+      relative: false,
+      getReplacement: (contents) => contents.replace(/"/g, "&quot;"),
+    });
   },
 }) /*: Optimizer*/);
