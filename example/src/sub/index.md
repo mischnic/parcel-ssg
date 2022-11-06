@@ -1,5 +1,5 @@
 ---
-layout: ~/assets/layout.njk
+layout: /assets/layout.njk
 title: Sub
 ---
 

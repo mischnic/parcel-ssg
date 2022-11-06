@@ -1,5 +1,5 @@
 ---
-layout: ~/assets/layout.njk
+layout: /assets/layout.njk
 title: Home
 order: 1
 permalink: index.html
@@ -7,7 +7,7 @@ permalink: index.html
 
 home
 
-![test](~/assets/test.png)
+![test](/assets/test.png)
 
 ::::warning
 :::warning
