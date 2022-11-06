@@ -1,3 +1,4 @@
 {
-  "extends": "parcel-config-ssg"
+  extends: "parcel-config-ssg",
+  resolvers: ["@mischnic/parcel-resolver-root", "..."],
 }

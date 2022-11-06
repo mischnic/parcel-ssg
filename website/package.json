@@ -57,5 +57,8 @@
     "pseudoClasses": {
       "focusVisible": "focus-visible"
     }
+  },
+  "@mischnic/parcel-resolver-root": {
+    "/": "./src"
   }
 }
