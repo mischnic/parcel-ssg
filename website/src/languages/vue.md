@@ -1,9 +1,10 @@
 ---
 layout: ~/template/layout.njk
 title: Vue
+icon: vue
 eleventyNavigation:
   key: languages-vue
-  title: <img src="/assets/lang-icons/vue.svg" alt=""/> Vue
+  title: Vue
   order: 9
 ---
 

@@ -1,6 +1,7 @@
 ## TODO
 
 - parse and replace `{% ssg %}` properly, not with a regex
+- lazy mode doesn't work
 
 ecosystem problems:
 

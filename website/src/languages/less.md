@@ -1,9 +1,11 @@
 ---
 layout: ~/template/layout.njk
 title: Less
+icon: less
+iconClass: dark-invert
 eleventyNavigation:
   key: languages-less
-  title: <img src="/assets/lang-icons/less.svg" class="dark-invert" alt=""/> Less
+  title: Less
   order: 8
 ---
 

@@ -1,9 +1,11 @@
 ---
 layout: ~/template/layout.njk
 title: CoffeeScript
+icon: coffeescript
+iconClass: dark-invert
 eleventyNavigation:
   key: languages-coffee
-  title: <img src="/assets/lang-icons/coffeescript.svg" class="dark-invert" alt=""/> CoffeeScript
+  title: CoffeeScript
   order: 5
 ---
 

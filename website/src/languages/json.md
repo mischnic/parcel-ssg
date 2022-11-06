@@ -1,9 +1,11 @@
 ---
 layout: ~/template/layout.njk
 title: JSON
+icon: json
+iconClass: dark-invert
 eleventyNavigation:
   key: languages-json
-  title: <img src="/assets/lang-icons/json.svg" class="dark-invert" alt=""/> JSON
+  title: JSON
   order: 11
 ---
 

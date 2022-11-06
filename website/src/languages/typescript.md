@@ -1,9 +1,10 @@
 ---
 layout: ~/template/layout.njk
 title: TypeScript
+icon: typescript
 eleventyNavigation:
   key: languages-typescript
-  title: <img src="/assets/lang-icons/typescript.svg" alt=""/> TypeScript
+  title: TypeScript
   order: 4
 ---
 

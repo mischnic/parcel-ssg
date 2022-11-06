@@ -1,9 +1,11 @@
 ---
 layout: ~/template/layout.njk
 title: Web Extension
+icon: webext
+iconClass: dark-invert
 eleventyNavigation:
   key: recipes-webext
-  title: <img class="dark-invert" src="/assets/lang-icons/webext.svg" alt=""/> Web Extension
+  title: Web Extension
   order: 7
 ---
 

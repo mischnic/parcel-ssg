@@ -38,6 +38,7 @@ module.exports = (env) => {
     return coll.map((c) => ({
       url: c.url,
       title: c.data.eleventyNavigation?.title ?? c.data.title,
+      data: c.data,
     }));
   });
 

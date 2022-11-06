@@ -1,9 +1,11 @@
 ---
 layout: ~/template/layout.njk
 title: YAML
+icon: yaml
+iconClass: dark-invert
 eleventyNavigation:
   key: languages-yaml
-  title: <img src="/assets/lang-icons/yaml.svg" class="dark-invert" alt=""/> YAML
+  title: YAML
   order: 13
 ---
 

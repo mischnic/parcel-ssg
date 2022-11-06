@@ -1,9 +1,10 @@
 ---
 layout: ~/template/layout.njk
 title: GLSL
+icon: openGL
 eleventyNavigation:
   key: languages-glsl
-  title: <img src="/assets/lang-icons/openGL.svg" alt=""/> GLSL
+  title: GLSL
   order: 14
 ---
 

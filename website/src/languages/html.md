@@ -1,9 +1,10 @@
 ---
 layout: ~/template/layout.njk
 title: HTML
+icon: html5
 eleventyNavigation:
   key: languages-html
-  title: <img src="/assets/lang-icons/html5.svg" alt=""/> HTML
+  title: HTML
   order: 1
 ---
 

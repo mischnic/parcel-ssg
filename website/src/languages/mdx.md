@@ -1,9 +1,10 @@
 ---
 layout: ~/template/layout.njk
 title: MDX
+icon: mdx
 eleventyNavigation:
   key: languages-mdx
-  title: <img src="/assets/lang-icons/mdx.svg" alt=""/> MDX
+  title: MDX
   order: 16
 ---
 

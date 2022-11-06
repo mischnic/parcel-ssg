@@ -1,9 +1,10 @@
 ---
 layout: ~/template/layout.njk
 title: Pug
+icon: pug
 eleventyNavigation:
   key: languages-pug
-  title: <img src="/assets/lang-icons/pug.svg" alt=""/> Pug
+  title: Pug
   order: 15
 ---
 

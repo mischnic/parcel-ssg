@@ -1,9 +1,10 @@
 ---
 layout: ~/template/layout.njk
 title: React
+icon: react
 eleventyNavigation:
   key: recipes-react
-  title: <img src="/assets/lang-icons/react.svg" alt=""/> React
+  title: React
   order: 3
 ---
 

@@ -1,9 +1,10 @@
 ---
 layout: ~/template/layout.njk
 title: Image
+icon: image
 eleventyNavigation:
   key: recipes-image
-  title: <img src="/assets/lang-icons/image.svg" alt=""/> Image
+  title: Image
   order: 2
 ---
 

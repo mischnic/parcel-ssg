@@ -1,9 +1,10 @@
 ---
 layout: ~/template/layout.njk
 title: CSS
+icon: postcss
 eleventyNavigation:
   key: languages-css
-  title: <img src="/assets/lang-icons/postcss.svg" alt=""/> CSS
+  title: CSS
   order: 2
 ---
 

@@ -1,9 +1,11 @@
 ---
 layout: ~/template/layout.njk
 title: Stylus
+icon: stylus
+iconClass: dark-invert
 eleventyNavigation:
   key: languages-stylus
-  title: <img src="/assets/lang-icons/stylus.svg" class="dark-invert" alt=""/> Stylus
+  title: Stylus
   order: 7
 ---
 

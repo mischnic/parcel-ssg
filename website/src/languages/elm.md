@@ -1,9 +1,10 @@
 ---
 layout: ~/template/layout.njk
 title: Elm
+icon: elm
 eleventyNavigation:
   key: languages-elm
-  title: <img src="/assets/lang-icons/elm.svg" alt=""/> Elm
+  title: Elm
   order: 10
 ---
 

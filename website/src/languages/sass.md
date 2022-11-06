@@ -1,9 +1,10 @@
 ---
 layout: ~/template/layout.njk
 title: Sass
+icon: sass
 eleventyNavigation:
   key: languages-sass
-  title: <img src="/assets/lang-icons/sass.svg" alt=""/> Sass
+  title: Sass
   order: 6
 ---
 

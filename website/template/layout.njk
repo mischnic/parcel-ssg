@@ -107,7 +107,11 @@
             {% set navPages = collections[tag] | eleventyNavigation %}
             {%- for entry in navPages %}
               <li{% if entry.url == page.url %} class="current"{% endif %}>
-                <a href="{{ entry.url | url }}"{% if entry.url == page.url %} aria-current="page"{% endif %}>{{ entry.title | safe }}</a>
+                <a href="{{ entry.url | url }}"{% if entry.url == page.url %} aria-current="page"{% endif %}>
+                  {% if entry.data.icon %}
+                    <img src="{{ iconset[entry.data.icon] }}" {% if entry.data.iconClass %} class="{{entry.data.iconClass}}" {% endif %} alt="">
+                  {% endif %}
+                  {{ entry.title | safe }}</a>
               </li>
             {%- endfor %}
           </ul>

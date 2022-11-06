@@ -1,9 +1,10 @@
 ---
 layout: ~/template/layout.njk
 title: SVG
+icon: svg
 eleventyNavigation:
   key: languages-svg
-  title: <img src="/assets/lang-icons/svg.svg" alt=""/> SVG
+  title: SVG
   order: 3
 ---
 

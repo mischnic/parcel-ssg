@@ -1,9 +1,10 @@
 ---
 layout: ~/template/layout.njk
 title: SugarSS
+icon: sugarss
 eleventyNavigation:
   key: languages-sugarss
-  title: <img src="/assets/lang-icons/sugarss.svg" alt=""/> SugarSS
+  title: SugarSS
   order: 9
 ---
 

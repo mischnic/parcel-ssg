@@ -1,9 +1,10 @@
 ---
 layout: ~/template/layout.njk
 title: JavaScript
+icon: javascript
 eleventyNavigation:
   key: languages-js
-  title: <img src="/assets/lang-icons/javascript.svg" alt=""/> JavaScript
+  title: JavaScript
   order: 0
 ---
 

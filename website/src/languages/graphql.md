@@ -1,9 +1,10 @@
 ---
 layout: ~/template/layout.njk
 title: GraphQL
+icon: graphql
 eleventyNavigation:
   key: languages-graphql
-  title: <img src="/assets/lang-icons/graphql.svg" alt=""/> GraphQL
+  title: GraphQL
   order: 13
 ---
 
