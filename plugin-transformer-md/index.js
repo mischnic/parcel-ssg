@@ -248,10 +248,11 @@ module.exports = (new Transformer({
       page: {
         inputPath: path.posix.relative(options.projectRoot, asset.filePath),
       },
-      iconset,
     };
 
     asset.meta.frontmatter = frontmatter ?? {};
+    // $FlowFixMe[incompatible-type]
+    asset.meta.iconset = iconset ?? {};
 
     frontmatter = {
       ...config.pluginLocalData,

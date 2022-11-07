@@ -88,6 +88,7 @@ module.exports = (new Optimizer({
     let output = env.renderString(input, {
       // $FlowFixMe
       ...entry.meta.frontmatter,
+      iconset: entry.meta.iconset,
       // $FlowFixMe
       page: { ...entry.meta.frontmatter.page, url: "/" + bundle.name },
       collections: bundleConfig,
