@@ -2,10 +2,10 @@
     "name": "parcel-optimizer-ssg",
     "version": "0.0.0",
     "engines": {
-        "parcel": "2.0.0-nightly.1198+cf3a75265"
+        "parcel": "2.0.0-nightly.1202"
     },
     "dependencies": {
-        "@parcel/plugin": "2.0.0-nightly.1200",
+        "@parcel/plugin": "2.0.0-nightly.1204",
         "nunjucks": "^3.2.3"
     }
 }

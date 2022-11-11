@@ -131,6 +131,6 @@ index b8bfd8f..9af50a5 100644
  	"engines": {
  		"node": ">=12",
 -		"parcel": "^2.0.0"
-+		"parcel": "2.0.0-nightly.1198+cf3a75265"
++		"parcel": "2.0.0-nightly.1202"
  	}
  }
