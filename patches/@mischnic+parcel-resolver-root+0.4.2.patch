@@ -122,3 +122,15 @@ index e2e0d9e..22f3486 100644
        ])
      ),
      invalidateOnFileChange,
+diff --git a/node_modules/@mischnic/parcel-resolver-root/package.json b/node_modules/@mischnic/parcel-resolver-root/package.json
+index b8bfd8f..9af50a5 100644
+--- a/node_modules/@mischnic/parcel-resolver-root/package.json
++++ b/node_modules/@mischnic/parcel-resolver-root/package.json
+@@ -19,6 +19,6 @@
+ 	},
+ 	"engines": {
+ 		"node": ">=12",
+-		"parcel": "^2.0.0"
++		"parcel": "2.0.0-nightly.1198+cf3a75265"
+ 	}
+ }
