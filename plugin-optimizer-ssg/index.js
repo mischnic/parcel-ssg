@@ -10,6 +10,7 @@ const { blobToString, replaceURLReferences } = require("@parcel/utils");
 const nunjucks = require("nunjucks");
 const nullthrows = require("nullthrows");
 const path = require("path");
+const { hashString } = require("@parcel/hash");
 
 module.exports = (new Optimizer({
   async loadConfig({ config }) {
@@ -61,15 +62,21 @@ module.exports = (new Optimizer({
     for (let list /*: Array<{|data: Frontmatter, url: string|}> */ of Object.values(
       collections
     )) {
-      list.sort((a, b) =>
-        a.data?.eleventyNavigation?.order === b.data?.eleventyNavigation?.order
+      list.sort((a, b) => {
+        let aOrder = a.data?.eleventyNavigation?.order;
+        let bOrder = b.data?.eleventyNavigation?.order;
+        return aOrder == null || bOrder == null || aOrder == bOrder
           ? a.url.localeCompare(b.url)
-          : (a.data?.eleventyNavigation?.order ?? 0) -
-            (b.data?.eleventyNavigation?.order ?? 0)
-      );
+          : aOrder - bOrder;
+      });
     }
 
-    return collections;
+    let result = Object.fromEntries(
+      Object.entries(collections).sort(([a], [b]) => a.localeCompare(b))
+    );
+    // Workaround for V8 serialize being non-deterministic
+    config.setCacheKey(hashString(JSON.stringify(result)));
+    return result;
   },
 
   async optimize({ bundle, bundleGraph, config, bundleConfig, contents }) {
