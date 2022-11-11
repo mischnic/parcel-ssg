@@ -83,23 +83,32 @@ module.exports = (new Optimizer({
     let entry = bundle.getMainEntry();
     if (entry?.meta.frontmatter == null) {
       return {
-        contents: contents,
+        contents,
       };
     }
 
+    // $FlowFixMe
+    let frontmatter /*: Frontmatter*/ = entry.meta.frontmatter;
+
     let input = (await blobToString(contents))
       .replace(/<!--ssg/g, "")
-      .replace(/ssg-->/g, "");
-    let env = nunjucks.configure({ autoescape: true });
+      .replace(/ssg-->/g, "")
+      // TODO minified CSS can contain this
+      .replace(/{#/g, "{ #");
+    let env = new nunjucks.Environment([], { autoescape: true });
     config?.(env);
-    let output = env.renderString(input, {
-      // $FlowFixMe
-      ...entry.meta.frontmatter,
-      iconset: entry.meta.iconset,
-      // $FlowFixMe
-      page: { ...entry.meta.frontmatter.page, url: "/" + bundle.name },
-      collections: bundleConfig,
-    });
+    let output = env.renderString(
+      input,
+      {
+        // $FlowFixMe
+        ...frontmatter,
+        iconset: entry.meta.iconset,
+        // $FlowFixMe
+        page: { ...frontmatter.page, url: "/" + bundle.name },
+        collections: bundleConfig,
+      },
+      { path: frontmatter.page.inputPath }
+    );
 
     // The layout can reinsert some dependency specifiers (e.g. iconset), so re-replace them.
     return replaceURLReferences({

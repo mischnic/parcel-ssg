@@ -121,7 +121,8 @@ async function renderTemplate({
   frontmatter,
 }) {
   let env = new nunjucks.Environment(
-    new nunjucks.FileSystemLoader(path.dirname(layoutPath)),
+    // TODO invalidation
+    [new nunjucks.FileSystemLoader(path.dirname(layoutPath))],
     {
       autoescape: true,
     }
